@@ -1,0 +1,46 @@
+Fri, 16 Mar 2018 17:36:04 common.py[line:68] INFO 开始 install_share!
+Fri, 16 Mar 2018 17:36:10 common.py[line:76] INFO install_share 成功!
+Fri, 16 Mar 2018 17:36:12 common.py[line:68] INFO 开始 gds_platform!
+Fri, 16 Mar 2018 17:36:30 common.py[line:76] INFO gds_platform 成功!
+Fri, 16 Mar 2018 17:36:32 package.py[line:322] INFO copy configuration file successfully!
+Fri, 16 Mar 2018 17:36:32 common.py[line:68] INFO 开始 gds_loan!
+Fri, 16 Mar 2018 17:37:45 common.py[line:76] INFO gds_loan 成功!
+Fri, 16 Mar 2018 17:37:47 package.py[line:725] INFO docker exec t5loan ./loan/bin/startup.sh
+Fri, 16 Mar 2018 17:37:47 package.py[line:726] INFO docker exec t5loan ./loan/bin/shutdown.sh
+Fri, 16 Mar 2018 17:37:47 package.py[line:727] INFO docker exec t5loan cp /loan/webapps/ROOT.war /root/loan180316173747.war
+Fri, 16 Mar 2018 17:37:47 package.py[line:728] INFO docker exec t5loan ps -ef | grep java
+Fri, 16 Mar 2018 17:37:47 package.py[line:729] INFO docker exec t5loan kill -9 
+Fri, 16 Mar 2018 17:37:47 transport.py[line:1386] INFO Connected (version 2.0, client OpenSSH_5.3)
+Fri, 16 Mar 2018 17:37:52 transport.py[line:1386] INFO Authentication (password) successful!
+Fri, 16 Mar 2018 17:37:52 transport.py[line:1386] INFO Secsh channel 1 opened.
+Fri, 16 Mar 2018 17:37:52 package.py[line:732] INFO [['root      45996      1  9 17:01 ?        00:03:42 /usr/java/jdk1.7.0_67-cloudera/jre/bin/java -Djava.util.logging.config.file=/loan/conf/logging.properties -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager -server -Xms512M -Xmx1024M -Xss512k -XX:+AggressiveOpts -XX:+UseBiasedLocking -XX:PermSize=128M -XX:MaxPermSize=256M -XX:+DisableExplicitGC -XX:MaxTenuringThreshold=31 -XX:+UseConcMarkSweepGC -XX:+UseParNewGC -XX:+CMSParallelRemarkEnabled -XX:+UseCMSCompactAtFullCollection -XX:LargePageSizeInBytes=128m -XX:+UseFastAccessorMethods -XX:+UseCMSInitiatingOccupancyOnly -Djava.awt.headless=true -server -Xdebug -Xnoagent -Djava.compiler=NONE -Xrunjdwp:transport=dt_socket,server=y,suspend=n,address=8899 -Djava.endorsed.dirs=/loan/endorsed -classpath /loan/bin/bootstrap.jar:/loan/bin/tomcat-juli.jar -Dcatalina.base=/loan -Dcatalina.home=/loan -Djava.io.tmpdir=/loan/temp org.apache.catalina.startup.Bootstrap start\n']]
+Fri, 16 Mar 2018 17:37:52 package.py[line:737] INFO 45996
+Fri, 16 Mar 2018 17:37:52 transport.py[line:1386] INFO Connected (version 2.0, client OpenSSH_5.3)
+Fri, 16 Mar 2018 17:37:52 transport.py[line:1386] INFO Authentication (password) successful!
+Fri, 16 Mar 2018 17:37:52 transport.py[line:1386] INFO Secsh channel 1 opened.
+Fri, 16 Mar 2018 17:37:53 package.py[line:739] INFO [[]]
+Fri, 16 Mar 2018 17:37:54 transport.py[line:1386] INFO Connected (version 2.0, client OpenSSH_5.3)
+Fri, 16 Mar 2018 17:37:54 transport.py[line:1386] INFO Authentication (password) successful!
+Fri, 16 Mar 2018 17:37:54 transport.py[line:1386] INFO Secsh channel 1 opened.
+Fri, 16 Mar 2018 17:37:54 transport.py[line:1386] INFO Connected (version 2.0, client OpenSSH_5.3)
+Fri, 16 Mar 2018 17:37:54 transport.py[line:1386] INFO Authentication (password) successful!
+Fri, 16 Mar 2018 17:37:54 transport.py[line:1386] INFO Secsh channel 1 opened.
+Fri, 16 Mar 2018 17:37:54 package.py[line:752] INFO remove cmd 是 docker exec t5loan rm -rf /loan/webapps/ROOT/
+Fri, 16 Mar 2018 17:37:54 transport.py[line:1386] INFO Connected (version 2.0, client OpenSSH_5.3)
+Fri, 16 Mar 2018 17:37:55 transport.py[line:1386] INFO Authentication (password) successful!
+Fri, 16 Mar 2018 17:37:55 transport.py[line:1386] INFO Secsh channel 1 opened.
+Fri, 16 Mar 2018 17:37:55 package.py[line:754] INFO [[]]
+Fri, 16 Mar 2018 17:37:55 package.py[line:755] INFO delete t5loan successfully
+Fri, 16 Mar 2018 17:37:56 common.py[line:133] INFO haha
+Fri, 16 Mar 2018 17:37:56 common.py[line:135] INFO pscp.exe -pw xmfintech E:\version\gds-loan\app\target\gds-loan-web.war root@192.168.30.20:/home/docker/testfive/loan/tomcat/webapps/ROOT.war
+Fri, 16 Mar 2018 17:38:07 common.py[line:138] INFO copy war file to linux successfully!
+Fri, 16 Mar 2018 17:38:07 package.py[line:725] INFO docker exec t5loan ./loan/bin/startup.sh
+Fri, 16 Mar 2018 17:38:07 package.py[line:726] INFO docker exec t5loan ./loan/bin/shutdown.sh
+Fri, 16 Mar 2018 17:38:07 package.py[line:727] INFO docker exec t5loan cp /loan/webapps/ROOT.war /root/loan180316173807.war
+Fri, 16 Mar 2018 17:38:07 package.py[line:728] INFO docker exec t5loan ps -ef | grep java
+Fri, 16 Mar 2018 17:38:07 package.py[line:729] INFO docker exec t5loan kill -9 
+Fri, 16 Mar 2018 17:38:07 package.py[line:759] INFO docker exec t5loan ./loan/bin/startup.sh
+Fri, 16 Mar 2018 17:38:07 transport.py[line:1386] INFO Connected (version 2.0, client OpenSSH_5.3)
+Fri, 16 Mar 2018 17:38:07 transport.py[line:1386] INFO Authentication (password) successful!
+Fri, 16 Mar 2018 17:38:07 transport.py[line:1386] INFO Secsh channel 1 opened.
+Fri, 16 Mar 2018 17:38:08 package.py[line:762] INFO [['Tomcat started.\n']]

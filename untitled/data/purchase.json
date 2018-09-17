@@ -1,0 +1,14 @@
+{
+	"copartnerId": 1165,
+	"warehouseId": 165,
+	"orderState": 1,
+	"goods": [{
+		"gid": 183167,
+		"name": "【散】杜7月17测试单1",
+		"type": "normal",
+		"nums": 3,
+		"suggestNum": 0,
+		"dailySold": 0
+	}],
+	"contractId": 364
+}

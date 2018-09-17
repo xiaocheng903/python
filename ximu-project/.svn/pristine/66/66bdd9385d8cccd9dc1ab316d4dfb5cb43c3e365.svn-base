@@ -1,0 +1,82 @@
+Fri, 05 Jan 2018 12:51:43 common.py[line:68] INFO 开始 gds_platform!
+Fri, 05 Jan 2018 12:52:05 common.py[line:76] INFO gds_platform 成功!
+Fri, 05 Jan 2018 12:52:07 package.py[line:322] INFO copy configuration file successfully!
+Fri, 05 Jan 2018 12:52:07 common.py[line:68] INFO 开始 gds_loan!
+Fri, 05 Jan 2018 12:53:37 common.py[line:76] INFO gds_loan 成功!
+Fri, 05 Jan 2018 12:53:39 package.py[line:700] INFO docker exec t2loan ./loan/bin/startup.sh
+Fri, 05 Jan 2018 12:53:39 package.py[line:701] INFO docker exec t2loan ./loan/bin/shutdown.sh
+Fri, 05 Jan 2018 12:53:39 package.py[line:702] INFO docker exec t2loan cp /loan/webapps/ROOT.war /root/loan180105125339.war
+Fri, 05 Jan 2018 12:53:39 package.py[line:703] INFO docker exec t2loan ps -ef | grep java
+Fri, 05 Jan 2018 12:53:39 package.py[line:704] INFO docker exec t2loan kill -9 
+Fri, 05 Jan 2018 12:53:39 transport.py[line:1386] INFO Connected (version 2.0, client OpenSSH_5.3)
+Fri, 05 Jan 2018 12:53:39 transport.py[line:1386] INFO Authentication (password) successful!
+Fri, 05 Jan 2018 12:53:39 transport.py[line:1386] INFO Secsh channel 1 opened.
+Fri, 05 Jan 2018 12:53:40 package.py[line:707] INFO [['root      8865     1 20 12:34 ?        00:05:16 /usr/bin/java -Djava.util.logging.config.file=/loan/conf/logging.properties -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager -server -XX:PermSize=512M -XX:MaxPermSize=1024m -server -Xdebug -Xnoagent -Djava.compiler=NONE -Xrunjdwp:transport=dt_socket,server=y,suspend=n,address=8899 -Djava.endorsed.dirs=/loan/endorsed -classpath /loan/bin/bootstrap.jar:/loan/bin/tomcat-juli.jar -Dcatalina.base=/loan -Dcatalina.home=/loan -Djava.io.tmpdir=/loan/temp org.apache.catalina.startup.Bootstrap start\n']]
+Fri, 05 Jan 2018 12:53:40 package.py[line:712] INFO 8865
+Fri, 05 Jan 2018 12:53:40 transport.py[line:1386] INFO Connected (version 2.0, client OpenSSH_5.3)
+Fri, 05 Jan 2018 12:53:40 transport.py[line:1386] INFO Authentication (password) successful!
+Fri, 05 Jan 2018 12:53:40 transport.py[line:1386] INFO Secsh channel 1 opened.
+Fri, 05 Jan 2018 12:53:40 package.py[line:714] INFO [[]]
+Fri, 05 Jan 2018 12:53:41 transport.py[line:1386] INFO Connected (version 2.0, client OpenSSH_5.3)
+Fri, 05 Jan 2018 12:53:41 transport.py[line:1386] INFO Authentication (password) successful!
+Fri, 05 Jan 2018 12:53:41 transport.py[line:1386] INFO Secsh channel 1 opened.
+Fri, 05 Jan 2018 12:53:41 transport.py[line:1386] INFO Connected (version 2.0, client OpenSSH_5.3)
+Fri, 05 Jan 2018 12:53:42 transport.py[line:1386] INFO Authentication (password) successful!
+Fri, 05 Jan 2018 12:53:42 transport.py[line:1386] INFO Secsh channel 1 opened.
+Fri, 05 Jan 2018 12:53:42 package.py[line:727] INFO remove cmd 是 docker exec t2loan rm -rf /loan/webapps/ROOT/
+Fri, 05 Jan 2018 12:53:42 transport.py[line:1386] INFO Connected (version 2.0, client OpenSSH_5.3)
+Fri, 05 Jan 2018 12:53:42 transport.py[line:1386] INFO Authentication (password) successful!
+Fri, 05 Jan 2018 12:53:42 transport.py[line:1386] INFO Secsh channel 1 opened.
+Fri, 05 Jan 2018 12:53:43 package.py[line:729] INFO [[]]
+Fri, 05 Jan 2018 12:53:43 package.py[line:730] INFO delete t2loan successfully
+Fri, 05 Jan 2018 12:53:58 common.py[line:133] INFO copy war file to linux successfully!
+Fri, 05 Jan 2018 12:53:58 package.py[line:700] INFO docker exec t2loan ./loan/bin/startup.sh
+Fri, 05 Jan 2018 12:53:58 package.py[line:701] INFO docker exec t2loan ./loan/bin/shutdown.sh
+Fri, 05 Jan 2018 12:53:58 package.py[line:702] INFO docker exec t2loan cp /loan/webapps/ROOT.war /root/loan180105125358.war
+Fri, 05 Jan 2018 12:53:58 package.py[line:703] INFO docker exec t2loan ps -ef | grep java
+Fri, 05 Jan 2018 12:53:58 package.py[line:704] INFO docker exec t2loan kill -9 
+Fri, 05 Jan 2018 12:53:58 package.py[line:734] INFO docker exec t2loan ./loan/bin/startup.sh
+Fri, 05 Jan 2018 12:53:58 transport.py[line:1386] INFO Connected (version 2.0, client OpenSSH_5.3)
+Fri, 05 Jan 2018 12:53:58 transport.py[line:1386] INFO Authentication (password) successful!
+Fri, 05 Jan 2018 12:53:58 transport.py[line:1386] INFO Secsh channel 1 opened.
+Fri, 05 Jan 2018 12:53:59 package.py[line:737] INFO [['Tomcat started.\n']]
+Fri, 05 Jan 2018 12:53:59 package.py[line:394] INFO copy configuration file successfully!
+Fri, 05 Jan 2018 12:53:59 common.py[line:68] INFO 开始 uat_web!
+Fri, 05 Jan 2018 12:56:36 common.py[line:76] INFO uat_web 成功!
+Fri, 05 Jan 2018 12:56:38 package.py[line:700] INFO docker exec t2openapi ./openapi/bin/startup.sh
+Fri, 05 Jan 2018 12:56:38 package.py[line:701] INFO docker exec t2openapi ./openapi/bin/shutdown.sh
+Fri, 05 Jan 2018 12:56:38 package.py[line:702] INFO docker exec t2openapi cp /openapi/webapps/ROOT.war /root/uat_web180105125638.war
+Fri, 05 Jan 2018 12:56:38 package.py[line:703] INFO docker exec t2openapi ps -ef | grep java
+Fri, 05 Jan 2018 12:56:38 package.py[line:704] INFO docker exec t2openapi kill -9 
+Fri, 05 Jan 2018 12:56:38 transport.py[line:1386] INFO Connected (version 2.0, client OpenSSH_5.3)
+Fri, 05 Jan 2018 12:56:39 transport.py[line:1386] INFO Authentication (password) successful!
+Fri, 05 Jan 2018 12:56:39 transport.py[line:1386] INFO Secsh channel 1 opened.
+Fri, 05 Jan 2018 12:56:39 package.py[line:707] INFO [['root     26825     1  1 Jan04 ?        00:17:27 /usr/bin/java -Djava.util.logging.config.file=/openapi/conf/logging.properties -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager -server -Xms512M -Xmx1024M -Xss512k -XX:+AggressiveOpts -XX:+UseBiasedLocking -XX:PermSize=128M -XX:MaxPermSize=256M -XX:+DisableExplicitGC -XX:MaxTenuringThreshold=31 -XX:+UseConcMarkSweepGC -XX:+UseParNewGC -XX:+CMSParallelRemarkEnabled -XX:+UseCMSCompactAtFullCollection -XX:LargePageSizeInBytes=128m -XX:+UseFastAccessorMethods -XX:+UseCMSInitiatingOccupancyOnly -Djava.awt.headless=true -server -Xdebug -Xnoagent -Djava.compiler=NONE -Xrunjdwp:transport=dt_socket,server=y,suspend=n,address=8899 -Djava.endorsed.dirs=/openapi/endorsed -classpath /openapi/bin/bootstrap.jar:/openapi/bin/tomcat-juli.jar -Dcatalina.base=/openapi -Dcatalina.home=/openapi -Djava.io.tmpdir=/openapi/temp org.apache.catalina.startup.Bootstrap start\n']]
+Fri, 05 Jan 2018 12:56:39 package.py[line:712] INFO 26825
+Fri, 05 Jan 2018 12:56:39 transport.py[line:1386] INFO Connected (version 2.0, client OpenSSH_5.3)
+Fri, 05 Jan 2018 12:56:39 transport.py[line:1386] INFO Authentication (password) successful!
+Fri, 05 Jan 2018 12:56:39 transport.py[line:1386] INFO Secsh channel 1 opened.
+Fri, 05 Jan 2018 12:56:39 package.py[line:714] INFO [[]]
+Fri, 05 Jan 2018 12:56:40 transport.py[line:1386] INFO Connected (version 2.0, client OpenSSH_5.3)
+Fri, 05 Jan 2018 12:56:40 transport.py[line:1386] INFO Authentication (password) successful!
+Fri, 05 Jan 2018 12:56:40 transport.py[line:1386] INFO Secsh channel 1 opened.
+Fri, 05 Jan 2018 12:56:41 transport.py[line:1386] INFO Connected (version 2.0, client OpenSSH_5.3)
+Fri, 05 Jan 2018 12:56:41 transport.py[line:1386] INFO Authentication (password) successful!
+Fri, 05 Jan 2018 12:56:41 transport.py[line:1386] INFO Secsh channel 1 opened.
+Fri, 05 Jan 2018 12:56:41 package.py[line:727] INFO remove cmd 是 docker exec t2openapi rm -rf /openapi/webapps/ROOT/
+Fri, 05 Jan 2018 12:56:41 transport.py[line:1386] INFO Connected (version 2.0, client OpenSSH_5.3)
+Fri, 05 Jan 2018 12:56:41 transport.py[line:1386] INFO Authentication (password) successful!
+Fri, 05 Jan 2018 12:56:41 transport.py[line:1386] INFO Secsh channel 1 opened.
+Fri, 05 Jan 2018 12:56:42 package.py[line:729] INFO [[]]
+Fri, 05 Jan 2018 12:56:42 package.py[line:730] INFO delete t2uat_web successfully
+Fri, 05 Jan 2018 12:56:59 common.py[line:133] INFO copy war file to linux successfully!
+Fri, 05 Jan 2018 12:56:59 package.py[line:700] INFO docker exec t2openapi ./openapi/bin/startup.sh
+Fri, 05 Jan 2018 12:56:59 package.py[line:701] INFO docker exec t2openapi ./openapi/bin/shutdown.sh
+Fri, 05 Jan 2018 12:56:59 package.py[line:702] INFO docker exec t2openapi cp /openapi/webapps/ROOT.war /root/uat_web180105125659.war
+Fri, 05 Jan 2018 12:56:59 package.py[line:703] INFO docker exec t2openapi ps -ef | grep java
+Fri, 05 Jan 2018 12:56:59 package.py[line:704] INFO docker exec t2openapi kill -9 
+Fri, 05 Jan 2018 12:56:59 package.py[line:734] INFO docker exec t2openapi ./openapi/bin/startup.sh
+Fri, 05 Jan 2018 12:56:59 transport.py[line:1386] INFO Connected (version 2.0, client OpenSSH_5.3)
+Fri, 05 Jan 2018 12:56:59 transport.py[line:1386] INFO Authentication (password) successful!
+Fri, 05 Jan 2018 12:56:59 transport.py[line:1386] INFO Secsh channel 1 opened.
+Fri, 05 Jan 2018 12:57:00 package.py[line:737] INFO [['Tomcat started.\n']]

@@ -1,0 +1,250 @@
+{
+"shared":{
+			"url":"svn:/192.168.30.75/svnroot/shared/gds-shared/trunk",
+			"path":"E:\\version\\gds-shared\\gds-shared-message-center\\src\\main\\resources\\META-INF\\spring",
+			"gds-shared-message-center-content":{"brokerURL":"failover:(tcp://192.168.30.226:61616?keepAlive=true,wireFormat.maxInactivityDuration=0)&amp;maxReconnectDelay=10000&amp;maxReconnectAttempts=2"},
+			"sharedMessage":{"gds.shared.message.center.address": "192.168.30.108"},
+			"console-path":"E:\\version\\gds-shared\\install.bat"
+		},
+"ce":{
+		"url":"svn://192.168.30.75/svnroot/rdcenter/gds-ce/ce-online",
+		"console-path":"E:\\version\\ce\\install.bat"
+	},
+"cs":{
+		"url":"svn://192.168.30.75/svnroot/rdcenter/gds-cs",
+		"console-path":"E:\\version\\cs\\install.bat",
+		"before_copy_path":"E:\\version\\cs\\gds-cs-web\\antx.properties.sample",
+		"after_copy_path":"E:\\version\\cs\\antx.properties",
+		"war-path":"E:\\version\\cs\\target\\gds-cs-web.war",
+		"war-path-linux":"/home/docker/test_environment/cs/tomcat/webapps/ROOT.war",
+		"update":{
+					"gds.cs.domain.server":"192.168.30.131",
+					"gds.ce.appenv.appip":"192.168.30.131:8085",
+					"ximucredit.gds.rulemodel.svn.url":"svn://192.168.30.49/svnroot/rules/test",
+					"ximucredit.gds.rulemodel.svn.username":"root",
+					"ximucredit.gds.rulemodel.svn.password":"123456",
+					"gds.cs.datasource.mysql.url":"jdbc:mysql://192.168.30.49:3306/gds_trunk?useUnicode=true&characterEncoding=utf-8",
+					"gds.cs.dubbo.protocol.host":"192.168.30.131",
+					"gds.cs.dubbo.registry.address":"192.168.30.129:2181",
+					"gds.cs.datasource.hbase.rootdir":"hdfs://192.168.30.107:9000/hbase",
+					"gds.cs.datasource.hbase.zookeeperquorum":"192.168.30.107",
+					"gds.cs.message.center.address":"tcp://192.168.30.231:61616?wireFormat.maxInactivityDuration=0"
+		}		
+		
+	},
+"gap":{
+		"url":"svn://192.168.30.75/svnroot/shared/gds-gap",
+		"console-path":"E:\\version\\gap\\install.bat",
+		"before_copy_path":"E:\\version\\gap\\gds-gap-web\\antx.properties.sample",
+		"after_copy_path":"E:\\version\\gap\\antx.properties",
+		"war-path":"E:\\version\\gap\\target\\gds-gap-web.war",
+		"war-path-linux":"/home/docker/test_environment/loan/tomcat/webapps/gds-gap-web.war",
+		"update":{
+					"gds.gap.dubbo.registry.address":"192.168.30.129:2181",
+					"gds.gap.datasource.mysql.password":"xf7q7wNR",
+					"gds.gap.datasource.mysql.url":"jdbc:mysql://192.168.30.49:3306/gds_trunk?useUnicode=true&characterEncoding=utf-8",
+					"gds.gap.datasource.mysql.username":"tester",
+					"gds.gap.server.ip":"192.168.30.132",
+					"gds.gap.dubbo.protocol.host":"192.168.30.132"
+		}
+		
+		
+		
+	},
+"gds_dio_platform":{
+		"url":"svn://192.168.30.75/svnroot/datacenter/gds-dio-platform",
+		"console-path":"E:\\version\\gds-dio-platform\\install.bat"
+	},
+"dio":{
+		"url":"svn://192.168.30.75/svnroot/datacenter/gds-dio",
+		"console-path":"E:\\version\\dio\\install.bat",
+		"before_copy_path":"E:\\version\\dio\\gds-dio-web\\antx.properties.sample",
+		"after_copy_path":"E:\\version\\dio\\antx.properties",
+		"war-path":"E:\\version\\dio\\target\\gds-dio-web.war",
+		"war-path-linux":"/home/docker/test_environment/dio/tomcat/webapps/ROOT.war",
+		"update":{
+					"gds.dio.server.ip":"192.168.30.133",
+					"gds.dio.dubbo.protocol.host":"192.168.30.133",
+					"gds.dio.dubbo.registry.address":"192.168.30.129:2181",
+					"gds.gap.server.ip":"192.168.30.133",
+					"gds.gap.module.svn.url":"svn://192.168.30.49/svnroot/gapmodules/datacorp/test",
+					"gds.dio.biz.svn.path":"svn://192.168.30.49/svnroot/gapmodules/datacorpvalidation",
+					"gds.dio.ftp.server.ip":"192.168.30.49",
+					"gds.dio.ftp.server.user":"root",
+					"gds.dio.ftp.server.pwd":"123456",
+					"gds.loan.ftp.server.ip":"192.168.30.49",
+					"gds.loan.ftp.server.user":"root",
+					"gds.loan.ftp.server.pwd":"123456",
+					"gds.dio.biz.report.email.adress":"abcd@ximucredit.com",
+					"gds.dio.biz.warn.email.adress":"abcd@ximucredit.com",
+					"gds.dio.biz.manager.email.adress":"abcd@ximucredit.com",
+					"gds.dio.biz.email.username":"xmtest@ximucredit.com",
+					"gds.dio.biz.email.password":"mjm30EJt",
+					"gds.dio.quartz.batchcall.address":"abcd@ximucredit.com",
+					"gds.dio.quartz.dataSideErrorToEmail":"abcd@ximucredit.com",
+					"gds.dio.quartz.alertmail.address":"abcd@ximucredit.com",
+					"gds.dio.quartz.blacklist.address":"abcd@ximucredit.com",
+					"gds.dio.generic.notice.error.mobiles":"124855465"
+		}
+		
+		
+	},
+"gds-platform":{
+		"url":"svn://192.168.30.75/svnroot/shared/gds-platform",
+		"path":"E:\\version\\gds-platform\\gds-platform-util\\src\\main\\resources\\META-INF\\spring",
+		"console-path":"E:\\version\\gds-platform\\install.bat",
+		"update":{
+					"gds.biz.util.redis.addr":"192.168.30.124",
+					"gds.biz.util.redis.auth":"123456"
+				}
+		
+	},
+"gds_loan":{
+		"url":"svn://192.168.30.75/svnroot/rdcenter/gds-loan",
+		"path":"E:\\version\\gds-loan\\app\\web\\home",
+		"console-path":"E:\\version\\gds-loan\\install.bat",
+		"before_copy_path":"E:\\version\\gds-loan\\app\\web\\home\\antx.properties.sample",
+		"after_copy_path":"E:\\version\\gds-loan\\antx.properties",
+		"war-path":"E:\\version\\gds-loan\\app\\target\\gds-loan-web.war",
+		"war-path-linux":"/home/docker/test_environment/loan/tomcat/webapps/ROOT.war",
+		"update":{
+					"gds.loan.server.ip":"192.168.30.132",
+					"gds.loan.datasource.mysql.password":"xf7q7wNR",
+					"gds.loan.datasource.mysql.url":"jdbc:mysql://192.168.30.49:3306/gds_trunk?useUnicode=true&characterEncoding=utf-8",
+					"gds.loan.datasource.mysql.username":"root",
+					"gds.loan.dubbo.protocol.host":"192.168.30.132",
+					"gds.loan.dubbo.prod.registry.address":"192.168.30.129:2181",
+					"gds.loan.dubbo.registry.address":"192.168.30.129:2181",
+					"gds.loan.dubbo.consumer.timeout":"20000",
+					"gds.loan.inter.sms.phoneNo":"123542134",
+					"gds.loan.biz.shared.ftp.server.ip":"192.168.30.49",
+					"gds.loan.biz.shared.ftp.server.user":"root",
+					"gds.loan.biz.shared.ftp.server.pwd":"123456",
+					"gds.credit.biz.shared.url.xm":"192.168.30.49",
+					"gds.credit.biz.shared.username.xm":"root",
+					"gds.credit.biz.shared.password.xm":"123456",
+					"gds.credit.biz.shared.url.capital":"192.168.30.49",
+					"gds.credit.biz.shared.username.capital":"root",
+					"gds.credit.biz.shared.password.capital":"123456",
+					"gds.loan.biz.sumpay.email.path":"abcd@ximucredit",
+					"gds.loan.payformonitor.email.czb.path":"abcd@ximucredit",
+					"gds.loan.biz.svn.path":"svn://192.168.30.49/svnroot/gapmodules/sceneValidation",
+					"gds.platform.message.center.address":"192.168.30.226",
+					"gds.loan.gap.web.name":"ROOT",
+					"gds.loan.gap.module.svn.url":"svn://192.168.30.49/svnroot/gapmodules/scene/test",
+					"gds.loan.bill.chk.acct.email.address":"abcd@ximucredit",
+					"gds.loan.release.mail.list":"test.list@ximucredit.com",
+					"gds.dio.biz.svn.path":"svn://192.168.30.49/svnroot/gapmodules/datacorpvalidation",
+					"gds.dio.gap.module.svn.url":"svn://192.168.30.49/svnroot/gapmodules/datacorp/test",
+					"gds.fe.gap.module.svn.url":"svn://192.168.30.49/svnroot/gapmodules/capital/test"
+					
+		}
+		
+		
+	},
+"gds_openapi":{
+		"url":"svn://192.168.30.75/svnroot/rdcenter/gds-openapi",
+		"path":"E:\\version\\gds-openapi\\gds-openapi-web",
+		"console-path":"E:\\version\\gds-openapi\\install.bat",
+		"before_copy_path":"E:\\version\\gds-openapi\\gds-openapi-web\\antx.properties.sample",
+		"after_copy_path":"E:\\version\\gds-openapi\\antx.properties",
+		"war-path":"E:\\version\\gds-openapi\\target\\gds-openapi-web.war",
+		"war-path-linux":"/home/docker/test_environment/openapi/tomcat/webapps/gds-openapi-web.war",
+		"update":{
+					"gds.openapi.dubbo.consumer.timeout":"13000",
+					"gds.openapi.dubbo.protocol.host":"192.168.30.134",
+					"gds.openapi.dubbo.registry.address":"192.168.30.129:2181",
+					"gds.openapi.biz.embeded.jump.url":"http://yufabu.ximucredit.com/t1",
+					"gds.openapi.ftp.url":"192.168.30.49",
+					"gds.openapi.ftp.username":"root",
+					"gds.openapi.ftp.password":"123456"
+					
+		}
+		
+		
+	},
+"uat_web":{
+		"url":"svn://192.168.30.75/svnroot/rdcenter/gds-openapi/uat-web",
+		"path":"E:\\version\\uat-web\\gds-openapi-web",
+		"console-path":"E:\\version\\uat-web\\install.bat",
+		"before_copy_path":"E:\\version\\uat-web\\gds-openapi-web\\antx.properties.sample",
+		"after_copy_path":"E:\\version\\uat-web\\antx.properties",
+		"war-path":"E:\\version\\uat-web\\target\\gds-openapi-web.war",
+		"war-path-linux":"/home/docker/test_environment/openapi/tomcat/webapps/ROOT.war",
+		"update":{
+					"gds.openapi.dubbo.consumer.timeout":"13000",
+					"gds.openapi.dubbo.protocol.host":"192.168.30.134",
+					"gds.openapi.dubbo.registry.address":"192.168.30.129:2181",
+					"gds.openapi.biz.embeded.jump.url":"http://yufabu.ximucredit.com/ximuweb",
+					"gds.openapi.ftp.url":"192.168.30.49",
+					"gds.openapi.ftp.username":"root",
+					"gds.openapi.ftp.password":"123456"
+		}
+		
+	},
+"ftpconfig":{
+			"ip":"192.168.30.21",
+			"port":"22",
+			"username":"root",
+			"password":"xmfintech"			
+			
+	},
+"xmprod":{
+		"url":"svn://192.168.30.75/svnroot/rdcenter/gds-ac-prod",
+		"configpath":"E:\\version\\gds-prod\\gds-ac-prod\\ximu-prod-web\\src\\main\\resources\\com\\ximu\\config\\prod-config.properties",
+		"installpath":"E:\\version\\gds-prod\\gds-ac-prod\\pom.xml",
+		"war-path":"E:\\version\\gds-prod\\gds-ac-prod\\ximu-prod-web\\target\\ximu-prod-web.war",
+		"war-path-linux":"/home/docker/test_environment/xmprod/tomcat/webapps/ximu-prod-web.war",
+		"update":{
+				"jdbc.url":"jdbc:mysql://192.168.30.49:3306/prod_test2",
+				"jdbc.username":"root",
+				"jdbc.password":"xf7q7wNR",
+				"ximu.prod.dubbo.application":"ximu-prod-provider",
+				"ximu.prod.dubbo.address":"zookeeper://192.168.30.129:2181",
+				"ximu.prod.dubbo.host":"192.168.30.233"
+				}
+		},
+"ac_core":{
+		"url":"svn://192.168.30.75/svnroot/rdcenter/gds-ac-core/branches/gds-ac-core-1.1.0",
+		"installpath":"E:\\version\\accore\\pom.xml",
+		"before_copy_path":"E:\\version\\accore\\gds-ac-core-web\\antx.properties.sample",
+		"after_copy_path":"E:\\version\\accore\\antx.properties",
+		"war-path":"E:\\version\\accore\\target\\gds-ac-core-web.war",
+		"war-path-linux":"/home/docker/test_environment/accore/tomcat/webapps/gds-ac-core-web.war",			
+		"update":{
+				"gds.ac.core.server.ip":"192.168.30.229",
+				"gds.ac.core.datasource.mysql.url":"jdbc:mysql://192.168.30.49:3306/ac_test?characterEncoding=utf-8",
+				"gds.ac.core.datasource.mysql.username":"tester",
+				"gds.ac.core.datasource.mysql.password":"xf7q7wNR",
+				"gds.ac.core.dubbo.protocol.host":"192.168.30.229",
+				"gds.ac.core.dubbo.registry.address":"192.168.30.129:2181",
+				"gds.xm.prd.dubbo.registry.protocol":"zookeeper",
+				"gds.xm.prd.dubbo.registry.address":"192.168.30.129:2181",
+				"gds.ac.core.redis.database":"4",
+				"gds.ac.core.redis.addr":"192.168.30.124"
+			}
+			},
+"ac_fe":{
+		"url":"svn://192.168.30.75/svnroot/rdcenter/gds-ac-fe/branches/gds-ac-fe-1.1.0",
+		"installpath":"E:\\version\\acfe\\pom.xml",
+		"before_copy_path":"E:\\version\\acfe\\gds-ac-fe-web\\antx.properties.sample",
+		"after_copy_path":"E:\\version\\acfe\\antx.properties",
+		"war-path":"E:\\version\\acfe\\target\\gds-ac-fe-web.war",
+		"war-path-linux":"/home/docker/test_environment/acfe/tomcat/webapps/ROOT.war",			
+		"update":{
+					"gds.ac.fe.server.ip":"192.168.30.230",
+					"gds.ac.fe.dubbo.protocol.host":"192.168.30.230",
+					"gds.ac.fe.dubbo.registry.address":"192.168.30.129:2181",
+					"gds.ac.fe.datasource.mysql.url":"jdbc:mysql://192.168.30.49:3306/fe_test",
+					"gds.ac.fe.datasource.mysql.username":"tester",
+					"gds.ac.fe.datasource.mysql.password":"xf7q7wNR",
+					"gds.gap.module.svn.url":"svn://192.168.30.49/svnroot/gapmodules/capital/test",
+					"gds.gap.module.svn.username":"root",
+					"gds.gap.module.svn.password":"123456",
+					"gds.ac.fe.redis.addr":"192.168.30.124",
+					"gds.ac.fe.redis.database":"4",
+					"gds.gap.server.ip":"192.168.30.225"
+				}
+
+		}
+}

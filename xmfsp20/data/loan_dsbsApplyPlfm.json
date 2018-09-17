@@ -1,0 +1,11 @@
+{
+  "applyLinitiateMtd": "APP",
+  "deleteFlag": 0,
+  "fcltCode": "I05QCAI001",
+  "memCode": "110",
+  "orderAmount": "100",
+  "orderNo": "1112",
+  "orderStatus": "TRSDLV",
+  "plfmEttCode": "QCai",
+  "plfmLoanOrderNo":"123"
+}

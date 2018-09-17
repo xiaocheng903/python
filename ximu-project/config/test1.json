@@ -1,0 +1,31 @@
+{
+"shared":{
+			"url":"svn:/192.168.30.75/svnroot/shared/gds-shared/trunk",
+			"path":"E:\\version\\gds-shared\\gds-shared-message-center\\src\\main\\resources\\META-INF\\spring",
+			"gds-shared-message-center-content":{"brokerURL":"failover:(tcp://192.168.30.108:61616?keepAlive=true,wireFormat.maxInactivityDuration=0)&amp;maxReconnectDelay=10000&amp;maxReconnectAttempts=2"},
+			"sharedMessage":{"gds.shared.message.center.address": "192.168.30.108"},
+			"console-path":"E:\\version\\gds-shared\\install.bat"
+		},
+"cs":{
+		"url":"svn://192.168.30.75/svnroot/rdcenter/gds-cs",
+		"console-path":"E:\\version\\cs\\install.bat",
+		"before_copy_path":"E:\\version\\cs\\gds-cs-web\\antx.properties.sample",
+		"after_copy_path":"E:\\version\\cs\\antx.properties",
+		"war-path":"E:\\version\\cs\\target\\gds-cs-web.war",
+		"war-path-linux":"/home/docker/test_environment/cs/tomcat/webapps/ROOT.war",
+		"update":{
+					"gds.cs.domain.server":"192.168.30.55",
+					"gds.ce.appenv.appip":"192.168.30.55:8085",
+					"ximucredit.gds.rulemodel.svn.url":"svn://192.168.30.49/svnroot/rules/test",
+					"ximucredit.gds.rulemodel.svn.username":"root",
+					"ximucredit.gds.rulemodel.svn.password":"123456",
+					"gds.cs.datasource.mysql.url":"jdbc:mysql://192.168.30.49:3306/gds_trunk?useUnicode=true&characterEncoding=utf-8",
+					"gds.cs.dubbo.protocol.host":"192.168.30.55",
+					"gds.cs.dubbo.registry.address":"192.168.30.51:2181",
+					"gds.cs.datasource.hbase.rootdir":"hdfs://192.168.30.107:9000/hbase",
+					"gds.cs.datasource.hbase.zookeeperquorum":"192.168.30.107",
+					"gds.cs.message.center.address":"tcp://192.168.30.108:61616?wireFormat.maxInactivityDuration=0"
+		}		
+		
+	}
+}

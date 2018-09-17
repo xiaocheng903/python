@@ -1,0 +1,1301 @@
+Tue, 18 Jul 2017 16:07:30 common.py[line:72] INFO [INFO] Scanning for projects...
+[WARNING] 
+[WARNING] Some problems were encountered while building the effective model for com.ximucredit.loan:gds-loan-core-service:jar:2.17.0-SNAPSHOT
+[WARNING] 'dependencyManagement.dependencies.dependency.(groupId:artifactId:type:classifier)' must be unique: com.ximucredit.platform:gds-platform-credit:jar -> duplicate declaration of version ${platform.version} @ com.ximucredit.loan:gds-loan-parent:2.17.0-SNAPSHOT, E:\version\gds-loan\pom.xml, line 310, column 18
+[WARNING] 
+[WARNING] Some problems were encountered while building the effective model for com.ximucredit.loan:gds-loan-core-model:jar:2.17.0-SNAPSHOT
+[WARNING] 'dependencyManagement.dependencies.dependency.(groupId:artifactId:type:classifier)' must be unique: com.ximucredit.platform:gds-platform-credit:jar -> duplicate declaration of version ${platform.version} @ com.ximucredit.loan:gds-loan-parent:2.17.0-SNAPSHOT, E:\version\gds-loan\pom.xml, line 310, column 18
+[WARNING] 
+[WARNING] Some problems were encountered while building the effective model for com.ximucredit.loan:gds-loan-biz-shared:jar:2.17.0-SNAPSHOT
+[WARNING] 'dependencyManagement.dependencies.dependency.(groupId:artifactId:type:classifier)' must be unique: com.ximucredit.platform:gds-platform-credit:jar -> duplicate declaration of version ${platform.version} @ com.ximucredit.loan:gds-loan-parent:2.17.0-SNAPSHOT, E:\version\gds-loan\pom.xml, line 310, column 18
+[WARNING] 
+[WARNING] Some problems were encountered while building the effective model for com.ximucredit.loan:gds-loan-biz-service-impl:jar:2.17.0-SNAPSHOT
+[WARNING] 'dependencyManagement.dependencies.dependency.(groupId:artifactId:type:classifier)' must be unique: com.ximucredit.platform:gds-platform-credit:jar -> duplicate declaration of version ${platform.version} @ com.ximucredit.loan:gds-loan-parent:2.17.0-SNAPSHOT, E:\version\gds-loan\pom.xml, line 310, column 18
+[WARNING] 
+[WARNING] Some problems were encountered while building the effective model for com.ximucredit.loan:gds-loan-web:war:2.17.0-SNAPSHOT
+[WARNING] 'dependencyManagement.dependencies.dependency.(groupId:artifactId:type:classifier)' must be unique: com.ximucredit.platform:gds-platform-credit:jar -> duplicate declaration of version ${platform.version} @ com.ximucredit.loan:gds-loan-parent:2.17.0-SNAPSHOT, E:\version\gds-loan\pom.xml, line 310, column 18
+[WARNING] 
+[WARNING] Some problems were encountered while building the effective model for com.ximucredit.loan:gds-loan-common-util:jar:2.17.0-SNAPSHOT
+[WARNING] 'dependencyManagement.dependencies.dependency.(groupId:artifactId:type:classifier)' must be unique: com.ximucredit.platform:gds-platform-credit:jar -> duplicate declaration of version ${platform.version} @ com.ximucredit.loan:gds-loan-parent:2.17.0-SNAPSHOT, E:\version\gds-loan\pom.xml, line 310, column 18
+[WARNING] 
+[WARNING] Some problems were encountered while building the effective model for com.ximucredit.loan:gds-loan-common-dal:jar:2.17.0-SNAPSHOT
+[WARNING] 'dependencyManagement.dependencies.dependency.(groupId:artifactId:type:classifier)' must be unique: com.ximucredit.platform:gds-platform-credit:jar -> duplicate declaration of version ${platform.version} @ com.ximucredit.loan:gds-loan-parent:2.17.0-SNAPSHOT, E:\version\gds-loan\pom.xml, line 310, column 18
+[WARNING] 
+[WARNING] Some problems were encountered while building the effective model for com.ximucredit.loan:gds-loan-common-datacorpdal:jar:2.17.0-SNAPSHOT
+[WARNING] 'dependencyManagement.dependencies.dependency.(groupId:artifactId:type:classifier)' must be unique: com.ximucredit.platform:gds-platform-credit:jar -> duplicate declaration of version ${platform.version} @ com.ximucredit.loan:gds-loan-parent:2.17.0-SNAPSHOT, E:\version\gds-loan\pom.xml, line 310, column 18
+[WARNING] 
+[WARNING] Some problems were encountered while building the effective model for com.ximucredit.loan:gds-loan-common-facade:jar:2.17.0-SNAPSHOT
+[WARNING] 'dependencyManagement.dependencies.dependency.(groupId:artifactId:type:classifier)' must be unique: com.ximucredit.platform:gds-platform-credit:jar -> duplicate declaration of version ${platform.version} @ com.ximucredit.loan:gds-loan-parent:2.17.0-SNAPSHOT, E:\version\gds-loan\pom.xml, line 310, column 18
+[WARNING] 
+[WARNING] Some problems were encountered while building the effective model for com.ximucredit.loan:gds-loan-parent:pom:2.17.0-SNAPSHOT
+[WARNING] 'dependencyManagement.dependencies.dependency.(groupId:artifactId:type:classifier)' must be unique: com.ximucredit.platform:gds-platform-credit:jar -> duplicate declaration of version ${platform.version} @ line 310, column 18
+[WARNING] 
+[WARNING] It is highly recommended to fix these problems because they threaten the stability of your build.
+[WARNING] 
+[WARNING] For this reason, future Maven versions might no longer support building such malformed projects.
+[WARNING] 
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Build Order:
+[INFO] 
+[INFO] ximucredit gds loan parent
+[INFO] ximucredit gds loan common dal
+[INFO] ximucredit gds loan common facade
+[INFO] ximucredit gds loan common util
+[INFO] ximucredit gds loan core model
+[INFO] ximucredit gds loan core service
+[INFO] ximucredit gds loan biz shared
+[INFO] ximucredit gds loan common datacorpdal
+[INFO] ximucredit gds loan biz service
+[INFO] ximucredit gds loan web
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building ximucredit gds loan parent 2.17.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:2.5:clean (default-clean) @ gds-loan-parent ---
+[INFO] 
+[INFO] --- maven-antrun-plugin:1.7:run (default) @ gds-loan-parent ---
+[INFO] Executing tasks
+
+main:
+     [echo] project home:        E:\version\gds-loan
+     [echo] java home:           C:\Program Files\Java\jdk1.7.0_75\jre
+     [echo] java source version: 1.7
+     [echo] java target version: 1.7
+     [echo] java source charset: UTF-8
+[INFO] Executed tasks
+[INFO] 
+[INFO] >>> maven-source-plugin:2.2.1:jar (attach-sources) > generate-sources @ gds-loan-parent >>>
+[INFO] 
+[INFO] <<< maven-source-plugin:2.2.1:jar (attach-sources) < generate-sources @ gds-loan-parent <<<
+[INFO] 
+[INFO] --- maven-source-plugin:2.2.1:jar (attach-sources) @ gds-loan-parent ---
+[INFO] 
+[INFO] --- maven-install-plugin:2.4:install (default-install) @ gds-loan-parent ---
+[INFO] Installing E:\version\gds-loan\pom.xml to E:\repository\com\ximucredit\loan\gds-loan-parent\2.17.0-SNAPSHOT\gds-loan-parent-2.17.0-SNAPSHOT.pom
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building ximucredit gds loan common dal 2.17.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+Downloading: http://192.168.30.72:8081/nexus/content/groups/public/com/ximucredit/shared/gds-shared-common/2.5.1-SNAPSHOT/maven-metadata.xml
+Downloading: http://192.168.30.72:8081/nexus/content/groups/public/com/ximucredit/shared/gds-shared-parent/2.5.1-SNAPSHOT/maven-metadata.xml
+Downloading: http://192.168.30.72:8081/nexus/content/groups/public/com/ximucredit/shared/gds-shared-dataswap/2.5.1-SNAPSHOT/maven-metadata.xml
+[INFO] 
+[INFO] --- maven-clean-plugin:2.5:clean (default-clean) @ gds-loan-common-dal ---
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ gds-loan-common-dal ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 324 resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.1:compile (default-compile) @ gds-loan-common-dal ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 868 source files to E:\version\gds-loan\app\common\dal\target\classes
+[WARNING] /E:/version/gds-loan/app/common/dal/src/main/java/com/ximucredit/loan/common/model/LoanBillWithholdState.java:[28,66] 编码UTF-8的不可映射字符
+[WARNING] /E:/version/gds-loan/app/common/dal/src/main/java/com/ximucredit/loan/common/model/LoanBillWithholdState.java:[28,67] 编码UTF-8的不可映射字符
+[WARNING] /E:/version/gds-loan/app/common/dal/src/main/java/com/ximucredit/loan/common/model/LoanBillWithholdState.java:[28,68] 编码UTF-8的不可映射字符
+[WARNING] /E:/version/gds-loan/app/common/dal/src/main/java/com/ximucredit/loan/common/model/LoanBillWithholdState.java:[28,69] 编码UTF-8的不可映射字符
+[WARNING] /E:/version/gds-loan/app/common/dal/src/main/java/com/ximucredit/loan/common/model/LoanBillWithholdState.java:[28,70] 编码UTF-8的不可映射字符
+[WARNING] /E:/version/gds-loan/app/common/dal/src/main/java/com/ximucredit/loan/common/model/LoanBillWithholdState.java:[28,71] 编码UTF-8的不可映射字符
+[WARNING] /E:/version/gds-loan/app/common/dal/src/main/java/com/ximucredit/loan/common/model/LoanBillWithholdState.java:[28,72] 编码UTF-8的不可映射字符
+[WARNING] /E:/version/gds-loan/app/common/dal/src/main/java/com/ximucredit/loan/common/model/LoanBillWithholdState.java:[28,75] 编码UTF-8的不可映射字符
+[WARNING] /E:/version/gds-loan/app/common/dal/src/main/java/com/ximucredit/loan/common/model/LoanBillWithholdState.java:[28,76] 编码UTF-8的不可映射字符
+[WARNING] /E:/version/gds-loan/app/common/dal/src/main/java/com/ximucredit/loan/common/model/LoanBillWithholdState.java:[28,78] 编码UTF-8的不可映射字符
+[WARNING] /E:/version/gds-loan/app/common/dal/src/main/java/com/ximucredit/loan/common/model/LoanBillWithholdState.java:[28,79] 编码UTF-8的不可映射字符
+[WARNING] /E:/version/gds-loan/app/common/dal/src/main/java/com/ximucredit/loan/common/model/LoanBillWithholdState.java:[28,80] 编码UTF-8的不可映射字符
+[WARNING] /E:/version/gds-loan/app/common/dal/src/main/java/com/ximucredit/loan/common/model/LoanBillWithholdState.java:[28,82] 编码UTF-8的不可映射字符
+[WARNING] /E:/version/gds-loan/app/common/dal/src/main/java/com/ximucredit/loan/common/model/LoanBillWithholdState.java:[28,84] 编码UTF-8的不可映射字符
+[WARNING] /E:/version/gds-loan/app/common/dal/src/main/java/com/ximucredit/loan/common/model/LoanBillWithholdState.java:[28,85] 编码UTF-8的不可映射字符
+[WARNING] /E:/version/gds-loan/app/common/dal/src/main/java/com/ximucredit/loan/dal/dao/ext/LoanBillApplyRepaymentRecordExtDAO.java:[23,8] 编码UTF-8的不可映射字符
+[WARNING] /E:/version/gds-loan/app/common/dal/src/main/java/com/ximucredit/loan/dal/dao/ext/LoanBillApplyRepaymentRecordExtDAO.java:[23,9] 编码UTF-8的不可映射字符
+[WARNING] /E:/version/gds-loan/app/common/dal/src/main/java/com/ximucredit/loan/dal/dao/ext/LoanBillApplyRepaymentRecordExtDAO.java:[23,12] 编码UTF-8的不可映射字符
+[WARNING] /E:/version/gds-loan/app/common/dal/src/main/java/com/ximucredit/loan/dal/dao/ext/LoanBillApplyRepaymentRecordExtDAO.java:[23,13] 编码UTF-8的不可映射字符
+[WARNING] /E:/version/gds-loan/app/common/dal/src/main/java/com/ximucredit/loan/dal/dao/ext/LoanBillApplyRepaymentRecordExtDAO.java:[23,14] 编码UTF-8的不可映射字符
+[WARNING] /E:/version/gds-loan/app/common/dal/src/main/java/com/ximucredit/loan/dal/dao/ext/LoanBillApplyRepaymentRecordExtDAO.java:[23,15] 编码UTF-8的不可映射字符
+[WARNING] /E:/version/gds-loan/app/common/dal/src/main/java/com/ximucredit/loan/dal/dao/ext/LoanBillApplyRepaymentRecordExtDAO.java:[23,17] 编码UTF-8的不可映射字符
+[WARNING] /E:/version/gds-loan/app/common/dal/src/main/java/com/ximucredit/loan/dal/dao/ext/LoanBillApplyRepaymentRecordExtDAO.java:[23,18] 编码UTF-8的不可映射字符
+[WARNING] /E:/version/gds-loan/app/common/dal/src/main/java/com/ximucredit/loan/dal/dao/ext/LoanBillApplyRepaymentRecordExtDAO.java:[23,19] 编码UTF-8的不可映射字符
+[WARNING] /E:/version/gds-loan/app/common/dal/src/main/java/com/ximucredit/loan/dal/dao/ext/LoanBillApplyRepaymentRecordExtDAO.java:[23,20] 编码UTF-8的不可映射字符
+[WARNING] /E:/version/gds-loan/app/common/dal/src/main/java/com/ximucredit/loan/common/model/LoanBillSceneProdCapitalInfo.java:[28,39] 编码UTF-8的不可映射字符
+[WARNING] /E:/version/gds-loan/app/common/dal/src/main/java/com/ximucredit/loan/common/model/LoanBillSceneProdCapitalInfo.java:[28,40] 编码UTF-8的不可映射字符
+[WARNING] /E:/version/gds-loan/app/common/dal/src/main/java/com/ximucredit/loan/common/model/LoanBillSceneProdCapitalInfo.java:[28,42] 编码UTF-8的不可映射字符
+[WARNING] /E:/version/gds-loan/app/common/dal/src/main/java/com/ximucredit/loan/common/model/LoanBillSceneProdCapitalInfo.java:[28,43] 编码UTF-8的不可映射字符
+[WARNING] /E:/version/gds-loan/app/common/dal/src/main/java/com/ximucredit/loan/common/model/LoanBillSceneProdCapitalInfo.java:[28,45] 编码UTF-8的不可映射字符
+[WARNING] /E:/version/gds-loan/app/common/dal/src/main/java/com/ximucredit/loan/common/model/LoanBillSceneProdCapitalInfo.java:[28,47] 编码UTF-8的不可映射字符
+[WARNING] /E:/version/gds-loan/app/common/dal/src/main/java/com/ximucredit/loan/common/model/LoanBillSceneProdCapitalInfo.java:[28,48] 编码UTF-8的不可映射字符
+[WARNING] /E:/version/gds-loan/app/common/dal/src/main/java/com/ximucredit/loan/common/model/LoanBillSceneProdCapitalInfo.java:[28,49] 编码UTF-8的不可映射字符
+[WARNING] /E:/version/gds-loan/app/common/dal/src/main/java/com/ximucredit/loan/common/model/LoanBillSceneProdCapitalInfo.java:[28,50] 编码UTF-8的不可映射字符
+[WARNING] /E:/version/gds-loan/app/common/dal/src/main/java/com/ximucredit/loan/common/model/LoanBillSceneProdCapitalInfo.java:[28,51] 编码UTF-8的不可映射字符
+[WARNING] /E:/version/gds-loan/app/common/dal/src/main/java/com/ximucredit/loan/dal/dao/impl/ext/LoanCifCustBaseInfoRealExtDAOImpl.java: E:\version\gds-loan\app\common\dal\src\main\java\com\ximucredit\loan\dal\dao\impl\ext\LoanCifCustBaseInfoRealExtDAOImpl.java使用或覆盖了已过时的 API。
+[WARNING] /E:/version/gds-loan/app/common/dal/src/main/java/com/ximucredit/loan/dal/dao/impl/ext/LoanCifCustBaseInfoRealExtDAOImpl.java: 有关详细信息, 请使用 -Xlint:deprecation 重新编译。
+[WARNING] /E:/version/gds-loan/app/common/dal/src/main/java/com/ximucredit/loan/dal/dao/impl/ext/LoanBillLoanRepayInfoDetailExtDAOImpl.java: 某些输入文件使用了未经检查或不安全的操作。
+[WARNING] /E:/version/gds-loan/app/common/dal/src/main/java/com/ximucredit/loan/dal/dao/impl/ext/LoanBillLoanRepayInfoDetailExtDAOImpl.java: 有关详细信息, 请使用 -Xlint:unchecked 重新编译。
+[INFO] 
+[INFO] --- maven-antrun-plugin:1.7:run (default) @ gds-loan-common-dal ---
+[INFO] Executing tasks
+
+main:
+     [echo] project home:        E:\version\gds-loan\app\common\dal
+     [echo] java home:           C:\Program Files\Java\jdk1.7.0_75\jre
+     [echo] java source version: 1.7
+     [echo] java target version: 1.7
+     [echo] java source charset: UTF-8
+[INFO] Executed tasks
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ gds-loan-common-dal ---
+[INFO] Not copying test resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.1:testCompile (default-testCompile) @ gds-loan-common-dal ---
+[INFO] Not compiling test sources
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.16:test (default-test) @ gds-loan-common-dal ---
+[INFO] Tests are skipped.
+[INFO] 
+[INFO] --- maven-jar-plugin:2.4:jar (default-jar) @ gds-loan-common-dal ---
+[INFO] Building jar: E:\version\gds-loan\app\common\dal\target\ximucredit-gds-loan.jar
+[INFO] 
+[INFO] >>> maven-source-plugin:2.2.1:jar (attach-sources) > generate-sources @ gds-loan-common-dal >>>
+[INFO] 
+[INFO] <<< maven-source-plugin:2.2.1:jar (attach-sources) < generate-sources @ gds-loan-common-dal <<<
+[INFO] 
+[INFO] --- maven-source-plugin:2.2.1:jar (attach-sources) @ gds-loan-common-dal ---
+[INFO] Building jar: E:\version\gds-loan\app\common\dal\target\ximucredit-gds-loan-sources.jar
+[INFO] 
+[INFO] --- maven-install-plugin:2.4:install (default-install) @ gds-loan-common-dal ---
+[INFO] Installing E:\version\gds-loan\app\common\dal\target\ximucredit-gds-loan.jar to E:\repository\com\ximucredit\loan\gds-loan-common-dal\2.17.0-SNAPSHOT\gds-loan-common-dal-2.17.0-SNAPSHOT.jar
+[INFO] Installing E:\version\gds-loan\app\common\dal\pom.xml to E:\repository\com\ximucredit\loan\gds-loan-common-dal\2.17.0-SNAPSHOT\gds-loan-common-dal-2.17.0-SNAPSHOT.pom
+[INFO] Installing E:\version\gds-loan\app\common\dal\target\ximucredit-gds-loan-sources.jar to E:\repository\com\ximucredit\loan\gds-loan-common-dal\2.17.0-SNAPSHOT\gds-loan-common-dal-2.17.0-SNAPSHOT-sources.jar
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building ximucredit gds loan common facade 2.17.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:2.5:clean (default-clean) @ gds-loan-common-facade ---
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ gds-loan-common-facade ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 1 resource
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.1:compile (default-compile) @ gds-loan-common-facade ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 9 source files to E:\version\gds-loan\app\common\service\facade\target\classes
+[INFO] 
+[INFO] --- maven-antrun-plugin:1.7:run (default) @ gds-loan-common-facade ---
+[INFO] Executing tasks
+
+main:
+     [echo] project home:        E:\version\gds-loan\app\common\service\facade
+     [echo] java home:           C:\Program Files\Java\jdk1.7.0_75\jre
+     [echo] java source version: 1.7
+     [echo] java target version: 1.7
+     [echo] java source charset: UTF-8
+[INFO] Executed tasks
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ gds-loan-common-facade ---
+[INFO] Not copying test resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.1:testCompile (default-testCompile) @ gds-loan-common-facade ---
+[INFO] Not compiling test sources
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.16:test (default-test) @ gds-loan-common-facade ---
+[INFO] Tests are skipped.
+[INFO] 
+[INFO] --- maven-jar-plugin:2.4:jar (default-jar) @ gds-loan-common-facade ---
+[INFO] Building jar: E:\version\gds-loan\app\common\service\facade\target\ximucredit-gds-loan.jar
+[INFO] 
+[INFO] >>> maven-source-plugin:2.2.1:jar (attach-sources) > generate-sources @ gds-loan-common-facade >>>
+[INFO] 
+[INFO] <<< maven-source-plugin:2.2.1:jar (attach-sources) < generate-sources @ gds-loan-common-facade <<<
+[INFO] 
+[INFO] --- maven-source-plugin:2.2.1:jar (attach-sources) @ gds-loan-common-facade ---
+[INFO] Building jar: E:\version\gds-loan\app\common\service\facade\target\ximucredit-gds-loan-sources.jar
+[INFO] 
+[INFO] --- maven-install-plugin:2.4:install (default-install) @ gds-loan-common-facade ---
+[INFO] Installing E:\version\gds-loan\app\common\service\facade\target\ximucredit-gds-loan.jar to E:\repository\com\ximucredit\loan\gds-loan-common-facade\2.17.0-SNAPSHOT\gds-loan-common-facade-2.17.0-SNAPSHOT.jar
+[INFO] Installing E:\version\gds-loan\app\common\service\facade\pom.xml to E:\repository\com\ximucredit\loan\gds-loan-common-facade\2.17.0-SNAPSHOT\gds-loan-common-facade-2.17.0-SNAPSHOT.pom
+[INFO] Installing E:\version\gds-loan\app\common\service\facade\target\ximucredit-gds-loan-sources.jar to E:\repository\com\ximucredit\loan\gds-loan-common-facade\2.17.0-SNAPSHOT\gds-loan-common-facade-2.17.0-SNAPSHOT-sources.jar
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building ximucredit gds loan common util 2.17.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+Downloading: http://192.168.30.72:8081/nexus/content/groups/public/com/ximucredit/platform/gds-platform-gap/1.34.0-SNAPSHOT/maven-metadata.xml
+Downloading: http://192.168.30.72:8081/nexus/content/groups/public/com/ximucredit/platform/gds-platform-parent/1.34.0-SNAPSHOT/maven-metadata.xml
+Downloading: http://192.168.30.72:8081/nexus/content/groups/public/com/ximucredit/platform/gds-platform-gap-dal/1.34.0-SNAPSHOT/maven-metadata.xml
+Downloading: http://192.168.30.72:8081/nexus/content/groups/public/com/ximucredit/shared/gds-shared-message-center/2.5.1-SNAPSHOT/maven-metadata.xml
+Downloading: http://192.168.30.72:8081/nexus/content/groups/public/com/ximucredit/platform/gds-platform-common/1.34.0-SNAPSHOT/maven-metadata.xml
+Downloading: http://192.168.30.72:8081/nexus/content/groups/public/com/ximucredit/platform/gds-platform-dataswap/1.34.0-SNAPSHOT/maven-metadata.xml
+Downloading: http://192.168.30.72:8081/nexus/content/groups/public/com/ximucredit/shared/gds-shared-facade/2.5.1-SNAPSHOT/maven-metadata.xml
+[INFO] 
+[INFO] --- maven-clean-plugin:2.5:clean (default-clean) @ gds-loan-common-util ---
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ gds-loan-common-util ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 4 resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.1:compile (default-compile) @ gds-loan-common-util ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 133 source files to E:\version\gds-loan\app\common\util\target\classes
+[WARNING] /E:/version/gds-loan/app/common/util/src/main/java/com/ximucredit/loan/common/util/excelToHtml/ExcelToHtml.java: E:\version\gds-loan\app\common\util\src\main\java\com\ximucredit\loan\common\util\excelToHtml\ExcelToHtml.java使用或覆盖了已过时的 API。
+[WARNING] /E:/version/gds-loan/app/common/util/src/main/java/com/ximucredit/loan/common/util/excelToHtml/ExcelToHtml.java: 有关详细信息, 请使用 -Xlint:deprecation 重新编译。
+[INFO] 
+[INFO] --- maven-antrun-plugin:1.7:run (default) @ gds-loan-common-util ---
+[INFO] Executing tasks
+
+main:
+     [echo] project home:        E:\version\gds-loan\app\common\util
+     [echo] java home:           C:\Program Files\Java\jdk1.7.0_75\jre
+     [echo] java source version: 1.7
+     [echo] java target version: 1.7
+     [echo] java source charset: UTF-8
+[INFO] Executed tasks
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ gds-loan-common-util ---
+[INFO] Not copying test resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.1:testCompile (default-testCompile) @ gds-loan-common-util ---
+[INFO] Not compiling test sources
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.16:test (default-test) @ gds-loan-common-util ---
+[INFO] Tests are skipped.
+[INFO] 
+[INFO] --- maven-jar-plugin:2.4:jar (default-jar) @ gds-loan-common-util ---
+[INFO] Building jar: E:\version\gds-loan\app\common\util\target\ximucredit-gds-loan.jar
+[INFO] 
+[INFO] >>> maven-source-plugin:2.2.1:jar (attach-sources) > generate-sources @ gds-loan-common-util >>>
+[INFO] 
+[INFO] <<< maven-source-plugin:2.2.1:jar (attach-sources) < generate-sources @ gds-loan-common-util <<<
+[INFO] 
+[INFO] --- maven-source-plugin:2.2.1:jar (attach-sources) @ gds-loan-common-util ---
+[INFO] Building jar: E:\version\gds-loan\app\common\util\target\ximucredit-gds-loan-sources.jar
+[INFO] 
+[INFO] --- maven-install-plugin:2.4:install (default-install) @ gds-loan-common-util ---
+[INFO] Installing E:\version\gds-loan\app\common\util\target\ximucredit-gds-loan.jar to E:\repository\com\ximucredit\loan\gds-loan-common-util\2.17.0-SNAPSHOT\gds-loan-common-util-2.17.0-SNAPSHOT.jar
+[INFO] Installing E:\version\gds-loan\app\common\util\pom.xml to E:\repository\com\ximucredit\loan\gds-loan-common-util\2.17.0-SNAPSHOT\gds-loan-common-util-2.17.0-SNAPSHOT.pom
+[INFO] Installing E:\version\gds-loan\app\common\util\target\ximucredit-gds-loan-sources.jar to E:\repository\com\ximucredit\loan\gds-loan-common-util\2.17.0-SNAPSHOT\gds-loan-common-util-2.17.0-SNAPSHOT-sources.jar
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building ximucredit gds loan core model 2.17.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+Downloading: http://192.168.30.72:8081/nexus/content/groups/public/com/ximucredit/platform/gds-platform-integration/1.34.0-SNAPSHOT/maven-metadata.xml
+Downloading: http://192.168.30.72:8081/nexus/content/groups/public/com/ximu/prod/ximu-prod-facade/1.0.0-SNAPSHOT/maven-metadata.xml
+Downloading: http://192.168.30.72:8081/nexus/content/groups/public/com/ximu/prod/ximu-prod-parent/1.0.0-SNAPSHOT/maven-metadata.xml
+Downloading: http://192.168.30.72:8081/nexus/content/groups/public/com/ximu/prod/ximu-prod-model/1.0.0-SNAPSHOT/maven-metadata.xml
+Downloading: http://192.168.30.72:8081/nexus/content/groups/public/com/ximucredit/platform/gds-platform-util/1.34.0-SNAPSHOT/maven-metadata.xml
+Downloading: http://192.168.30.72:8081/nexus/content/groups/public/com/ximucredit/platform/gds-platform-dal/1.34.0-SNAPSHOT/maven-metadata.xml
+Downloading: http://192.168.30.72:8081/nexus/content/groups/public/com/ximucredit/cs/gds-cs-api/2.0.0-SNAPSHOT/maven-metadata.xml
+Downloading: http://192.168.30.72:8081/nexus/content/groups/public/com/ximucredit/cs/gds-cs-parent/2.0.0-SNAPSHOT/maven-metadata.xml
+Downloading: http://192.168.30.72:8081/nexus/content/groups/public/com/ximucredit/ac/gds-ac-fe-service/1.0.0-SNAPSHOT/maven-metadata.xml
+Downloading: http://192.168.30.72:8081/nexus/content/groups/public/com/ximucredit/ac/gds-ac-fe-parent/1.0.0-SNAPSHOT/maven-metadata.xml
+Downloading: http://192.168.30.72:8081/nexus/content/groups/public/com/ximucredit/ac/gds-ac-core-service-api/1.0.0-SNAPSHOT/maven-metadata.xml
+Downloading: http://192.168.30.72:8081/nexus/content/groups/public/com/ximucredit/ac/gds-ac-core-parent/1.0.0-SNAPSHOT/maven-metadata.xml
+[INFO] 
+[INFO] --- maven-clean-plugin:2.5:clean (default-clean) @ gds-loan-core-model ---
+[INFO] Deleting E:\version\gds-loan\app\core\model\target
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ gds-loan-core-model ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 2 resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.1:compile (default-compile) @ gds-loan-core-model ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 38 source files to E:\version\gds-loan\app\core\model\target\classes
+[INFO] 
+[INFO] --- maven-antrun-plugin:1.7:run (default) @ gds-loan-core-model ---
+[INFO] Executing tasks
+
+main:
+     [echo] project home:        E:\version\gds-loan\app\core\model
+     [echo] java home:           C:\Program Files\Java\jdk1.7.0_75\jre
+     [echo] java source version: 1.7
+     [echo] java target version: 1.7
+     [echo] java source charset: UTF-8
+[INFO] Executed tasks
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ gds-loan-core-model ---
+[INFO] Not copying test resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.1:testCompile (default-testCompile) @ gds-loan-core-model ---
+[INFO] Not compiling test sources
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.16:test (default-test) @ gds-loan-core-model ---
+[INFO] Tests are skipped.
+[INFO] 
+[INFO] --- maven-jar-plugin:2.4:jar (default-jar) @ gds-loan-core-model ---
+[INFO] Building jar: E:\version\gds-loan\app\core\model\target\ximucredit-gds-loan.jar
+[INFO] 
+[INFO] >>> maven-source-plugin:2.2.1:jar (attach-sources) > generate-sources @ gds-loan-core-model >>>
+[INFO] 
+[INFO] <<< maven-source-plugin:2.2.1:jar (attach-sources) < generate-sources @ gds-loan-core-model <<<
+[INFO] 
+[INFO] --- maven-source-plugin:2.2.1:jar (attach-sources) @ gds-loan-core-model ---
+[INFO] Building jar: E:\version\gds-loan\app\core\model\target\ximucredit-gds-loan-sources.jar
+[INFO] 
+[INFO] --- maven-install-plugin:2.4:install (default-install) @ gds-loan-core-model ---
+[INFO] Installing E:\version\gds-loan\app\core\model\target\ximucredit-gds-loan.jar to E:\repository\com\ximucredit\loan\gds-loan-core-model\2.17.0-SNAPSHOT\gds-loan-core-model-2.17.0-SNAPSHOT.jar
+[INFO] Installing E:\version\gds-loan\app\core\model\pom.xml to E:\repository\com\ximucredit\loan\gds-loan-core-model\2.17.0-SNAPSHOT\gds-loan-core-model-2.17.0-SNAPSHOT.pom
+[INFO] Installing E:\version\gds-loan\app\core\model\target\ximucredit-gds-loan-sources.jar to E:\repository\com\ximucredit\loan\gds-loan-core-model\2.17.0-SNAPSHOT\gds-loan-core-model-2.17.0-SNAPSHOT-sources.jar
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building ximucredit gds loan core service 2.17.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:2.5:clean (default-clean) @ gds-loan-core-service ---
+[INFO] Deleting E:\version\gds-loan\app\core\service\target
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ gds-loan-core-service ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 1 resource
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.1:compile (default-compile) @ gds-loan-core-service ---
+[INFO] Nothing to compile - all classes are up to date
+[INFO] 
+[INFO] --- maven-antrun-plugin:1.7:run (default) @ gds-loan-core-service ---
+[INFO] Executing tasks
+
+main:
+     [echo] project home:        E:\version\gds-loan\app\core\service
+     [echo] java home:           C:\Program Files\Java\jdk1.7.0_75\jre
+     [echo] java source version: 1.7
+     [echo] java target version: 1.7
+     [echo] java source charset: UTF-8
+[INFO] Executed tasks
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ gds-loan-core-service ---
+[INFO] Not copying test resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.1:testCompile (default-testCompile) @ gds-loan-core-service ---
+[INFO] Not compiling test sources
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.16:test (default-test) @ gds-loan-core-service ---
+[INFO] Tests are skipped.
+[INFO] 
+[INFO] --- maven-jar-plugin:2.4:jar (default-jar) @ gds-loan-core-service ---
+[INFO] Building jar: E:\version\gds-loan\app\core\service\target\ximucredit-gds-loan.jar
+[INFO] 
+[INFO] >>> maven-source-plugin:2.2.1:jar (attach-sources) > generate-sources @ gds-loan-core-service >>>
+[INFO] 
+[INFO] <<< maven-source-plugin:2.2.1:jar (attach-sources) < generate-sources @ gds-loan-core-service <<<
+[INFO] 
+[INFO] --- maven-source-plugin:2.2.1:jar (attach-sources) @ gds-loan-core-service ---
+[INFO] Building jar: E:\version\gds-loan\app\core\service\target\ximucredit-gds-loan-sources.jar
+[INFO] 
+[INFO] --- maven-install-plugin:2.4:install (default-install) @ gds-loan-core-service ---
+[INFO] Installing E:\version\gds-loan\app\core\service\target\ximucredit-gds-loan.jar to E:\repository\com\ximucredit\loan\gds-loan-core-service\2.17.0-SNAPSHOT\gds-loan-core-service-2.17.0-SNAPSHOT.jar
+[INFO] Installing E:\version\gds-loan\app\core\service\pom.xml to E:\repository\com\ximucredit\loan\gds-loan-core-service\2.17.0-SNAPSHOT\gds-loan-core-service-2.17.0-SNAPSHOT.pom
+[INFO] Installing E:\version\gds-loan\app\core\service\target\ximucredit-gds-loan-sources.jar to E:\repository\com\ximucredit\loan\gds-loan-core-service\2.17.0-SNAPSHOT\gds-loan-core-service-2.17.0-SNAPSHOT-sources.jar
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building ximucredit gds loan biz shared 2.17.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+Downloading: http://192.168.30.72:8081/nexus/content/groups/public/com/ximucredit/platform/gds-platform-cif/1.34.0-SNAPSHOT/maven-metadata.xml
+Downloading: http://192.168.30.72:8081/nexus/content/groups/public/com/ximucredit/platform/gds-platform-credit/1.34.0-SNAPSHOT/maven-metadata.xml
+Downloading: http://192.168.30.72:8081/nexus/content/groups/public/com/ximucredit/shared/gds-shared-datamodel-logic/2.5.1-SNAPSHOT/maven-metadata.xml
+Downloading: http://192.168.30.72:8081/nexus/content/groups/public/com/ximucredit/platform/gds-platform-workflow-impl/1.34.0-SNAPSHOT/maven-metadata.xml
+Downloading: http://192.168.30.72:8081/nexus/content/groups/public/com/ximucredit/platform/gds-platform-order/1.34.0-SNAPSHOT/maven-metadata.xml
+Downloading: http://192.168.30.72:8081/nexus/content/groups/public/com/ximucredit/platform/gds-platform-capital/1.34.0-SNAPSHOT/maven-metadata.xml
+[INFO] 
+[INFO] --- maven-clean-plugin:2.5:clean (default-clean) @ gds-loan-biz-shared ---
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ gds-loan-biz-shared ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 30 resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.1:compile (default-compile) @ gds-loan-biz-shared ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 564 source files to E:\version\gds-loan\app\biz\shared\target\classes
+[WARNING] /E:/version/gds-loan/app/biz/shared/src/main/java/com/ximucredit/loan/biz/shared/wf/listener/DoActionListener.java: 某些输入文件使用或覆盖了已过时的 API。
+[WARNING] /E:/version/gds-loan/app/biz/shared/src/main/java/com/ximucredit/loan/biz/shared/wf/listener/DoActionListener.java: 有关详细信息, 请使用 -Xlint:deprecation 重新编译。
+[WARNING] /E:/version/gds-loan/app/biz/shared/src/main/java/com/ximucredit/loan/biz/shared/bill/repay/query/impl/LoanRepayPlanQueryImpl.java: 某些输入文件使用了未经检查或不安全的操作。
+[WARNING] /E:/version/gds-loan/app/biz/shared/src/main/java/com/ximucredit/loan/biz/shared/bill/repay/query/impl/LoanRepayPlanQueryImpl.java: 有关详细信息, 请使用 -Xlint:unchecked 重新编译。
+[INFO] 
+[INFO] --- maven-antrun-plugin:1.7:run (default) @ gds-loan-biz-shared ---
+[INFO] Executing tasks
+
+main:
+     [echo] project home:        E:\version\gds-loan\app\biz\shared
+     [echo] java home:           C:\Program Files\Java\jdk1.7.0_75\jre
+     [echo] java source version: 1.7
+     [echo] java target version: 1.7
+     [echo] java source charset: UTF-8
+[INFO] Executed tasks
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ gds-loan-biz-shared ---
+[INFO] Not copying test resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.1:testCompile (default-testCompile) @ gds-loan-biz-shared ---
+[INFO] Not compiling test sources
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.16:test (default-test) @ gds-loan-biz-shared ---
+[INFO] Tests are skipped.
+[INFO] 
+[INFO] --- maven-jar-plugin:2.4:jar (default-jar) @ gds-loan-biz-shared ---
+[INFO] Building jar: E:\version\gds-loan\app\biz\shared\target\ximucredit-gds-loan.jar
+[INFO] 
+[INFO] >>> maven-source-plugin:2.2.1:jar (attach-sources) > generate-sources @ gds-loan-biz-shared >>>
+[INFO] 
+[INFO] <<< maven-source-plugin:2.2.1:jar (attach-sources) < generate-sources @ gds-loan-biz-shared <<<
+[INFO] 
+[INFO] --- maven-source-plugin:2.2.1:jar (attach-sources) @ gds-loan-biz-shared ---
+[INFO] Building jar: E:\version\gds-loan\app\biz\shared\target\ximucredit-gds-loan-sources.jar
+[INFO] 
+[INFO] --- maven-install-plugin:2.4:install (default-install) @ gds-loan-biz-shared ---
+[INFO] Installing E:\version\gds-loan\app\biz\shared\target\ximucredit-gds-loan.jar to E:\repository\com\ximucredit\loan\gds-loan-biz-shared\2.17.0-SNAPSHOT\gds-loan-biz-shared-2.17.0-SNAPSHOT.jar
+[INFO] Installing E:\version\gds-loan\app\biz\shared\pom.xml to E:\repository\com\ximucredit\loan\gds-loan-biz-shared\2.17.0-SNAPSHOT\gds-loan-biz-shared-2.17.0-SNAPSHOT.pom
+[INFO] Installing E:\version\gds-loan\app\biz\shared\target\ximucredit-gds-loan-sources.jar to E:\repository\com\ximucredit\loan\gds-loan-biz-shared\2.17.0-SNAPSHOT\gds-loan-biz-shared-2.17.0-SNAPSHOT-sources.jar
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building ximucredit gds loan common datacorpdal 2.17.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:2.5:clean (default-clean) @ gds-loan-common-datacorpdal ---
+[INFO] Deleting E:\version\gds-loan\app\common\datacorpdal\target
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ gds-loan-common-datacorpdal ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 5 resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.1:compile (default-compile) @ gds-loan-common-datacorpdal ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 14 source files to E:\version\gds-loan\app\common\datacorpdal\target\classes
+[WARNING] /E:/version/gds-loan/app/common/datacorpdal/src/main/java/com/ximucredit/dio/dal/dao/impl/ext/DioDataCmdConfigExtDAOImpl.java: E:\version\gds-loan\app\common\datacorpdal\src\main\java\com\ximucredit\dio\dal\dao\impl\ext\DioDataCmdConfigExtDAOImpl.java使用了未经检查或不安全的操作。
+[WARNING] /E:/version/gds-loan/app/common/datacorpdal/src/main/java/com/ximucredit/dio/dal/dao/impl/ext/DioDataCmdConfigExtDAOImpl.java: 有关详细信息, 请使用 -Xlint:unchecked 重新编译。
+[INFO] 
+[INFO] --- maven-antrun-plugin:1.7:run (default) @ gds-loan-common-datacorpdal ---
+[INFO] Executing tasks
+
+main:
+     [echo] project home:        E:\version\gds-loan\app\common\datacorpdal
+     [echo] java home:           C:\Program Files\Java\jdk1.7.0_75\jre
+     [echo] java source version: 1.7
+     [echo] java target version: 1.7
+     [echo] java source charset: UTF-8
+[INFO] Executed tasks
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ gds-loan-common-datacorpdal ---
+[INFO] Not copying test resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.1:testCompile (default-testCompile) @ gds-loan-common-datacorpdal ---
+[INFO] Not compiling test sources
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.16:test (default-test) @ gds-loan-common-datacorpdal ---
+[INFO] Tests are skipped.
+[INFO] 
+[INFO] --- maven-jar-plugin:2.4:jar (default-jar) @ gds-loan-common-datacorpdal ---
+[INFO] Building jar: E:\version\gds-loan\app\common\datacorpdal\target\ximucredit-gds-loan.jar
+[INFO] 
+[INFO] >>> maven-source-plugin:2.2.1:jar (attach-sources) > generate-sources @ gds-loan-common-datacorpdal >>>
+[INFO] 
+[INFO] <<< maven-source-plugin:2.2.1:jar (attach-sources) < generate-sources @ gds-loan-common-datacorpdal <<<
+[INFO] 
+[INFO] --- maven-source-plugin:2.2.1:jar (attach-sources) @ gds-loan-common-datacorpdal ---
+[INFO] Building jar: E:\version\gds-loan\app\common\datacorpdal\target\ximucredit-gds-loan-sources.jar
+[INFO] 
+[INFO] --- maven-install-plugin:2.4:install (default-install) @ gds-loan-common-datacorpdal ---
+[INFO] Installing E:\version\gds-loan\app\common\datacorpdal\target\ximucredit-gds-loan.jar to E:\repository\com\ximucredit\loan\gds-loan-common-datacorpdal\2.17.0-SNAPSHOT\gds-loan-common-datacorpdal-2.17.0-SNAPSHOT.jar
+[INFO] Installing E:\version\gds-loan\app\common\datacorpdal\pom.xml to E:\repository\com\ximucredit\loan\gds-loan-common-datacorpdal\2.17.0-SNAPSHOT\gds-loan-common-datacorpdal-2.17.0-SNAPSHOT.pom
+[INFO] Installing E:\version\gds-loan\app\common\datacorpdal\target\ximucredit-gds-loan-sources.jar to E:\repository\com\ximucredit\loan\gds-loan-common-datacorpdal\2.17.0-SNAPSHOT\gds-loan-common-datacorpdal-2.17.0-SNAPSHOT-sources.jar
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building ximucredit gds loan biz service 2.17.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:2.5:clean (default-clean) @ gds-loan-biz-service-impl ---
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ gds-loan-biz-service-impl ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 4 resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.1:compile (default-compile) @ gds-loan-biz-service-impl ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 11 source files to E:\version\gds-loan\app\biz\service-impl\target\classes
+[WARNING] /E:/version/gds-loan/app/biz/service-impl/src/main/java/com/ximucredit/loan/biz/manager/impl/ServiceFacadeManagerImpl.java: E:\version\gds-loan\app\biz\service-impl\src\main\java\com\ximucredit\loan\biz\manager\impl\ServiceFacadeManagerImpl.java使用了未经检查或不安全的操作。
+[WARNING] /E:/version/gds-loan/app/biz/service-impl/src/main/java/com/ximucredit/loan/biz/manager/impl/ServiceFacadeManagerImpl.java: 有关详细信息, 请使用 -Xlint:unchecked 重新编译。
+[INFO] 
+[INFO] --- maven-antrun-plugin:1.7:run (default) @ gds-loan-biz-service-impl ---
+[INFO] Executing tasks
+
+main:
+     [echo] project home:        E:\version\gds-loan\app\biz\service-impl
+     [echo] java home:           C:\Program Files\Java\jdk1.7.0_75\jre
+     [echo] java source version: 1.7
+     [echo] java target version: 1.7
+     [echo] java source charset: UTF-8
+[INFO] Executed tasks
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ gds-loan-biz-service-impl ---
+[INFO] Not copying test resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.1:testCompile (default-testCompile) @ gds-loan-biz-service-impl ---
+[INFO] Not compiling test sources
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.16:test (default-test) @ gds-loan-biz-service-impl ---
+[INFO] Tests are skipped.
+[INFO] 
+[INFO] --- maven-jar-plugin:2.4:jar (default-jar) @ gds-loan-biz-service-impl ---
+[INFO] Building jar: E:\version\gds-loan\app\biz\service-impl\target\ximucredit-gds-loan.jar
+[INFO] 
+[INFO] >>> maven-source-plugin:2.2.1:jar (attach-sources) > generate-sources @ gds-loan-biz-service-impl >>>
+[INFO] 
+[INFO] <<< maven-source-plugin:2.2.1:jar (attach-sources) < generate-sources @ gds-loan-biz-service-impl <<<
+[INFO] 
+[INFO] --- maven-source-plugin:2.2.1:jar (attach-sources) @ gds-loan-biz-service-impl ---
+[INFO] Building jar: E:\version\gds-loan\app\biz\service-impl\target\ximucredit-gds-loan-sources.jar
+[INFO] 
+[INFO] --- maven-install-plugin:2.4:install (default-install) @ gds-loan-biz-service-impl ---
+[INFO] Installing E:\version\gds-loan\app\biz\service-impl\target\ximucredit-gds-loan.jar to E:\repository\com\ximucredit\loan\gds-loan-biz-service-impl\2.17.0-SNAPSHOT\gds-loan-biz-service-impl-2.17.0-SNAPSHOT.jar
+[INFO] Installing E:\version\gds-loan\app\biz\service-impl\pom.xml to E:\repository\com\ximucredit\loan\gds-loan-biz-service-impl\2.17.0-SNAPSHOT\gds-loan-biz-service-impl-2.17.0-SNAPSHOT.pom
+[INFO] Installing E:\version\gds-loan\app\biz\service-impl\target\ximucredit-gds-loan-sources.jar to E:\repository\com\ximucredit\loan\gds-loan-biz-service-impl\2.17.0-SNAPSHOT\gds-loan-biz-service-impl-2.17.0-SNAPSHOT-sources.jar
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building ximucredit gds loan web 2.17.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:2.5:clean (default-clean) @ gds-loan-web ---
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ gds-loan-web ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 4 resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.1:compile (default-compile) @ gds-loan-web ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 132 source files to E:\version\gds-loan\app\web\home\target\classes
+[WARNING] /E:/version/gds-loan/app/web/home/src/main/java/com/ximucredit/loan/web/home/screen/SystemManager.java: 某些输入文件使用了未经检查或不安全的操作。
+[WARNING] /E:/version/gds-loan/app/web/home/src/main/java/com/ximucredit/loan/web/home/screen/SystemManager.java: 有关详细信息, 请使用 -Xlint:unchecked 重新编译。
+[INFO] 
+[INFO] --- maven-antrun-plugin:1.7:run (default) @ gds-loan-web ---
+[INFO] Executing tasks
+
+main:
+     [echo] project home:        E:\version\gds-loan\app\web\home
+     [echo] java home:           C:\Program Files\Java\jdk1.7.0_75\jre
+     [echo] java source version: 1.7
+     [echo] java target version: 1.7
+     [echo] java source charset: UTF-8
+[INFO] Executed tasks
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ gds-loan-web ---
+[INFO] Not copying test resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.1:testCompile (default-testCompile) @ gds-loan-web ---
+[INFO] Not compiling test sources
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.16:test (default-test) @ gds-loan-web ---
+[INFO] Tests are skipped.
+[INFO] 
+[INFO] --- maven-war-plugin:2.1-alpha-1:war (default-war) @ gds-loan-web ---
+[INFO] Packaging webapp
+[INFO] Assembling webapp[gds-loan-web] in [E:\version\gds-loan\app\web\home\target\gds-loan-web]
+[INFO] Processing war project
+[INFO] Copy webapp webResources[E:\version\gds-loan\app\web\home/src/main/webapp] to[E:\version\gds-loan\app\web\home\target\gds-loan-web]
+[INFO] Webapp assembled in[46389 msecs]
+[INFO] Building war: E:\version\gds-loan\app\web\home\..\..\target\gds-loan-web.war
+[INFO] 
+[INFO] >>> maven-source-plugin:2.2.1:jar (attach-sources) > generate-sources @ gds-loan-web >>>
+[INFO] 
+[INFO] <<< maven-source-plugin:2.2.1:jar (attach-sources) < generate-sources @ gds-loan-web <<<
+[INFO] 
+[INFO] --- maven-source-plugin:2.2.1:jar (attach-sources) @ gds-loan-web ---
+[INFO] Building jar: E:\version\gds-loan\app\web\home\target\gds-loan-web-sources.jar
+[INFO] 
+[INFO] --- autoconfig-maven-plugin:1.2:autoconfig (default) @ gds-loan-web ---
+[INFO] -------------------------------------------------
+[INFO] Detected system charset encoding: GBK
+[INFO] If your can't read the following text, specify correct one like this: 
+[INFO] 
+[INFO]   mvn -Dautoconfig.charset=yourcharset
+[INFO] 
+[INFO] Configuring E:\version\gds-loan\app\web\home\..\..\target\gds-loan-web.war, interactiveMode=auto, strict=true
+[INFO] -------------------------------------------------
+Loading file:/E:/version/gds-loan/antx.properties
+User-defined properties: file:/E:/version/gds-loan/antx.properties
+
+<jar:file:/E:/version/gds-loan/app/web/home/../../target/gds-loan-web.war!/>
+    Generating META-INF/autoconf/loan-config.properties.vm [UTF-8] => WEB-INF/classes/loan-config.properties [UTF-8]
+
+<jar:file:/E:/version/gds-loan/app/web/home/../../target/gds-loan-web.war!/>
+    Generating META-INF/autoconf/logback.xml [UTF-8] => WEB-INF/logback.xml [UTF-8]
+
+<jar:file:/E:/version/gds-loan/app/web/home/../../target/gds-loan-web.war!/>
+    Generating log file: META-INF/autoconf/auto-config.xml.log
+
+[INFO] 
+[INFO] --- maven-install-plugin:2.4:install (default-install) @ gds-loan-web ---
+[INFO] Installing E:\version\gds-loan\app\web\home\..\..\target\gds-loan-web.war to E:\repository\com\ximucredit\loan\gds-loan-web\2.17.0-SNAPSHOT\gds-loan-web-2.17.0-SNAPSHOT.war
+[INFO] Installing E:\version\gds-loan\app\web\home\pom.xml to E:\repository\com\ximucredit\loan\gds-loan-web\2.17.0-SNAPSHOT\gds-loan-web-2.17.0-SNAPSHOT.pom
+[INFO] Installing E:\version\gds-loan\app\web\home\target\gds-loan-web-sources.jar to E:\repository\com\ximucredit\loan\gds-loan-web\2.17.0-SNAPSHOT\gds-loan-web-2.17.0-SNAPSHOT-sources.jar
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Summary:
+[INFO] 
+[INFO] ximucredit gds loan parent ......................... SUCCESS [  1.333 s]
+[INFO] ximucredit gds loan common dal ..................... SUCCESS [ 12.021 s]
+[INFO] ximucredit gds loan common facade .................. SUCCESS [  0.455 s]
+[INFO] ximucredit gds loan common util .................... SUCCESS [  3.920 s]
+[INFO] ximucredit gds loan core model ..................... SUCCESS [  2.450 s]
+[INFO] ximucredit gds loan core service ................... SUCCESS [  0.413 s]
+[INFO] ximucredit gds loan biz shared ..................... SUCCESS [ 14.650 s]
+[INFO] ximucredit gds loan common datacorpdal ............. SUCCESS [  1.587 s]
+[INFO] ximucredit gds loan biz service .................... SUCCESS [  0.967 s]
+[INFO] ximucredit gds loan web ............................ SUCCESS [01:12 min]
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 01:51 min
+[INFO] Finished at: 2017-07-18T16:07:30+08:00
+[INFO] Final Memory: 47M/459M
+[INFO] ------------------------------------------------------------------------
+
+Tue, 18 Jul 2017 16:07:30 common.py[line:72] INFO 
+Tue, 18 Jul 2017 16:08:20 common.py[line:72] INFO [INFO] Scanning for projects...
+[WARNING] 
+[WARNING] Some problems were encountered while building the effective model for com.ximucredit.openapi:gds-openapi-web:war:2.7.0-SNAPSHOT
+[WARNING] 'build.plugins.plugin.version' for org.apache.maven.plugins:maven-war-plugin is missing. @ com.ximucredit.openapi:gds-openapi-web:[unknown-version], E:\version\gds-openapi\gds-openapi-web\pom.xml, line 85, column 21
+[WARNING] 
+[WARNING] It is highly recommended to fix these problems because they threaten the stability of your build.
+[WARNING] 
+[WARNING] For this reason, future Maven versions might no longer support building such malformed projects.
+[WARNING] 
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Build Order:
+[INFO] 
+[INFO] ximucredit gds openapi parent
+[INFO] ximucredit gds openapi common
+[INFO] ximucredit gds openapi dal
+[INFO] ximucredit gds openapi biz
+[INFO] ximucredit gds openapi web
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building ximucredit gds openapi parent 2.7.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:2.5:clean (default-clean) @ gds-openapi-parent ---
+[INFO] Deleting E:\version\gds-openapi\target
+[INFO] 
+[INFO] --- maven-antrun-plugin:1.7:run (default) @ gds-openapi-parent ---
+[INFO] Executing tasks
+
+main:
+     [echo] project home:        E:\version\gds-openapi
+     [echo] java home:           C:\Program Files\Java\jdk1.7.0_75\jre
+     [echo] java source version: 1.6
+     [echo] java target version: 1.6
+     [echo] java source charset: UTF-8
+[INFO] Executed tasks
+[INFO] 
+[INFO] >>> maven-source-plugin:2.2.1:jar (attach-sources) > generate-sources @ gds-openapi-parent >>>
+[INFO] 
+[INFO] <<< maven-source-plugin:2.2.1:jar (attach-sources) < generate-sources @ gds-openapi-parent <<<
+[INFO] 
+[INFO] --- maven-source-plugin:2.2.1:jar (attach-sources) @ gds-openapi-parent ---
+[INFO] 
+[INFO] --- maven-install-plugin:2.4:install (default-install) @ gds-openapi-parent ---
+[INFO] Installing E:\version\gds-openapi\pom.xml to E:\repository\com\ximucredit\openapi\gds-openapi-parent\2.7.0-SNAPSHOT\gds-openapi-parent-2.7.0-SNAPSHOT.pom
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building ximucredit gds openapi common 2.7.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+Downloading: http://192.168.30.72:8081/nexus/content/groups/public/com/ximucredit/shared/gds-shared-common/2.5.1-SNAPSHOT/maven-metadata.xml
+Downloading: http://192.168.30.72:8081/nexus/content/groups/public/com/ximucredit/shared/gds-shared-parent/2.5.1-SNAPSHOT/maven-metadata.xml
+[INFO] 
+[INFO] --- maven-clean-plugin:2.5:clean (default-clean) @ gds-openapi-common ---
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ gds-openapi-common ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 0 resource
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.1:compile (default-compile) @ gds-openapi-common ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 62 source files to E:\version\gds-openapi\gds-openapi-common\target\classes
+[INFO] 
+[INFO] --- maven-antrun-plugin:1.7:run (default) @ gds-openapi-common ---
+[INFO] Executing tasks
+
+main:
+     [echo] project home:        E:\version\gds-openapi\gds-openapi-common
+     [echo] java home:           C:\Program Files\Java\jdk1.7.0_75\jre
+     [echo] java source version: 1.6
+     [echo] java target version: 1.6
+     [echo] java source charset: UTF-8
+[INFO] Executed tasks
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ gds-openapi-common ---
+[INFO] Not copying test resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.1:testCompile (default-testCompile) @ gds-openapi-common ---
+[INFO] Not compiling test sources
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.16:test (default-test) @ gds-openapi-common ---
+[INFO] Tests are skipped.
+[INFO] 
+[INFO] --- maven-jar-plugin:2.4:jar (default-jar) @ gds-openapi-common ---
+[INFO] Building jar: E:\version\gds-openapi\gds-openapi-common\target\ximucredit-gds-openapi.jar
+[INFO] 
+[INFO] >>> maven-source-plugin:2.2.1:jar (attach-sources) > generate-sources @ gds-openapi-common >>>
+[INFO] 
+[INFO] <<< maven-source-plugin:2.2.1:jar (attach-sources) < generate-sources @ gds-openapi-common <<<
+[INFO] 
+[INFO] --- maven-source-plugin:2.2.1:jar (attach-sources) @ gds-openapi-common ---
+[INFO] Building jar: E:\version\gds-openapi\gds-openapi-common\target\ximucredit-gds-openapi-sources.jar
+[INFO] 
+[INFO] --- maven-install-plugin:2.4:install (default-install) @ gds-openapi-common ---
+[INFO] Installing E:\version\gds-openapi\gds-openapi-common\target\ximucredit-gds-openapi.jar to E:\repository\com\ximucredit\openapi\gds-openapi-common\2.7.0-SNAPSHOT\gds-openapi-common-2.7.0-SNAPSHOT.jar
+[INFO] Installing E:\version\gds-openapi\gds-openapi-common\pom.xml to E:\repository\com\ximucredit\openapi\gds-openapi-common\2.7.0-SNAPSHOT\gds-openapi-common-2.7.0-SNAPSHOT.pom
+[INFO] Installing E:\version\gds-openapi\gds-openapi-common\target\ximucredit-gds-openapi-sources.jar to E:\repository\com\ximucredit\openapi\gds-openapi-common\2.7.0-SNAPSHOT\gds-openapi-common-2.7.0-SNAPSHOT-sources.jar
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building ximucredit gds openapi dal 2.7.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:2.5:clean (default-clean) @ gds-openapi-dal ---
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ gds-openapi-dal ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 4 resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.1:compile (default-compile) @ gds-openapi-dal ---
+[INFO] Nothing to compile - all classes are up to date
+[INFO] 
+[INFO] --- maven-antrun-plugin:1.7:run (default) @ gds-openapi-dal ---
+[INFO] Executing tasks
+
+main:
+     [echo] project home:        E:\version\gds-openapi\gds-openapi-dal
+     [echo] java home:           C:\Program Files\Java\jdk1.7.0_75\jre
+     [echo] java source version: 1.6
+     [echo] java target version: 1.6
+     [echo] java source charset: UTF-8
+[INFO] Executed tasks
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ gds-openapi-dal ---
+[INFO] Not copying test resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.1:testCompile (default-testCompile) @ gds-openapi-dal ---
+[INFO] Not compiling test sources
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.16:test (default-test) @ gds-openapi-dal ---
+[INFO] Tests are skipped.
+[INFO] 
+[INFO] --- maven-jar-plugin:2.4:jar (default-jar) @ gds-openapi-dal ---
+[INFO] Building jar: E:\version\gds-openapi\gds-openapi-dal\target\ximucredit-gds-openapi.jar
+[INFO] 
+[INFO] >>> maven-source-plugin:2.2.1:jar (attach-sources) > generate-sources @ gds-openapi-dal >>>
+[INFO] 
+[INFO] <<< maven-source-plugin:2.2.1:jar (attach-sources) < generate-sources @ gds-openapi-dal <<<
+[INFO] 
+[INFO] --- maven-source-plugin:2.2.1:jar (attach-sources) @ gds-openapi-dal ---
+[INFO] Building jar: E:\version\gds-openapi\gds-openapi-dal\target\ximucredit-gds-openapi-sources.jar
+[INFO] 
+[INFO] --- maven-install-plugin:2.4:install (default-install) @ gds-openapi-dal ---
+[INFO] Installing E:\version\gds-openapi\gds-openapi-dal\target\ximucredit-gds-openapi.jar to E:\repository\com\ximucredit\openapi\gds-openapi-dal\2.7.0-SNAPSHOT\gds-openapi-dal-2.7.0-SNAPSHOT.jar
+[INFO] Installing E:\version\gds-openapi\gds-openapi-dal\pom.xml to E:\repository\com\ximucredit\openapi\gds-openapi-dal\2.7.0-SNAPSHOT\gds-openapi-dal-2.7.0-SNAPSHOT.pom
+[INFO] Installing E:\version\gds-openapi\gds-openapi-dal\target\ximucredit-gds-openapi-sources.jar to E:\repository\com\ximucredit\openapi\gds-openapi-dal\2.7.0-SNAPSHOT\gds-openapi-dal-2.7.0-SNAPSHOT-sources.jar
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building ximucredit gds openapi biz 2.7.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+Downloading: http://192.168.30.72:8081/nexus/content/groups/public/com/ximucredit/shared/gds-shared-facade/2.5.1-SNAPSHOT/maven-metadata.xml
+Downloading: http://192.168.30.72:8081/nexus/content/groups/public/com/ximucredit/loan/gds-loan-common-facade/2.17.0-SNAPSHOT/maven-metadata.xml
+Downloading: http://192.168.30.72:8081/nexus/content/groups/public/com/ximucredit/loan/gds-loan-parent/2.17.0-SNAPSHOT/maven-metadata.xml
+Downloading: http://192.168.30.72:8081/nexus/content/groups/public/com/ximucredit/platform/gds-platform-util/1.34.0-SNAPSHOT/maven-metadata.xml
+Downloading: http://192.168.30.72:8081/nexus/content/groups/public/com/ximucredit/platform/gds-platform-parent/1.34.0-SNAPSHOT/maven-metadata.xml
+Downloading: http://192.168.30.72:8081/nexus/content/groups/public/com/ximucredit/platform/gds-platform-dal/1.34.0-SNAPSHOT/maven-metadata.xml
+Downloading: http://192.168.30.72:8081/nexus/content/groups/public/com/ximucredit/shared/gds-shared-message-center/2.5.1-SNAPSHOT/maven-metadata.xml
+Downloading: http://192.168.30.72:8081/nexus/content/groups/public/com/ximucredit/platform/gds-platform-common/1.34.0-SNAPSHOT/maven-metadata.xml
+Downloading: http://192.168.30.72:8081/nexus/content/groups/public/com/ximucredit/platform/gds-platform-dataswap/1.34.0-SNAPSHOT/maven-metadata.xml
+[INFO] 
+[INFO] --- maven-clean-plugin:2.5:clean (default-clean) @ gds-openapi-biz ---
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ gds-openapi-biz ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 3 resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.1:compile (default-compile) @ gds-openapi-biz ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 36 source files to E:\version\gds-openapi\gds-openapi-biz\target\classes
+[INFO] 
+[INFO] --- maven-antrun-plugin:1.7:run (default) @ gds-openapi-biz ---
+[INFO] Executing tasks
+
+main:
+     [echo] project home:        E:\version\gds-openapi\gds-openapi-biz
+     [echo] java home:           C:\Program Files\Java\jdk1.7.0_75\jre
+     [echo] java source version: 1.6
+     [echo] java target version: 1.6
+     [echo] java source charset: UTF-8
+[INFO] Executed tasks
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ gds-openapi-biz ---
+[INFO] Not copying test resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.1:testCompile (default-testCompile) @ gds-openapi-biz ---
+[INFO] Not compiling test sources
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.16:test (default-test) @ gds-openapi-biz ---
+[INFO] Tests are skipped.
+[INFO] 
+[INFO] --- maven-jar-plugin:2.4:jar (default-jar) @ gds-openapi-biz ---
+[INFO] Building jar: E:\version\gds-openapi\gds-openapi-biz\target\ximucredit-gds-openapi.jar
+[INFO] 
+[INFO] >>> maven-source-plugin:2.2.1:jar (attach-sources) > generate-sources @ gds-openapi-biz >>>
+[INFO] 
+[INFO] <<< maven-source-plugin:2.2.1:jar (attach-sources) < generate-sources @ gds-openapi-biz <<<
+[INFO] 
+[INFO] --- maven-source-plugin:2.2.1:jar (attach-sources) @ gds-openapi-biz ---
+[INFO] Building jar: E:\version\gds-openapi\gds-openapi-biz\target\ximucredit-gds-openapi-sources.jar
+[INFO] 
+[INFO] --- maven-install-plugin:2.4:install (default-install) @ gds-openapi-biz ---
+[INFO] Installing E:\version\gds-openapi\gds-openapi-biz\target\ximucredit-gds-openapi.jar to E:\repository\com\ximucredit\openapi\gds-openapi-biz\2.7.0-SNAPSHOT\gds-openapi-biz-2.7.0-SNAPSHOT.jar
+[INFO] Installing E:\version\gds-openapi\gds-openapi-biz\pom.xml to E:\repository\com\ximucredit\openapi\gds-openapi-biz\2.7.0-SNAPSHOT\gds-openapi-biz-2.7.0-SNAPSHOT.pom
+[INFO] Installing E:\version\gds-openapi\gds-openapi-biz\target\ximucredit-gds-openapi-sources.jar to E:\repository\com\ximucredit\openapi\gds-openapi-biz\2.7.0-SNAPSHOT\gds-openapi-biz-2.7.0-SNAPSHOT-sources.jar
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building ximucredit gds openapi web 2.7.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:2.5:clean (default-clean) @ gds-openapi-web ---
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ gds-openapi-web ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 3 resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.1:compile (default-compile) @ gds-openapi-web ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 42 source files to E:\version\gds-openapi\gds-openapi-web\target\classes
+[WARNING] /E:/version/gds-openapi/gds-openapi-web/src/main/java/com/ximucredit/openapi/web/home/screen/ThirdServices.java: 某些输入文件使用了未经检查或不安全的操作。
+[WARNING] /E:/version/gds-openapi/gds-openapi-web/src/main/java/com/ximucredit/openapi/web/home/screen/ThirdServices.java: 有关详细信息, 请使用 -Xlint:unchecked 重新编译。
+[INFO] 
+[INFO] --- maven-antrun-plugin:1.7:run (default) @ gds-openapi-web ---
+[INFO] Executing tasks
+
+main:
+     [echo] project home:        E:\version\gds-openapi\gds-openapi-web
+     [echo] java home:           C:\Program Files\Java\jdk1.7.0_75\jre
+     [echo] java source version: 1.6
+     [echo] java target version: 1.6
+     [echo] java source charset: UTF-8
+[INFO] Executed tasks
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ gds-openapi-web ---
+[INFO] Not copying test resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.1:testCompile (default-testCompile) @ gds-openapi-web ---
+[INFO] Not compiling test sources
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.16:test (default-test) @ gds-openapi-web ---
+[INFO] Tests are skipped.
+[INFO] 
+[INFO] --- maven-war-plugin:2.2:war (default-war) @ gds-openapi-web ---
+[INFO] Packaging webapp
+[INFO] Assembling webapp [gds-openapi-web] in [E:\version\gds-openapi\gds-openapi-web\target\gds-openapi-web]
+[INFO] Processing war project
+[INFO] Copying webapp webResources [E:\version\gds-openapi\gds-openapi-web/src/main/webapp] to [E:\version\gds-openapi\gds-openapi-web\target\gds-openapi-web]
+[INFO] Copying webapp resources [E:\version\gds-openapi\gds-openapi-web\src\main\webapp]
+[INFO] Webapp assembled in [4343 msecs]
+[INFO] Building war: E:\version\gds-openapi\gds-openapi-web\..\target\gds-openapi-web.war
+[INFO] WEB-INF\web.xml already added, skipping
+[INFO] 
+[INFO] >>> maven-source-plugin:2.2.1:jar (attach-sources) > generate-sources @ gds-openapi-web >>>
+[INFO] 
+[INFO] <<< maven-source-plugin:2.2.1:jar (attach-sources) < generate-sources @ gds-openapi-web <<<
+[INFO] 
+[INFO] --- maven-source-plugin:2.2.1:jar (attach-sources) @ gds-openapi-web ---
+[INFO] Building jar: E:\version\gds-openapi\gds-openapi-web\target\gds-openapi-web-sources.jar
+[INFO] 
+[INFO] --- autoconfig-maven-plugin:1.2:autoconfig (default) @ gds-openapi-web ---
+[INFO] -------------------------------------------------
+[INFO] Detected system charset encoding: GBK
+[INFO] If your can't read the following text, specify correct one like this: 
+[INFO] 
+[INFO]   mvn -Dautoconfig.charset=yourcharset
+[INFO] 
+[INFO] Configuring E:\version\gds-openapi\gds-openapi-web\..\target\gds-openapi-web.war, interactiveMode=auto, strict=true
+[INFO] -------------------------------------------------
+Loading file:/E:/version/gds-openapi/antx.properties
+User-defined properties: file:/E:/version/gds-openapi/antx.properties
+
+<jar:file:/E:/version/gds-openapi/gds-openapi-web/../target/gds-openapi-web.war!/>
+    Generating META-INF/autoconf/gds-openapi-biz-interceptor.xml [UTF-8] => WEB-INF/classes/META-INF/spring/gds-openapi-biz-interceptor.xml [UTF-8]
+
+<jar:file:/E:/version/gds-openapi/gds-openapi-web/../target/gds-openapi-web.war!/>
+    Generating META-INF/autoconf/logback.xml [UTF-8] => WEB-INF/logback.xml [UTF-8]
+
+<jar:file:/E:/version/gds-openapi/gds-openapi-web/../target/gds-openapi-web.war!/>
+    Generating META-INF/autoconf/openapi-config.properties.vm [UTF-8] => WEB-INF/classes/openapi-config.properties [UTF-8]
+
+<jar:file:/E:/version/gds-openapi/gds-openapi-web/../target/gds-openapi-web.war!/>
+    Generating log file: META-INF/autoconf/auto-config.xml.log
+
+[INFO] 
+[INFO] --- maven-install-plugin:2.4:install (default-install) @ gds-openapi-web ---
+[INFO] Installing E:\version\gds-openapi\gds-openapi-web\..\target\gds-openapi-web.war to E:\repository\com\ximucredit\openapi\gds-openapi-web\2.7.0-SNAPSHOT\gds-openapi-web-2.7.0-SNAPSHOT.war
+[INFO] Installing E:\version\gds-openapi\gds-openapi-web\pom.xml to E:\repository\com\ximucredit\openapi\gds-openapi-web\2.7.0-SNAPSHOT\gds-openapi-web-2.7.0-SNAPSHOT.pom
+[INFO] Installing E:\version\gds-openapi\gds-openapi-web\target\gds-openapi-web-sources.jar to E:\repository\com\ximucredit\openapi\gds-openapi-web\2.7.0-SNAPSHOT\gds-openapi-web-2.7.0-SNAPSHOT-sources.jar
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Summary:
+[INFO] 
+[INFO] ximucredit gds openapi parent ...................... SUCCESS [  1.206 s]
+[INFO] ximucredit gds openapi common ...................... SUCCESS [  3.247 s]
+[INFO] ximucredit gds openapi dal ......................... SUCCESS [  0.342 s]
+[INFO] ximucredit gds openapi biz ......................... SUCCESS [  3.284 s]
+[INFO] ximucredit gds openapi web ......................... SUCCESS [ 20.375 s]
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 28.701 s
+[INFO] Finished at: 2017-07-18T16:08:20+08:00
+[INFO] Final Memory: 37M/400M
+[INFO] ------------------------------------------------------------------------
+
+Tue, 18 Jul 2017 16:08:20 common.py[line:72] INFO 
+Tue, 18 Jul 2017 16:10:10 common.py[line:72] INFO [INFO] Scanning for projects...
+[WARNING] 
+[WARNING] Some problems were encountered while building the effective model for com.ximucredit.openapi:gds-openapi-web:war:2.6.0-SNAPSHOT
+[WARNING] 'build.plugins.plugin.version' for org.apache.maven.plugins:maven-war-plugin is missing. @ com.ximucredit.openapi:gds-openapi-web:[unknown-version], E:\version\uat-web\gds-openapi-web\pom.xml, line 86, column 21
+[WARNING] 
+[WARNING] It is highly recommended to fix these problems because they threaten the stability of your build.
+[WARNING] 
+[WARNING] For this reason, future Maven versions might no longer support building such malformed projects.
+[WARNING] 
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Build Order:
+[INFO] 
+[INFO] ximucredit gds openapi parent
+[INFO] ximucredit gds openapi common
+[INFO] ximucredit gds openapi dal
+[INFO] ximucredit gds openapi biz
+[INFO] ximucredit gds openapi web
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building ximucredit gds openapi parent 2.6.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:2.5:clean (default-clean) @ gds-openapi-parent ---
+[INFO] Deleting E:\version\uat-web\target
+[INFO] 
+[INFO] --- maven-antrun-plugin:1.7:run (default) @ gds-openapi-parent ---
+[INFO] Executing tasks
+
+main:
+     [echo] project home:        E:\version\uat-web
+     [echo] java home:           C:\Program Files\Java\jdk1.7.0_75\jre
+     [echo] java source version: 1.6
+     [echo] java target version: 1.6
+     [echo] java source charset: UTF-8
+[INFO] Executed tasks
+[INFO] 
+[INFO] >>> maven-source-plugin:2.2.1:jar (attach-sources) > generate-sources @ gds-openapi-parent >>>
+[INFO] 
+[INFO] <<< maven-source-plugin:2.2.1:jar (attach-sources) < generate-sources @ gds-openapi-parent <<<
+[INFO] 
+[INFO] --- maven-source-plugin:2.2.1:jar (attach-sources) @ gds-openapi-parent ---
+[INFO] 
+[INFO] --- maven-install-plugin:2.4:install (default-install) @ gds-openapi-parent ---
+[INFO] Installing E:\version\uat-web\pom.xml to E:\repository\com\ximucredit\openapi\gds-openapi-parent\2.6.0-SNAPSHOT\gds-openapi-parent-2.6.0-SNAPSHOT.pom
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building ximucredit gds openapi common 2.6.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+Downloading: http://192.168.30.72:8081/nexus/content/groups/public/com/ximucredit/shared/gds-shared-common/2.5.1-SNAPSHOT/maven-metadata.xml
+Downloading: http://192.168.30.72:8081/nexus/content/groups/public/com/ximucredit/shared/gds-shared-parent/2.5.1-SNAPSHOT/maven-metadata.xml
+[INFO] 
+[INFO] --- maven-clean-plugin:2.5:clean (default-clean) @ gds-openapi-common ---
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ gds-openapi-common ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 0 resource
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.1:compile (default-compile) @ gds-openapi-common ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 70 source files to E:\version\uat-web\gds-openapi-common\target\classes
+[INFO] 
+[INFO] --- maven-antrun-plugin:1.7:run (default) @ gds-openapi-common ---
+[INFO] Executing tasks
+
+main:
+     [echo] project home:        E:\version\uat-web\gds-openapi-common
+     [echo] java home:           C:\Program Files\Java\jdk1.7.0_75\jre
+     [echo] java source version: 1.6
+     [echo] java target version: 1.6
+     [echo] java source charset: UTF-8
+[INFO] Executed tasks
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ gds-openapi-common ---
+[INFO] Not copying test resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.1:testCompile (default-testCompile) @ gds-openapi-common ---
+[INFO] Not compiling test sources
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.16:test (default-test) @ gds-openapi-common ---
+[INFO] Tests are skipped.
+[INFO] 
+[INFO] --- maven-jar-plugin:2.4:jar (default-jar) @ gds-openapi-common ---
+[INFO] Building jar: E:\version\uat-web\gds-openapi-common\target\ximucredit-gds-openapi.jar
+[INFO] 
+[INFO] >>> maven-source-plugin:2.2.1:jar (attach-sources) > generate-sources @ gds-openapi-common >>>
+[INFO] 
+[INFO] <<< maven-source-plugin:2.2.1:jar (attach-sources) < generate-sources @ gds-openapi-common <<<
+[INFO] 
+[INFO] --- maven-source-plugin:2.2.1:jar (attach-sources) @ gds-openapi-common ---
+[INFO] Building jar: E:\version\uat-web\gds-openapi-common\target\ximucredit-gds-openapi-sources.jar
+[INFO] 
+[INFO] --- maven-install-plugin:2.4:install (default-install) @ gds-openapi-common ---
+[INFO] Installing E:\version\uat-web\gds-openapi-common\target\ximucredit-gds-openapi.jar to E:\repository\com\ximucredit\openapi\gds-openapi-common\2.6.0-SNAPSHOT\gds-openapi-common-2.6.0-SNAPSHOT.jar
+[INFO] Installing E:\version\uat-web\gds-openapi-common\pom.xml to E:\repository\com\ximucredit\openapi\gds-openapi-common\2.6.0-SNAPSHOT\gds-openapi-common-2.6.0-SNAPSHOT.pom
+[INFO] Installing E:\version\uat-web\gds-openapi-common\target\ximucredit-gds-openapi-sources.jar to E:\repository\com\ximucredit\openapi\gds-openapi-common\2.6.0-SNAPSHOT\gds-openapi-common-2.6.0-SNAPSHOT-sources.jar
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building ximucredit gds openapi dal 2.6.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:2.5:clean (default-clean) @ gds-openapi-dal ---
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ gds-openapi-dal ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 4 resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.1:compile (default-compile) @ gds-openapi-dal ---
+[INFO] Nothing to compile - all classes are up to date
+[INFO] 
+[INFO] --- maven-antrun-plugin:1.7:run (default) @ gds-openapi-dal ---
+[INFO] Executing tasks
+
+main:
+     [echo] project home:        E:\version\uat-web\gds-openapi-dal
+     [echo] java home:           C:\Program Files\Java\jdk1.7.0_75\jre
+     [echo] java source version: 1.6
+     [echo] java target version: 1.6
+     [echo] java source charset: UTF-8
+[INFO] Executed tasks
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ gds-openapi-dal ---
+[INFO] Not copying test resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.1:testCompile (default-testCompile) @ gds-openapi-dal ---
+[INFO] Not compiling test sources
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.16:test (default-test) @ gds-openapi-dal ---
+[INFO] Tests are skipped.
+[INFO] 
+[INFO] --- maven-jar-plugin:2.4:jar (default-jar) @ gds-openapi-dal ---
+[INFO] Building jar: E:\version\uat-web\gds-openapi-dal\target\ximucredit-gds-openapi.jar
+[INFO] 
+[INFO] >>> maven-source-plugin:2.2.1:jar (attach-sources) > generate-sources @ gds-openapi-dal >>>
+[INFO] 
+[INFO] <<< maven-source-plugin:2.2.1:jar (attach-sources) < generate-sources @ gds-openapi-dal <<<
+[INFO] 
+[INFO] --- maven-source-plugin:2.2.1:jar (attach-sources) @ gds-openapi-dal ---
+[INFO] Building jar: E:\version\uat-web\gds-openapi-dal\target\ximucredit-gds-openapi-sources.jar
+[INFO] 
+[INFO] --- maven-install-plugin:2.4:install (default-install) @ gds-openapi-dal ---
+[INFO] Installing E:\version\uat-web\gds-openapi-dal\target\ximucredit-gds-openapi.jar to E:\repository\com\ximucredit\openapi\gds-openapi-dal\2.6.0-SNAPSHOT\gds-openapi-dal-2.6.0-SNAPSHOT.jar
+[INFO] Installing E:\version\uat-web\gds-openapi-dal\pom.xml to E:\repository\com\ximucredit\openapi\gds-openapi-dal\2.6.0-SNAPSHOT\gds-openapi-dal-2.6.0-SNAPSHOT.pom
+[INFO] Installing E:\version\uat-web\gds-openapi-dal\target\ximucredit-gds-openapi-sources.jar to E:\repository\com\ximucredit\openapi\gds-openapi-dal\2.6.0-SNAPSHOT\gds-openapi-dal-2.6.0-SNAPSHOT-sources.jar
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building ximucredit gds openapi biz 2.6.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+Downloading: http://192.168.30.72:8081/nexus/content/groups/public/com/ximucredit/shared/gds-shared-facade/2.5.1-SNAPSHOT/maven-metadata.xml
+Downloading: http://192.168.30.72:8081/nexus/content/groups/public/com/ximucredit/loan/gds-loan-common-facade/2.17.0-SNAPSHOT/maven-metadata.xml
+Downloading: http://192.168.30.72:8081/nexus/content/groups/public/com/ximucredit/loan/gds-loan-parent/2.17.0-SNAPSHOT/maven-metadata.xml
+Downloading: http://192.168.30.72:8081/nexus/content/groups/public/com/ximucredit/platform/gds-platform-util/1.34.0-SNAPSHOT/maven-metadata.xml
+Downloading: http://192.168.30.72:8081/nexus/content/groups/public/com/ximucredit/platform/gds-platform-parent/1.34.0-SNAPSHOT/maven-metadata.xml
+Downloading: http://192.168.30.72:8081/nexus/content/groups/public/com/ximucredit/platform/gds-platform-dal/1.34.0-SNAPSHOT/maven-metadata.xml
+Downloading: http://192.168.30.72:8081/nexus/content/groups/public/com/ximucredit/shared/gds-shared-message-center/2.5.1-SNAPSHOT/maven-metadata.xml
+Downloading: http://192.168.30.72:8081/nexus/content/groups/public/com/ximucredit/platform/gds-platform-common/1.34.0-SNAPSHOT/maven-metadata.xml
+Downloading: http://192.168.30.72:8081/nexus/content/groups/public/com/ximucredit/platform/gds-platform-dataswap/1.34.0-SNAPSHOT/maven-metadata.xml
+[INFO] 
+[INFO] --- maven-clean-plugin:2.5:clean (default-clean) @ gds-openapi-biz ---
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ gds-openapi-biz ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 3 resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.1:compile (default-compile) @ gds-openapi-biz ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 37 source files to E:\version\uat-web\gds-openapi-biz\target\classes
+[INFO] 
+[INFO] --- maven-antrun-plugin:1.7:run (default) @ gds-openapi-biz ---
+[INFO] Executing tasks
+
+main:
+     [echo] project home:        E:\version\uat-web\gds-openapi-biz
+     [echo] java home:           C:\Program Files\Java\jdk1.7.0_75\jre
+     [echo] java source version: 1.6
+     [echo] java target version: 1.6
+     [echo] java source charset: UTF-8
+[INFO] Executed tasks
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ gds-openapi-biz ---
+[INFO] Not copying test resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.1:testCompile (default-testCompile) @ gds-openapi-biz ---
+[INFO] Not compiling test sources
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.16:test (default-test) @ gds-openapi-biz ---
+[INFO] Tests are skipped.
+[INFO] 
+[INFO] --- maven-jar-plugin:2.4:jar (default-jar) @ gds-openapi-biz ---
+[INFO] Building jar: E:\version\uat-web\gds-openapi-biz\target\ximucredit-gds-openapi.jar
+[INFO] 
+[INFO] >>> maven-source-plugin:2.2.1:jar (attach-sources) > generate-sources @ gds-openapi-biz >>>
+[INFO] 
+[INFO] <<< maven-source-plugin:2.2.1:jar (attach-sources) < generate-sources @ gds-openapi-biz <<<
+[INFO] 
+[INFO] --- maven-source-plugin:2.2.1:jar (attach-sources) @ gds-openapi-biz ---
+[INFO] Building jar: E:\version\uat-web\gds-openapi-biz\target\ximucredit-gds-openapi-sources.jar
+[INFO] 
+[INFO] --- maven-install-plugin:2.4:install (default-install) @ gds-openapi-biz ---
+[INFO] Installing E:\version\uat-web\gds-openapi-biz\target\ximucredit-gds-openapi.jar to E:\repository\com\ximucredit\openapi\gds-openapi-biz\2.6.0-SNAPSHOT\gds-openapi-biz-2.6.0-SNAPSHOT.jar
+[INFO] Installing E:\version\uat-web\gds-openapi-biz\pom.xml to E:\repository\com\ximucredit\openapi\gds-openapi-biz\2.6.0-SNAPSHOT\gds-openapi-biz-2.6.0-SNAPSHOT.pom
+[INFO] Installing E:\version\uat-web\gds-openapi-biz\target\ximucredit-gds-openapi-sources.jar to E:\repository\com\ximucredit\openapi\gds-openapi-biz\2.6.0-SNAPSHOT\gds-openapi-biz-2.6.0-SNAPSHOT-sources.jar
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building ximucredit gds openapi web 2.6.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:2.5:clean (default-clean) @ gds-openapi-web ---
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ gds-openapi-web ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 3 resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.1:compile (default-compile) @ gds-openapi-web ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 460 source files to E:\version\uat-web\gds-openapi-web\target\classes
+[WARNING] /E:/version/uat-web/gds-openapi-web/src/main/java/com/ximucredit/openapi/web/third/screen/yzhig/LoanManageService.java:[17,16] sun.misc.BASE64Decoder是内部专用 API, 可能会在未来发行版中删除
+[WARNING] /E:/version/uat-web/gds-openapi-web/src/main/java/com/ximucredit/openapi/web/third/screen/ypiany/LoanManageService.java:[17,16] sun.misc.BASE64Decoder是内部专用 API, 可能会在未来发行版中删除
+[WARNING] /E:/version/uat-web/gds-openapi-web/src/main/java/com/ximucredit/openapi/web/third/screen/whuasc/LoanManageService.java:[17,16] sun.misc.BASE64Decoder是内部专用 API, 可能会在未来发行版中删除
+[WARNING] /E:/version/uat-web/gds-openapi-web/src/main/java/com/ximucredit/openapi/web/third/screen/jzhuay/LoanManageService.java:[17,16] sun.misc.BASE64Decoder是内部专用 API, 可能会在未来发行版中删除
+[WARNING] /E:/version/uat-web/gds-openapi-web/src/main/java/com/ximucredit/openapi/web/third/screen/zshad/LoanManageService.java:[17,16] sun.misc.BASE64Decoder是内部专用 API, 可能会在未来发行版中删除
+[WARNING] /E:/version/uat-web/gds-openapi-web/src/main/java/com/ximucredit/openapi/web/third/screen/gguanys/LoanManageService.java:[17,16] sun.misc.BASE64Decoder是内部专用 API, 可能会在未来发行版中删除
+[WARNING] /E:/version/uat-web/gds-openapi-web/src/main/java/com/ximucredit/openapi/web/third/screen/czb/LoanManageService.java:[17,16] sun.misc.BASE64Decoder是内部专用 API, 可能会在未来发行版中删除
+[WARNING] /E:/version/uat-web/gds-openapi-web/src/main/java/com/ximucredit/openapi/web/third/screen/ypeic/LoanManageService.java:[17,16] sun.misc.BASE64Decoder是内部专用 API, 可能会在未来发行版中删除
+[WARNING] /E:/version/uat-web/gds-openapi-web/src/main/java/com/ximucredit/openapi/web/third/screen/azhuangt/LoanManageService.java:[17,16] sun.misc.BASE64Decoder是内部专用 API, 可能会在未来发行版中删除
+[WARNING] /E:/version/uat-web/gds-openapi-web/src/main/java/com/ximucredit/openapi/web/third/screen/hqiangxc/LoanManageService.java:[17,16] sun.misc.BASE64Decoder是内部专用 API, 可能会在未来发行版中删除
+[WARNING] /E:/version/uat-web/gds-openapi-web/src/main/java/com/ximucredit/openapi/web/third/screen/jhew/LoanManageService.java:[17,16] sun.misc.BASE64Decoder是内部专用 API, 可能会在未来发行版中删除
+[WARNING] /E:/version/uat-web/gds-openapi-web/src/main/java/com/ximucredit/openapi/web/third/screen/yqit/LoanManageService.java:[17,16] sun.misc.BASE64Decoder是内部专用 API, 可能会在未来发行版中删除
+[WARNING] /E:/version/uat-web/gds-openapi-web/src/main/java/com/ximucredit/openapi/web/third/screen/jkoub/LoanManageService.java:[21,16] sun.misc.BASE64Decoder是内部专用 API, 可能会在未来发行版中删除
+[WARNING] /E:/version/uat-web/gds-openapi-web/src/main/java/com/ximucredit/openapi/web/third/screen/smuw/LoanManageService.java:[17,16] sun.misc.BASE64Decoder是内部专用 API, 可能会在未来发行版中删除
+[WARNING] /E:/version/uat-web/gds-openapi-web/src/main/java/com/ximucredit/openapi/web/third/screen/gpinyh/LoanManageService.java:[17,16] sun.misc.BASE64Decoder是内部专用 API, 可能会在未来发行版中删除
+[WARNING] /E:/version/uat-web/gds-openapi-web/src/main/java/com/ximucredit/openapi/web/third/screen/kdianq/LoanManageService.java:[17,16] sun.misc.BASE64Decoder是内部专用 API, 可能会在未来发行版中删除
+[WARNING] /E:/version/uat-web/gds-openapi-web/src/main/java/com/ximucredit/openapi/web/third/screen/dcaidy/LoanManageService.java:[17,16] sun.misc.BASE64Decoder是内部专用 API, 可能会在未来发行版中删除
+[WARNING] /E:/version/uat-web/gds-openapi-web/src/main/java/com/ximucredit/openapi/web/third/screen/yzhig/LoanManageService.java:[395,9] sun.misc.BASE64Decoder是内部专用 API, 可能会在未来发行版中删除
+[WARNING] /E:/version/uat-web/gds-openapi-web/src/main/java/com/ximucredit/openapi/web/third/screen/yzhig/LoanManageService.java:[395,45] sun.misc.BASE64Decoder是内部专用 API, 可能会在未来发行版中删除
+[WARNING] /E:/version/uat-web/gds-openapi-web/src/main/java/com/ximucredit/openapi/web/third/screen/ypiany/LoanManageService.java:[428,9] sun.misc.BASE64Decoder是内部专用 API, 可能会在未来发行版中删除
+[WARNING] /E:/version/uat-web/gds-openapi-web/src/main/java/com/ximucredit/openapi/web/third/screen/ypiany/LoanManageService.java:[428,45] sun.misc.BASE64Decoder是内部专用 API, 可能会在未来发行版中删除
+[WARNING] /E:/version/uat-web/gds-openapi-web/src/main/java/com/ximucredit/openapi/web/third/screen/whuasc/LoanManageService.java:[427,9] sun.misc.BASE64Decoder是内部专用 API, 可能会在未来发行版中删除
+[WARNING] /E:/version/uat-web/gds-openapi-web/src/main/java/com/ximucredit/openapi/web/third/screen/whuasc/LoanManageService.java:[427,45] sun.misc.BASE64Decoder是内部专用 API, 可能会在未来发行版中删除
+[WARNING] /E:/version/uat-web/gds-openapi-web/src/main/java/com/ximucredit/openapi/web/third/screen/jzhuay/LoanManageService.java:[393,9] sun.misc.BASE64Decoder是内部专用 API, 可能会在未来发行版中删除
+[WARNING] /E:/version/uat-web/gds-openapi-web/src/main/java/com/ximucredit/openapi/web/third/screen/jzhuay/LoanManageService.java:[393,45] sun.misc.BASE64Decoder是内部专用 API, 可能会在未来发行版中删除
+[WARNING] /E:/version/uat-web/gds-openapi-web/src/main/java/com/ximucredit/openapi/web/third/screen/zshad/LoanManageService.java:[426,9] sun.misc.BASE64Decoder是内部专用 API, 可能会在未来发行版中删除
+[WARNING] /E:/version/uat-web/gds-openapi-web/src/main/java/com/ximucredit/openapi/web/third/screen/zshad/LoanManageService.java:[426,45] sun.misc.BASE64Decoder是内部专用 API, 可能会在未来发行版中删除
+[WARNING] /E:/version/uat-web/gds-openapi-web/src/main/java/com/ximucredit/openapi/web/third/screen/gguanys/LoanManageService.java:[427,9] sun.misc.BASE64Decoder是内部专用 API, 可能会在未来发行版中删除
+[WARNING] /E:/version/uat-web/gds-openapi-web/src/main/java/com/ximucredit/openapi/web/third/screen/gguanys/LoanManageService.java:[427,45] sun.misc.BASE64Decoder是内部专用 API, 可能会在未来发行版中删除
+[WARNING] /E:/version/uat-web/gds-openapi-web/src/main/java/com/ximucredit/openapi/web/third/screen/czb/LoanManageService.java:[383,9] sun.misc.BASE64Decoder是内部专用 API, 可能会在未来发行版中删除
+[WARNING] /E:/version/uat-web/gds-openapi-web/src/main/java/com/ximucredit/openapi/web/third/screen/czb/LoanManageService.java:[383,45] sun.misc.BASE64Decoder是内部专用 API, 可能会在未来发行版中删除
+[WARNING] /E:/version/uat-web/gds-openapi-web/src/main/java/com/ximucredit/openapi/web/third/screen/ypeic/LoanManageService.java:[426,9] sun.misc.BASE64Decoder是内部专用 API, 可能会在未来发行版中删除
+[WARNING] /E:/version/uat-web/gds-openapi-web/src/main/java/com/ximucredit/openapi/web/third/screen/ypeic/LoanManageService.java:[426,45] sun.misc.BASE64Decoder是内部专用 API, 可能会在未来发行版中删除
+[WARNING] /E:/version/uat-web/gds-openapi-web/src/main/java/com/ximucredit/openapi/web/third/screen/azhuangt/LoanManageService.java:[428,9] sun.misc.BASE64Decoder是内部专用 API, 可能会在未来发行版中删除
+[WARNING] /E:/version/uat-web/gds-openapi-web/src/main/java/com/ximucredit/openapi/web/third/screen/azhuangt/LoanManageService.java:[428,45] sun.misc.BASE64Decoder是内部专用 API, 可能会在未来发行版中删除
+[WARNING] /E:/version/uat-web/gds-openapi-web/src/main/java/com/ximucredit/openapi/web/third/screen/hqiangxc/LoanManageService.java:[428,9] sun.misc.BASE64Decoder是内部专用 API, 可能会在未来发行版中删除
+[WARNING] /E:/version/uat-web/gds-openapi-web/src/main/java/com/ximucredit/openapi/web/third/screen/hqiangxc/LoanManageService.java:[428,45] sun.misc.BASE64Decoder是内部专用 API, 可能会在未来发行版中删除
+[WARNING] /E:/version/uat-web/gds-openapi-web/src/main/java/com/ximucredit/openapi/web/third/screen/jhew/LoanManageService.java:[427,9] sun.misc.BASE64Decoder是内部专用 API, 可能会在未来发行版中删除
+[WARNING] /E:/version/uat-web/gds-openapi-web/src/main/java/com/ximucredit/openapi/web/third/screen/jhew/LoanManageService.java:[427,45] sun.misc.BASE64Decoder是内部专用 API, 可能会在未来发行版中删除
+[WARNING] /E:/version/uat-web/gds-openapi-web/src/main/java/com/ximucredit/openapi/web/third/screen/yqit/LoanManageService.java:[427,9] sun.misc.BASE64Decoder是内部专用 API, 可能会在未来发行版中删除
+[WARNING] /E:/version/uat-web/gds-openapi-web/src/main/java/com/ximucredit/openapi/web/third/screen/yqit/LoanManageService.java:[427,45] sun.misc.BASE64Decoder是内部专用 API, 可能会在未来发行版中删除
+[WARNING] /E:/version/uat-web/gds-openapi-web/src/main/java/com/ximucredit/openapi/web/third/screen/jkoub/LoanManageService.java:[406,9] sun.misc.BASE64Decoder是内部专用 API, 可能会在未来发行版中删除
+[WARNING] /E:/version/uat-web/gds-openapi-web/src/main/java/com/ximucredit/openapi/web/third/screen/jkoub/LoanManageService.java:[406,45] sun.misc.BASE64Decoder是内部专用 API, 可能会在未来发行版中删除
+[WARNING] /E:/version/uat-web/gds-openapi-web/src/main/java/com/ximucredit/openapi/web/third/screen/smuw/LoanManageService.java:[427,9] sun.misc.BASE64Decoder是内部专用 API, 可能会在未来发行版中删除
+[WARNING] /E:/version/uat-web/gds-openapi-web/src/main/java/com/ximucredit/openapi/web/third/screen/smuw/LoanManageService.java:[427,45] sun.misc.BASE64Decoder是内部专用 API, 可能会在未来发行版中删除
+[WARNING] /E:/version/uat-web/gds-openapi-web/src/main/java/com/ximucredit/openapi/web/third/screen/gpinyh/LoanManageService.java:[427,9] sun.misc.BASE64Decoder是内部专用 API, 可能会在未来发行版中删除
+[WARNING] /E:/version/uat-web/gds-openapi-web/src/main/java/com/ximucredit/openapi/web/third/screen/gpinyh/LoanManageService.java:[427,45] sun.misc.BASE64Decoder是内部专用 API, 可能会在未来发行版中删除
+[WARNING] /E:/version/uat-web/gds-openapi-web/src/main/java/com/ximucredit/openapi/web/third/screen/kdianq/LoanManageService.java:[426,9] sun.misc.BASE64Decoder是内部专用 API, 可能会在未来发行版中删除
+[WARNING] /E:/version/uat-web/gds-openapi-web/src/main/java/com/ximucredit/openapi/web/third/screen/kdianq/LoanManageService.java:[426,45] sun.misc.BASE64Decoder是内部专用 API, 可能会在未来发行版中删除
+[WARNING] /E:/version/uat-web/gds-openapi-web/src/main/java/com/ximucredit/openapi/web/third/screen/dcaidy/LoanManageService.java:[393,9] sun.misc.BASE64Decoder是内部专用 API, 可能会在未来发行版中删除
+[WARNING] /E:/version/uat-web/gds-openapi-web/src/main/java/com/ximucredit/openapi/web/third/screen/dcaidy/LoanManageService.java:[393,45] sun.misc.BASE64Decoder是内部专用 API, 可能会在未来发行版中删除
+[WARNING] /E:/version/uat-web/gds-openapi-web/src/main/java/com/ximucredit/openapi/web/third/screen/czb/CustAccrFileUpload.java: 某些输入文件使用或覆盖了已过时的 API。
+[WARNING] /E:/version/uat-web/gds-openapi-web/src/main/java/com/ximucredit/openapi/web/third/screen/czb/CustAccrFileUpload.java: 有关详细信息, 请使用 -Xlint:deprecation 重新编译。
+[WARNING] /E:/version/uat-web/gds-openapi-web/src/main/java/com/ximucredit/openapi/web/credit/screen/QueryProdInfoAction.java: 某些输入文件使用了未经检查或不安全的操作。
+[WARNING] /E:/version/uat-web/gds-openapi-web/src/main/java/com/ximucredit/openapi/web/credit/screen/QueryProdInfoAction.java: 有关详细信息, 请使用 -Xlint:unchecked 重新编译。
+[INFO] 
+[INFO] --- maven-antrun-plugin:1.7:run (default) @ gds-openapi-web ---
+[INFO] Executing tasks
+
+main:
+     [echo] project home:        E:\version\uat-web\gds-openapi-web
+     [echo] java home:           C:\Program Files\Java\jdk1.7.0_75\jre
+     [echo] java source version: 1.6
+     [echo] java target version: 1.6
+     [echo] java source charset: UTF-8
+[INFO] Executed tasks
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ gds-openapi-web ---
+[INFO] Not copying test resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.1:testCompile (default-testCompile) @ gds-openapi-web ---
+[INFO] Not compiling test sources
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.16:test (default-test) @ gds-openapi-web ---
+[INFO] Tests are skipped.
+[INFO] 
+[INFO] --- maven-war-plugin:2.2:war (default-war) @ gds-openapi-web ---
+[INFO] Packaging webapp
+[INFO] Assembling webapp [gds-openapi-web] in [E:\version\uat-web\gds-openapi-web\target\gds-openapi-web]
+[INFO] Processing war project
+[INFO] Copying webapp webResources [E:\version\uat-web\gds-openapi-web/src/main/webapp] to [E:\version\uat-web\gds-openapi-web\target\gds-openapi-web]
+[INFO] Copying webapp resources [E:\version\uat-web\gds-openapi-web\src\main\webapp]
+[INFO] Webapp assembled in [51878 msecs]
+[INFO] Building war: E:\version\uat-web\gds-openapi-web\..\target\gds-openapi-web.war
+[INFO] WEB-INF\web.xml already added, skipping
+[INFO] 
+[INFO] >>> maven-source-plugin:2.2.1:jar (attach-sources) > generate-sources @ gds-openapi-web >>>
+[INFO] 
+[INFO] <<< maven-source-plugin:2.2.1:jar (attach-sources) < generate-sources @ gds-openapi-web <<<
+[INFO] 
+[INFO] --- maven-source-plugin:2.2.1:jar (attach-sources) @ gds-openapi-web ---
+[INFO] Building jar: E:\version\uat-web\gds-openapi-web\target\gds-openapi-web-sources.jar
+[INFO] 
+[INFO] --- autoconfig-maven-plugin:1.2:autoconfig (default) @ gds-openapi-web ---
+[INFO] -------------------------------------------------
+[INFO] Detected system charset encoding: GBK
+[INFO] If your can't read the following text, specify correct one like this: 
+[INFO] 
+[INFO]   mvn -Dautoconfig.charset=yourcharset
+[INFO] 
+[INFO] Configuring E:\version\uat-web\gds-openapi-web\..\target\gds-openapi-web.war, interactiveMode=auto, strict=true
+[INFO] -------------------------------------------------
+Loading file:/E:/version/uat-web/antx.properties
+User-defined properties: file:/E:/version/uat-web/antx.properties
+
+<jar:file:/E:/version/uat-web/gds-openapi-web/../target/gds-openapi-web.war!/>
+    Generating META-INF/autoconf/gds-openapi-biz-interceptor.xml [UTF-8] => WEB-INF/classes/META-INF/spring/gds-openapi-biz-interceptor.xml [UTF-8]
+
+<jar:file:/E:/version/uat-web/gds-openapi-web/../target/gds-openapi-web.war!/>
+    Generating META-INF/autoconf/logback.xml [UTF-8] => WEB-INF/logback.xml [UTF-8]
+
+<jar:file:/E:/version/uat-web/gds-openapi-web/../target/gds-openapi-web.war!/>
+    Generating META-INF/autoconf/openapi-config.properties.vm [UTF-8] => WEB-INF/classes/openapi-config.properties [UTF-8]
+
+<jar:file:/E:/version/uat-web/gds-openapi-web/../target/gds-openapi-web.war!/>
+    Generating log file: META-INF/autoconf/auto-config.xml.log
+
+[INFO] 
+[INFO] --- maven-install-plugin:2.4:install (default-install) @ gds-openapi-web ---
+[INFO] Installing E:\version\uat-web\gds-openapi-web\..\target\gds-openapi-web.war to E:\repository\com\ximucredit\openapi\gds-openapi-web\2.6.0-SNAPSHOT\gds-openapi-web-2.6.0-SNAPSHOT.war
+[INFO] Installing E:\version\uat-web\gds-openapi-web\pom.xml to E:\repository\com\ximucredit\openapi\gds-openapi-web\2.6.0-SNAPSHOT\gds-openapi-web-2.6.0-SNAPSHOT.pom
+[INFO] Installing E:\version\uat-web\gds-openapi-web\target\gds-openapi-web-sources.jar to E:\repository\com\ximucredit\openapi\gds-openapi-web\2.6.0-SNAPSHOT\gds-openapi-web-2.6.0-SNAPSHOT-sources.jar
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Summary:
+[INFO] 
+[INFO] ximucredit gds openapi parent ...................... SUCCESS [  1.158 s]
+[INFO] ximucredit gds openapi common ...................... SUCCESS [  3.464 s]
+[INFO] ximucredit gds openapi dal ......................... SUCCESS [  0.301 s]
+[INFO] ximucredit gds openapi biz ......................... SUCCESS [  3.250 s]
+[INFO] ximucredit gds openapi web ......................... SUCCESS [01:24 min]
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 01:32 min
+[INFO] Finished at: 2017-07-18T16:10:10+08:00
+[INFO] Final Memory: 36M/445M
+[INFO] ------------------------------------------------------------------------
+
+Tue, 18 Jul 2017 16:10:10 common.py[line:72] INFO 

@@ -1,0 +1,17 @@
+from django.db import models
+
+# Create your models here.
+class Person(models.Model):
+    name = models.CharField(max_length=30)
+    age = models.IntegerField()
+
+    def __unicode__(self):
+        return self.name
+
+class MiatestPerson(models.Model):
+    name = models.CharField(max_length=30)
+    age = models.IntegerField()
+
+    class Meta:
+        managed = False
+        db_table = 'miatest_person'

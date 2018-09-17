@@ -1,0 +1,247 @@
+Wed, 19 Jul 2017 18:45:21 common.py[line:68] INFO 开始 install_share!
+Wed, 19 Jul 2017 18:45:36 common.py[line:76] INFO install_share 成功!
+Wed, 19 Jul 2017 18:45:38 package.py[line:128] INFO copy configuration file successfully!
+Wed, 19 Jul 2017 18:45:38 common.py[line:68] INFO 开始 install_gap!
+Wed, 19 Jul 2017 18:46:01 common.py[line:76] INFO install_gap 成功!
+Wed, 19 Jul 2017 18:46:03 package.py[line:684] INFO docker exec t1loan ./loan/bin/startup.sh
+Wed, 19 Jul 2017 18:46:03 package.py[line:685] INFO docker exec t1loan ./loan/bin/shutdown.sh
+Wed, 19 Jul 2017 18:46:03 package.py[line:686] INFO docker exec t1loan cp /loan/webapps/gds-gap-web.war /root/gap170719184603.war
+Wed, 19 Jul 2017 18:46:03 package.py[line:687] INFO docker exec t1loan ps -ef | grep java
+Wed, 19 Jul 2017 18:46:03 package.py[line:688] INFO docker exec t1loan kill -9 
+Wed, 19 Jul 2017 18:46:03 transport.py[line:1386] INFO Connected (version 2.0, client OpenSSH_5.3)
+Wed, 19 Jul 2017 18:46:03 transport.py[line:1386] INFO Authentication (password) successful!
+Wed, 19 Jul 2017 18:46:03 transport.py[line:1386] INFO Secsh channel 1 opened.
+Wed, 19 Jul 2017 18:46:03 package.py[line:691] INFO [['root     25859     1 12 18:26 ?        00:03:10 /usr/bin/java -Djava.util.logging.config.file=/loan/conf/logging.properties -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager -server -XX:PermSize=512M -XX:MaxPermSize=1024m -server -Xdebug -Xnoagent -Djava.compiler=NONE -Xrunjdwp:transport=dt_socket,server=y,suspend=n,address=8899 -Djava.endorsed.dirs=/loan/endorsed -classpath /loan/bin/bootstrap.jar:/loan/bin/tomcat-juli.jar -Dcatalina.base=/loan -Dcatalina.home=/loan -Djava.io.tmpdir=/loan/temp org.apache.catalina.startup.Bootstrap start\n']]
+Wed, 19 Jul 2017 18:46:03 package.py[line:696] INFO 25859
+Wed, 19 Jul 2017 18:46:03 transport.py[line:1386] INFO Connected (version 2.0, client OpenSSH_5.3)
+Wed, 19 Jul 2017 18:46:03 transport.py[line:1386] INFO Authentication (password) successful!
+Wed, 19 Jul 2017 18:46:03 transport.py[line:1386] INFO Secsh channel 1 opened.
+Wed, 19 Jul 2017 18:46:03 package.py[line:698] INFO [[]]
+Wed, 19 Jul 2017 18:46:04 transport.py[line:1386] INFO Connected (version 2.0, client OpenSSH_5.3)
+Wed, 19 Jul 2017 18:46:05 transport.py[line:1386] INFO Authentication (password) successful!
+Wed, 19 Jul 2017 18:46:05 transport.py[line:1386] INFO Secsh channel 1 opened.
+Wed, 19 Jul 2017 18:46:05 transport.py[line:1386] INFO Connected (version 2.0, client OpenSSH_5.3)
+Wed, 19 Jul 2017 18:46:05 transport.py[line:1386] INFO Authentication (password) successful!
+Wed, 19 Jul 2017 18:46:05 transport.py[line:1386] INFO Secsh channel 1 opened.
+Wed, 19 Jul 2017 18:46:05 package.py[line:711] INFO remove cmd 是 docker exec t1loan rm -rf /loan/webapps/gds-gap-web/
+Wed, 19 Jul 2017 18:46:05 transport.py[line:1386] INFO Connected (version 2.0, client OpenSSH_5.3)
+Wed, 19 Jul 2017 18:46:05 transport.py[line:1386] INFO Authentication (password) successful!
+Wed, 19 Jul 2017 18:46:05 transport.py[line:1386] INFO Secsh channel 1 opened.
+Wed, 19 Jul 2017 18:46:06 package.py[line:713] INFO [[]]
+Wed, 19 Jul 2017 18:46:06 package.py[line:714] INFO delete t1gap successfully
+Wed, 19 Jul 2017 18:46:15 common.py[line:127] INFO copy war file to linux successfully!
+Wed, 19 Jul 2017 18:46:15 package.py[line:684] INFO docker exec t1loan ./loan/bin/startup.sh
+Wed, 19 Jul 2017 18:46:15 package.py[line:685] INFO docker exec t1loan ./loan/bin/shutdown.sh
+Wed, 19 Jul 2017 18:46:15 package.py[line:686] INFO docker exec t1loan cp /loan/webapps/gds-gap-web.war /root/gap170719184615.war
+Wed, 19 Jul 2017 18:46:15 package.py[line:687] INFO docker exec t1loan ps -ef | grep java
+Wed, 19 Jul 2017 18:46:15 package.py[line:688] INFO docker exec t1loan kill -9 
+Wed, 19 Jul 2017 18:46:15 package.py[line:718] INFO docker exec t1loan ./loan/bin/startup.sh
+Wed, 19 Jul 2017 18:46:15 transport.py[line:1386] INFO Connected (version 2.0, client OpenSSH_5.3)
+Wed, 19 Jul 2017 18:46:15 transport.py[line:1386] INFO Authentication (password) successful!
+Wed, 19 Jul 2017 18:46:15 transport.py[line:1386] INFO Secsh channel 1 opened.
+Wed, 19 Jul 2017 18:46:16 package.py[line:721] INFO [['Tomcat started.\n']]
+Wed, 19 Jul 2017 18:46:16 common.py[line:68] INFO 开始 gds_platform!
+Wed, 19 Jul 2017 18:46:56 common.py[line:76] INFO gds_platform 成功!
+Wed, 19 Jul 2017 18:46:58 package.py[line:322] INFO copy configuration file successfully!
+Wed, 19 Jul 2017 18:46:58 common.py[line:68] INFO 开始 gds_loan!
+Wed, 19 Jul 2017 18:48:40 common.py[line:76] INFO gds_loan 成功!
+Wed, 19 Jul 2017 18:48:42 package.py[line:684] INFO docker exec t1loan ./loan/bin/startup.sh
+Wed, 19 Jul 2017 18:48:42 package.py[line:685] INFO docker exec t1loan ./loan/bin/shutdown.sh
+Wed, 19 Jul 2017 18:48:42 package.py[line:686] INFO docker exec t1loan cp /loan/webapps/ROOT.war /root/loan170719184842.war
+Wed, 19 Jul 2017 18:48:42 package.py[line:687] INFO docker exec t1loan ps -ef | grep java
+Wed, 19 Jul 2017 18:48:42 package.py[line:688] INFO docker exec t1loan kill -9 
+Wed, 19 Jul 2017 18:48:42 transport.py[line:1386] INFO Connected (version 2.0, client OpenSSH_5.3)
+Wed, 19 Jul 2017 18:48:42 transport.py[line:1386] INFO Authentication (password) successful!
+Wed, 19 Jul 2017 18:48:42 transport.py[line:1386] INFO Secsh channel 1 opened.
+Wed, 19 Jul 2017 18:48:43 package.py[line:691] INFO [['root     26088     1 99 18:51 ?        00:02:31 /usr/bin/java -Djava.util.logging.config.file=/loan/conf/logging.properties -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager -server -Xms512M -Xmx1024M -Xss512k -XX:+AggressiveOpts -XX:+UseBiasedLocking -XX:PermSize=128M -XX:MaxPermSize=256M -XX:+DisableExplicitGC -XX:MaxTenuringThreshold=31 -XX:+UseConcMarkSweepGC -XX:+UseParNewGC -XX:+CMSParallelRemarkEnabled -XX:+UseCMSCompactAtFullCollection -XX:LargePageSizeInBytes=128m -XX:+UseFastAccessorMethods -XX:+UseCMSInitiatingOccupancyOnly -Djava.awt.headless=true -server -Xdebug -Xnoagent -Djava.compiler=NONE -Xrunjdwp:transport=dt_socket,server=y,suspend=n,address=8899 -Djava.endorsed.dirs=/loan/endorsed -classpath /loan/bin/bootstrap.jar:/loan/bin/tomcat-juli.jar -Dcatalina.base=/loan -Dcatalina.home=/loan -Djava.io.tmpdir=/loan/temp org.apache.catalina.startup.Bootstrap start\n']]
+Wed, 19 Jul 2017 18:48:43 package.py[line:696] INFO 26088
+Wed, 19 Jul 2017 18:48:43 transport.py[line:1386] INFO Connected (version 2.0, client OpenSSH_5.3)
+Wed, 19 Jul 2017 18:48:43 transport.py[line:1386] INFO Authentication (password) successful!
+Wed, 19 Jul 2017 18:48:43 transport.py[line:1386] INFO Secsh channel 1 opened.
+Wed, 19 Jul 2017 18:48:43 package.py[line:698] INFO [[]]
+Wed, 19 Jul 2017 18:48:44 transport.py[line:1386] INFO Connected (version 2.0, client OpenSSH_5.3)
+Wed, 19 Jul 2017 18:48:44 transport.py[line:1386] INFO Authentication (password) successful!
+Wed, 19 Jul 2017 18:48:44 transport.py[line:1386] INFO Secsh channel 1 opened.
+Wed, 19 Jul 2017 18:48:44 transport.py[line:1386] INFO Connected (version 2.0, client OpenSSH_5.3)
+Wed, 19 Jul 2017 18:48:44 transport.py[line:1386] INFO Authentication (password) successful!
+Wed, 19 Jul 2017 18:48:44 transport.py[line:1386] INFO Secsh channel 1 opened.
+Wed, 19 Jul 2017 18:48:45 package.py[line:711] INFO remove cmd 是 docker exec t1loan rm -rf /loan/webapps/ROOT/
+Wed, 19 Jul 2017 18:48:45 transport.py[line:1386] INFO Connected (version 2.0, client OpenSSH_5.3)
+Wed, 19 Jul 2017 18:48:45 transport.py[line:1386] INFO Authentication (password) successful!
+Wed, 19 Jul 2017 18:48:45 transport.py[line:1386] INFO Secsh channel 1 opened.
+Wed, 19 Jul 2017 18:48:45 package.py[line:713] INFO [[]]
+Wed, 19 Jul 2017 18:48:45 package.py[line:714] INFO delete t1loan successfully
+Wed, 19 Jul 2017 18:48:56 common.py[line:127] INFO copy war file to linux successfully!
+Wed, 19 Jul 2017 18:48:56 package.py[line:684] INFO docker exec t1loan ./loan/bin/startup.sh
+Wed, 19 Jul 2017 18:48:56 package.py[line:685] INFO docker exec t1loan ./loan/bin/shutdown.sh
+Wed, 19 Jul 2017 18:48:56 package.py[line:686] INFO docker exec t1loan cp /loan/webapps/ROOT.war /root/loan170719184856.war
+Wed, 19 Jul 2017 18:48:56 package.py[line:687] INFO docker exec t1loan ps -ef | grep java
+Wed, 19 Jul 2017 18:48:56 package.py[line:688] INFO docker exec t1loan kill -9 
+Wed, 19 Jul 2017 18:48:56 package.py[line:718] INFO docker exec t1loan ./loan/bin/startup.sh
+Wed, 19 Jul 2017 18:48:56 transport.py[line:1386] INFO Connected (version 2.0, client OpenSSH_5.3)
+Wed, 19 Jul 2017 18:48:56 transport.py[line:1386] INFO Authentication (password) successful!
+Wed, 19 Jul 2017 18:48:56 transport.py[line:1386] INFO Secsh channel 1 opened.
+Wed, 19 Jul 2017 18:48:57 package.py[line:721] INFO [['Tomcat started.\n']]
+Wed, 19 Jul 2017 18:48:57 package.py[line:358] INFO copy configuration file successfully!
+Wed, 19 Jul 2017 18:48:57 common.py[line:68] INFO 开始 gds_openapi!
+Wed, 19 Jul 2017 18:49:23 common.py[line:76] INFO gds_openapi 成功!
+Wed, 19 Jul 2017 18:49:25 package.py[line:684] INFO docker exec t1openapi ./openapi/bin/startup.sh
+Wed, 19 Jul 2017 18:49:25 package.py[line:685] INFO docker exec t1openapi ./openapi/bin/shutdown.sh
+Wed, 19 Jul 2017 18:49:25 package.py[line:686] INFO docker exec t1openapi cp /openapi/webapps/gds-openapi-web.war /root/openapi170719184925.war
+Wed, 19 Jul 2017 18:49:25 package.py[line:687] INFO docker exec t1openapi ps -ef | grep java
+Wed, 19 Jul 2017 18:49:25 package.py[line:688] INFO docker exec t1openapi kill -9 
+Wed, 19 Jul 2017 18:49:25 transport.py[line:1386] INFO Connected (version 2.0, client OpenSSH_5.3)
+Wed, 19 Jul 2017 18:49:25 transport.py[line:1386] INFO Authentication (password) successful!
+Wed, 19 Jul 2017 18:49:25 transport.py[line:1386] INFO Secsh channel 1 opened.
+Wed, 19 Jul 2017 18:49:25 package.py[line:691] INFO [['root     19503     1  0 Jul17 ?        00:10:32 /usr/bin/java -Djava.util.logging.config.file=/openapi/conf/logging.properties -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager -server -Xms512M -Xmx1024M -Xss512k -XX:+AggressiveOpts -XX:+UseBiasedLocking -XX:PermSize=128M -XX:MaxPermSize=256M -XX:+DisableExplicitGC -XX:MaxTenuringThreshold=31 -XX:+UseConcMarkSweepGC -XX:+UseParNewGC -XX:+CMSParallelRemarkEnabled -XX:+UseCMSCompactAtFullCollection -XX:LargePageSizeInBytes=128m -XX:+UseFastAccessorMethods -XX:+UseCMSInitiatingOccupancyOnly -Djava.awt.headless=true -server -Xdebug -Xnoagent -Djava.compiler=NONE -Xrunjdwp:transport=dt_socket,server=y,suspend=n,address=8899 -Djava.endorsed.dirs=/openapi/endorsed -classpath /openapi/bin/bootstrap.jar:/openapi/bin/tomcat-juli.jar -Dcatalina.base=/openapi -Dcatalina.home=/openapi -Djava.io.tmpdir=/openapi/temp org.apache.catalina.startup.Bootstrap start\n']]
+Wed, 19 Jul 2017 18:49:25 package.py[line:696] INFO 19503
+Wed, 19 Jul 2017 18:49:25 transport.py[line:1386] INFO Connected (version 2.0, client OpenSSH_5.3)
+Wed, 19 Jul 2017 18:49:25 transport.py[line:1386] INFO Authentication (password) successful!
+Wed, 19 Jul 2017 18:49:25 transport.py[line:1386] INFO Secsh channel 1 opened.
+Wed, 19 Jul 2017 18:49:25 package.py[line:698] INFO [[]]
+Wed, 19 Jul 2017 18:49:26 transport.py[line:1386] INFO Connected (version 2.0, client OpenSSH_5.3)
+Wed, 19 Jul 2017 18:49:26 transport.py[line:1386] INFO Authentication (password) successful!
+Wed, 19 Jul 2017 18:49:26 transport.py[line:1386] INFO Secsh channel 1 opened.
+Wed, 19 Jul 2017 18:49:27 transport.py[line:1386] INFO Connected (version 2.0, client OpenSSH_5.3)
+Wed, 19 Jul 2017 18:49:27 transport.py[line:1386] INFO Authentication (password) successful!
+Wed, 19 Jul 2017 18:49:27 transport.py[line:1386] INFO Secsh channel 1 opened.
+Wed, 19 Jul 2017 18:49:27 package.py[line:711] INFO remove cmd 是 docker exec t1openapi rm -rf /openapi/webapps/gds-openapi-web/
+Wed, 19 Jul 2017 18:49:27 transport.py[line:1386] INFO Connected (version 2.0, client OpenSSH_5.3)
+Wed, 19 Jul 2017 18:49:27 transport.py[line:1386] INFO Authentication (password) successful!
+Wed, 19 Jul 2017 18:49:27 transport.py[line:1386] INFO Secsh channel 1 opened.
+Wed, 19 Jul 2017 18:49:27 package.py[line:713] INFO [[]]
+Wed, 19 Jul 2017 18:49:27 package.py[line:714] INFO delete t1openapi successfully
+Wed, 19 Jul 2017 18:49:37 common.py[line:127] INFO copy war file to linux successfully!
+Wed, 19 Jul 2017 18:49:37 package.py[line:684] INFO docker exec t1openapi ./openapi/bin/startup.sh
+Wed, 19 Jul 2017 18:49:37 package.py[line:685] INFO docker exec t1openapi ./openapi/bin/shutdown.sh
+Wed, 19 Jul 2017 18:49:37 package.py[line:686] INFO docker exec t1openapi cp /openapi/webapps/gds-openapi-web.war /root/openapi170719184937.war
+Wed, 19 Jul 2017 18:49:37 package.py[line:687] INFO docker exec t1openapi ps -ef | grep java
+Wed, 19 Jul 2017 18:49:37 package.py[line:688] INFO docker exec t1openapi kill -9 
+Wed, 19 Jul 2017 18:49:37 package.py[line:718] INFO docker exec t1openapi ./openapi/bin/startup.sh
+Wed, 19 Jul 2017 18:49:37 transport.py[line:1386] INFO Connected (version 2.0, client OpenSSH_5.3)
+Wed, 19 Jul 2017 18:49:37 transport.py[line:1386] INFO Authentication (password) successful!
+Wed, 19 Jul 2017 18:49:37 transport.py[line:1386] INFO Secsh channel 1 opened.
+Wed, 19 Jul 2017 18:49:38 package.py[line:721] INFO [['Tomcat started.\n']]
+Wed, 19 Jul 2017 18:49:38 package.py[line:394] INFO copy configuration file successfully!
+Wed, 19 Jul 2017 18:49:38 common.py[line:68] INFO 开始 uat_web!
+Wed, 19 Jul 2017 18:51:13 common.py[line:76] INFO uat_web 成功!
+Wed, 19 Jul 2017 18:51:15 package.py[line:684] INFO docker exec t1openapi ./openapi/bin/startup.sh
+Wed, 19 Jul 2017 18:51:15 package.py[line:685] INFO docker exec t1openapi ./openapi/bin/shutdown.sh
+Wed, 19 Jul 2017 18:51:15 package.py[line:686] INFO docker exec t1openapi cp /openapi/webapps/ROOT.war /root/uat_web170719185115.war
+Wed, 19 Jul 2017 18:51:15 package.py[line:687] INFO docker exec t1openapi ps -ef | grep java
+Wed, 19 Jul 2017 18:51:15 package.py[line:688] INFO docker exec t1openapi kill -9 
+Wed, 19 Jul 2017 18:51:15 transport.py[line:1386] INFO Connected (version 2.0, client OpenSSH_5.3)
+Wed, 19 Jul 2017 18:51:15 transport.py[line:1386] INFO Authentication (password) successful!
+Wed, 19 Jul 2017 18:51:15 transport.py[line:1386] INFO Secsh channel 1 opened.
+Wed, 19 Jul 2017 18:51:15 package.py[line:691] INFO [['root     19806     1 88 18:55 ?        00:01:26 /usr/bin/java -Djava.util.logging.config.file=/openapi/conf/logging.properties -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager -server -Xms512M -Xmx1024M -Xss512k -XX:+AggressiveOpts -XX:+UseBiasedLocking -XX:PermSize=128M -XX:MaxPermSize=256M -XX:+DisableExplicitGC -XX:MaxTenuringThreshold=31 -XX:+UseConcMarkSweepGC -XX:+UseParNewGC -XX:+CMSParallelRemarkEnabled -XX:+UseCMSCompactAtFullCollection -XX:LargePageSizeInBytes=128m -XX:+UseFastAccessorMethods -XX:+UseCMSInitiatingOccupancyOnly -Djava.awt.headless=true -server -Xdebug -Xnoagent -Djava.compiler=NONE -Xrunjdwp:transport=dt_socket,server=y,suspend=n,address=8899 -Djava.endorsed.dirs=/openapi/endorsed -classpath /openapi/bin/bootstrap.jar:/openapi/bin/tomcat-juli.jar -Dcatalina.base=/openapi -Dcatalina.home=/openapi -Djava.io.tmpdir=/openapi/temp org.apache.catalina.startup.Bootstrap start\n']]
+Wed, 19 Jul 2017 18:51:15 package.py[line:696] INFO 19806
+Wed, 19 Jul 2017 18:51:15 transport.py[line:1386] INFO Connected (version 2.0, client OpenSSH_5.3)
+Wed, 19 Jul 2017 18:51:16 transport.py[line:1386] INFO Authentication (password) successful!
+Wed, 19 Jul 2017 18:51:16 transport.py[line:1386] INFO Secsh channel 1 opened.
+Wed, 19 Jul 2017 18:51:16 package.py[line:698] INFO [[]]
+Wed, 19 Jul 2017 18:51:17 transport.py[line:1386] INFO Connected (version 2.0, client OpenSSH_5.3)
+Wed, 19 Jul 2017 18:51:17 transport.py[line:1386] INFO Authentication (password) successful!
+Wed, 19 Jul 2017 18:51:17 transport.py[line:1386] INFO Secsh channel 1 opened.
+Wed, 19 Jul 2017 18:51:17 transport.py[line:1386] INFO Connected (version 2.0, client OpenSSH_5.3)
+Wed, 19 Jul 2017 18:51:18 transport.py[line:1386] INFO Authentication (password) successful!
+Wed, 19 Jul 2017 18:51:18 transport.py[line:1386] INFO Secsh channel 1 opened.
+Wed, 19 Jul 2017 18:51:18 package.py[line:711] INFO remove cmd 是 docker exec t1openapi rm -rf /openapi/webapps/ROOT/
+Wed, 19 Jul 2017 18:51:18 transport.py[line:1386] INFO Connected (version 2.0, client OpenSSH_5.3)
+Wed, 19 Jul 2017 18:51:18 transport.py[line:1386] INFO Authentication (password) successful!
+Wed, 19 Jul 2017 18:51:18 transport.py[line:1386] INFO Secsh channel 1 opened.
+Wed, 19 Jul 2017 18:51:18 package.py[line:713] INFO [[]]
+Wed, 19 Jul 2017 18:51:18 package.py[line:714] INFO delete t1uat_web successfully
+Wed, 19 Jul 2017 18:51:29 common.py[line:127] INFO copy war file to linux successfully!
+Wed, 19 Jul 2017 18:51:29 package.py[line:684] INFO docker exec t1openapi ./openapi/bin/startup.sh
+Wed, 19 Jul 2017 18:51:29 package.py[line:685] INFO docker exec t1openapi ./openapi/bin/shutdown.sh
+Wed, 19 Jul 2017 18:51:29 package.py[line:686] INFO docker exec t1openapi cp /openapi/webapps/ROOT.war /root/uat_web170719185129.war
+Wed, 19 Jul 2017 18:51:29 package.py[line:687] INFO docker exec t1openapi ps -ef | grep java
+Wed, 19 Jul 2017 18:51:29 package.py[line:688] INFO docker exec t1openapi kill -9 
+Wed, 19 Jul 2017 18:51:29 package.py[line:718] INFO docker exec t1openapi ./openapi/bin/startup.sh
+Wed, 19 Jul 2017 18:51:29 transport.py[line:1386] INFO Connected (version 2.0, client OpenSSH_5.3)
+Wed, 19 Jul 2017 18:51:30 transport.py[line:1386] INFO Authentication (password) successful!
+Wed, 19 Jul 2017 18:51:30 transport.py[line:1386] INFO Secsh channel 1 opened.
+Wed, 19 Jul 2017 18:51:31 package.py[line:721] INFO [['Tomcat started.\n']]
+Wed, 19 Jul 2017 18:51:38 common.py[line:149] INFO clone ximu-prod code successfully!
+Wed, 19 Jul 2017 18:51:38 common.py[line:68] INFO 开始 ximu_prod!
+Wed, 19 Jul 2017 18:51:45 common.py[line:76] INFO ximu_prod 成功!
+Wed, 19 Jul 2017 18:51:47 package.py[line:469] INFO copy configuration file successfully!
+Wed, 19 Jul 2017 18:51:47 common.py[line:68] INFO 开始 ac_core!
+Wed, 19 Jul 2017 18:52:08 common.py[line:76] INFO ac_core 成功!
+Wed, 19 Jul 2017 18:52:10 package.py[line:684] INFO docker exec t1accore ./accore/bin/startup.sh
+Wed, 19 Jul 2017 18:52:10 package.py[line:685] INFO docker exec t1accore ./accore/bin/shutdown.sh
+Wed, 19 Jul 2017 18:52:10 package.py[line:686] INFO docker exec t1accore cp /accore/webapps/gds-ac-core-web.war /root/accore170719185210.war
+Wed, 19 Jul 2017 18:52:10 package.py[line:687] INFO docker exec t1accore ps -ef | grep java
+Wed, 19 Jul 2017 18:52:10 package.py[line:688] INFO docker exec t1accore kill -9 
+Wed, 19 Jul 2017 18:52:10 transport.py[line:1386] INFO Connected (version 2.0, client OpenSSH_5.3)
+Wed, 19 Jul 2017 18:52:11 transport.py[line:1386] INFO Authentication (password) successful!
+Wed, 19 Jul 2017 18:52:11 transport.py[line:1386] INFO Secsh channel 1 opened.
+Wed, 19 Jul 2017 18:52:11 package.py[line:691] INFO [['root       813     1  0 Jul18 ?        00:02:40 /usr/java/jdk1.7.0_67-cloudera/jre/bin/java -Djava.util.logging.config.file=/accore/conf/logging.properties -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager -server -Xms512M -Xmx1024M -Xss512k -XX:+AggressiveOpts -XX:+UseBiasedLocking -XX:PermSize=128M -XX:MaxPermSize=256M -XX:+DisableExplicitGC -XX:MaxTenuringThreshold=31 -XX:+UseConcMarkSweepGC -XX:+UseParNewGC -XX:+CMSParallelRemarkEnabled -XX:+UseCMSCompactAtFullCollection -XX:LargePageSizeInBytes=128m -XX:+UseFastAccessorMethods -XX:+UseCMSInitiatingOccupancyOnly -Djava.awt.headless=true -server -Xdebug -Xnoagent -Djava.compiler=NONE -Xrunjdwp:transport=dt_socket,server=y,suspend=n,address=8899 -Djava.endorsed.dirs=/accore/endorsed -classpath /accore/bin/bootstrap.jar:/accore/bin/tomcat-juli.jar -Dcatalina.base=/accore -Dcatalina.home=/accore -Djava.io.tmpdir=/accore/temp org.apache.catalina.startup.Bootstrap start\n']]
+Wed, 19 Jul 2017 18:52:11 package.py[line:696] INFO 813
+Wed, 19 Jul 2017 18:52:11 transport.py[line:1386] INFO Connected (version 2.0, client OpenSSH_5.3)
+Wed, 19 Jul 2017 18:52:11 transport.py[line:1386] INFO Authentication (password) successful!
+Wed, 19 Jul 2017 18:52:11 transport.py[line:1386] INFO Secsh channel 1 opened.
+Wed, 19 Jul 2017 18:52:11 package.py[line:698] INFO [[]]
+Wed, 19 Jul 2017 18:52:12 transport.py[line:1386] INFO Connected (version 2.0, client OpenSSH_5.3)
+Wed, 19 Jul 2017 18:52:12 transport.py[line:1386] INFO Authentication (password) successful!
+Wed, 19 Jul 2017 18:52:12 transport.py[line:1386] INFO Secsh channel 1 opened.
+Wed, 19 Jul 2017 18:52:12 transport.py[line:1386] INFO Connected (version 2.0, client OpenSSH_5.3)
+Wed, 19 Jul 2017 18:52:12 transport.py[line:1386] INFO Authentication (password) successful!
+Wed, 19 Jul 2017 18:52:12 transport.py[line:1386] INFO Secsh channel 1 opened.
+Wed, 19 Jul 2017 18:52:13 package.py[line:711] INFO remove cmd 是 docker exec t1accore rm -rf /accore/webapps/gds-ac-core-web/
+Wed, 19 Jul 2017 18:52:13 transport.py[line:1386] INFO Connected (version 2.0, client OpenSSH_5.3)
+Wed, 19 Jul 2017 18:52:13 transport.py[line:1386] INFO Authentication (password) successful!
+Wed, 19 Jul 2017 18:52:13 transport.py[line:1386] INFO Secsh channel 1 opened.
+Wed, 19 Jul 2017 18:52:13 package.py[line:713] INFO [[]]
+Wed, 19 Jul 2017 18:52:13 package.py[line:714] INFO delete t1accore successfully
+Wed, 19 Jul 2017 18:52:21 common.py[line:127] INFO copy war file to linux successfully!
+Wed, 19 Jul 2017 18:52:21 package.py[line:684] INFO docker exec t1accore ./accore/bin/startup.sh
+Wed, 19 Jul 2017 18:52:21 package.py[line:685] INFO docker exec t1accore ./accore/bin/shutdown.sh
+Wed, 19 Jul 2017 18:52:21 package.py[line:686] INFO docker exec t1accore cp /accore/webapps/gds-ac-core-web.war /root/accore170719185221.war
+Wed, 19 Jul 2017 18:52:21 package.py[line:687] INFO docker exec t1accore ps -ef | grep java
+Wed, 19 Jul 2017 18:52:21 package.py[line:688] INFO docker exec t1accore kill -9 
+Wed, 19 Jul 2017 18:52:21 package.py[line:718] INFO docker exec t1accore ./accore/bin/startup.sh
+Wed, 19 Jul 2017 18:52:21 transport.py[line:1386] INFO Connected (version 2.0, client OpenSSH_5.3)
+Wed, 19 Jul 2017 18:52:21 transport.py[line:1386] INFO Authentication (password) successful!
+Wed, 19 Jul 2017 18:52:21 transport.py[line:1386] INFO Secsh channel 1 opened.
+Wed, 19 Jul 2017 18:52:22 package.py[line:721] INFO [['Tomcat started.\n']]
+Wed, 19 Jul 2017 18:52:22 package.py[line:518] INFO copy configuration file successfully!
+Wed, 19 Jul 2017 18:52:22 common.py[line:68] INFO 开始 ac_fe!
+Wed, 19 Jul 2017 18:52:47 common.py[line:76] INFO ac_fe 成功!
+Wed, 19 Jul 2017 18:52:49 package.py[line:684] INFO docker exec t1acfe ./acfe/bin/startup.sh
+Wed, 19 Jul 2017 18:52:49 package.py[line:685] INFO docker exec t1acfe ./acfe/bin/shutdown.sh
+Wed, 19 Jul 2017 18:52:49 package.py[line:686] INFO docker exec t1acfe cp /acfe/webapps/gds-ac-fe-web.war /root/acfe170719185249.war
+Wed, 19 Jul 2017 18:52:49 package.py[line:687] INFO docker exec t1acfe ps -ef | grep java
+Wed, 19 Jul 2017 18:52:49 package.py[line:688] INFO docker exec t1acfe kill -9 
+Wed, 19 Jul 2017 18:52:49 transport.py[line:1386] INFO Connected (version 2.0, client OpenSSH_5.3)
+Wed, 19 Jul 2017 18:52:49 transport.py[line:1386] INFO Authentication (password) successful!
+Wed, 19 Jul 2017 18:52:49 transport.py[line:1386] INFO Secsh channel 1 opened.
+Wed, 19 Jul 2017 18:52:49 package.py[line:691] INFO [['root       477     1  0 Jul18 ?        00:02:36 /usr/java/jdk1.7.0_67-cloudera/jre/bin/java -Djava.util.logging.config.file=/acfe/conf/logging.properties -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager -server -Xms512M -Xmx1024M -Xss512k -XX:+AggressiveOpts -XX:+UseBiasedLocking -XX:PermSize=128M -XX:MaxPermSize=256M -XX:+DisableExplicitGC -XX:MaxTenuringThreshold=31 -XX:+UseConcMarkSweepGC -XX:+UseParNewGC -XX:+CMSParallelRemarkEnabled -XX:+UseCMSCompactAtFullCollection -XX:LargePageSizeInBytes=128m -XX:+UseFastAccessorMethods -XX:+UseCMSInitiatingOccupancyOnly -Djava.awt.headless=true -server -Xdebug -Xnoagent -Djava.compiler=NONE -Xrunjdwp:transport=dt_socket,server=y,suspend=n,address=8899 -Djava.endorsed.dirs=/acfe/endorsed -classpath /acfe/bin/bootstrap.jar:/acfe/bin/tomcat-juli.jar -Dcatalina.base=/acfe -Dcatalina.home=/acfe -Djava.io.tmpdir=/acfe/temp org.apache.catalina.startup.Bootstrap start\n']]
+Wed, 19 Jul 2017 18:52:49 package.py[line:696] INFO 477
+Wed, 19 Jul 2017 18:52:49 transport.py[line:1386] INFO Connected (version 2.0, client OpenSSH_5.3)
+Wed, 19 Jul 2017 18:52:49 transport.py[line:1386] INFO Authentication (password) successful!
+Wed, 19 Jul 2017 18:52:49 transport.py[line:1386] INFO Secsh channel 1 opened.
+Wed, 19 Jul 2017 18:52:50 package.py[line:698] INFO [[]]
+Wed, 19 Jul 2017 18:52:51 transport.py[line:1386] INFO Connected (version 2.0, client OpenSSH_5.3)
+Wed, 19 Jul 2017 18:52:51 transport.py[line:1386] INFO Authentication (password) successful!
+Wed, 19 Jul 2017 18:52:51 transport.py[line:1386] INFO Secsh channel 1 opened.
+Wed, 19 Jul 2017 18:52:51 transport.py[line:1386] INFO Connected (version 2.0, client OpenSSH_5.3)
+Wed, 19 Jul 2017 18:52:51 transport.py[line:1386] INFO Authentication (password) successful!
+Wed, 19 Jul 2017 18:52:51 transport.py[line:1386] INFO Secsh channel 1 opened.
+Wed, 19 Jul 2017 18:52:51 package.py[line:711] INFO remove cmd 是 docker exec t1acfe rm -rf /acfe/webapps/gds-ac-fe-web/
+Wed, 19 Jul 2017 18:52:51 transport.py[line:1386] INFO Connected (version 2.0, client OpenSSH_5.3)
+Wed, 19 Jul 2017 18:52:51 transport.py[line:1386] INFO Authentication (password) successful!
+Wed, 19 Jul 2017 18:52:51 transport.py[line:1386] INFO Secsh channel 1 opened.
+Wed, 19 Jul 2017 18:52:51 package.py[line:713] INFO [[]]
+Wed, 19 Jul 2017 18:52:51 package.py[line:714] INFO delete t1acfe successfully
+Wed, 19 Jul 2017 18:53:00 common.py[line:127] INFO copy war file to linux successfully!
+Wed, 19 Jul 2017 18:53:00 package.py[line:684] INFO docker exec t1acfe ./acfe/bin/startup.sh
+Wed, 19 Jul 2017 18:53:00 package.py[line:685] INFO docker exec t1acfe ./acfe/bin/shutdown.sh
+Wed, 19 Jul 2017 18:53:00 package.py[line:686] INFO docker exec t1acfe cp /acfe/webapps/gds-ac-fe-web.war /root/acfe170719185300.war
+Wed, 19 Jul 2017 18:53:00 package.py[line:687] INFO docker exec t1acfe ps -ef | grep java
+Wed, 19 Jul 2017 18:53:00 package.py[line:688] INFO docker exec t1acfe kill -9 
+Wed, 19 Jul 2017 18:53:00 package.py[line:718] INFO docker exec t1acfe ./acfe/bin/startup.sh
+Wed, 19 Jul 2017 18:53:00 transport.py[line:1386] INFO Connected (version 2.0, client OpenSSH_5.3)
+Wed, 19 Jul 2017 18:53:00 transport.py[line:1386] INFO Authentication (password) successful!
+Wed, 19 Jul 2017 18:53:00 transport.py[line:1386] INFO Secsh channel 1 opened.
+Wed, 19 Jul 2017 18:53:01 package.py[line:721] INFO [['Tomcat started.\n']]

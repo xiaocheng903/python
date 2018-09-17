@@ -1,0 +1,171 @@
+# -*- coding:UTF-8 -*-
+import os ,sys
+#reload(sys)
+#sys.setdefaultencoding('gbk')
+from process.package import *
+
+def package_setup(environment,*args):
+    if environment =='t1':
+        json_path='E:\\project\\ximu-project\\config\\test1.json'
+    elif environment =='t2':
+        json_path='E:\\project\\ximu-project\\config\\test2.json'
+    elif environment =='t3':
+        json_path='E:\\project\\ximu-project\\config\\test3.json'
+    else:
+        raise ValueError('no supported test environment {}'.format(environment))
+    support_command=['share','ce','cs','gap','dio_platform','dio','gds_platform','loan','openapi','uat_web','xmprod','accore','acfe','-a']
+    for component in args[0]:
+        if component not in support_command:
+            raise ValueError(u'{} is not supported component,only {} is supported please check !'.format(component,support_command))
+    if 'share' in args[0] or '-a' in args[0]:
+        print('==============start install share module============================') 
+        share = install_share(json_path)
+        share.modify_configuration()
+        time.sleep(1)
+        share.install()
+        time.sleep(2)
+        print('==============start install share module============================')
+#####  
+    if 'ce' in args[0]  or '-a' in args[0]:
+        print('==============start install ce module============================')  
+        ce = install_ce(json_path)
+        ce.install()
+        time.sleep(2)
+        print('==============install ce module end============================')
+##### 
+    if 'cs' in args[0] or '-a' in args[0] :  
+        print('==============start install cs module============================') 
+        cs = install_cs(json_path)
+        cs.modify_configuration()
+        cs.copy_rename_file()
+        cs.install()
+        time.sleep(2)
+        con = connection(json_path)
+        con.handle_component_service(environment, 'cs', 'stop')
+        cs.copyfile_tolinux(environment)
+        con.handle_component_service(environment, 'cs', 'start')
+        print('==============install cs module end============================')
+###### 
+    if 'gap' in args[0] or '-a' in args[0] : 
+        print('==============start install gap module============================')   
+        gap = install_gap(json_path)
+        gap.modify_configuration()
+        gap.copy_rename_file()
+        gap.install()
+        time.sleep(2)
+        con = connection(json_path)
+        con.handle_component_service(environment, 'gap', 'stop')
+        gap.copyfile_tolinux(environment)
+        con.handle_component_service(environment, 'gap', 'start')
+        print('==============install gap module end============================')
+######  
+    if 'xmprod' in args[0] or '-a' in args[0] : 
+        print('==============start install xmprod module============================')
+        xmprod = ximu_prod(json_path)
+        xmprod.clone()
+        xmprod.modify_configuration()
+        xmprod.install() 
+        time.sleep(2)
+        print('==============install xmprod module end============================')
+        
+    if 'accore' in args[0] or '-a' in args[0] : 
+        print('==============start install accore module============================')
+        accore = ac_core(json_path)
+        accore.modify_configuration()
+        accore.copy_rename_file()
+        accore.install() 
+        time.sleep(2)
+        con = connection(json_path)
+        con.handle_component_service(environment, 'accore', 'stop')
+        accore.copyfile_tolinux(environment)
+        con.handle_component_service(environment, 'accore', 'start')
+        print('==============install accore module end============================')
+    
+    if 'acfe' in args[0] or '-a' in args[0] : 
+        print('==============start install acfe module============================')
+        acfe = ac_fe(json_path)
+        acfe.modify_configuration()
+        acfe.copy_rename_file()
+        acfe.install() 
+        time.sleep(2)
+        con = connection(json_path)
+        con.handle_component_service(environment, 'acfe', 'stop')
+        acfe.copyfile_tolinux(environment)
+        con.handle_component_service(environment, 'acfe', 'start')
+        print('==============install acfe module end============================')
+        
+    if 'dio_platform' in args[0] or '-a' in args[0] :
+        print('==============start install dio platform module============================')  
+        dio_platform = install_dio_platform(json_path)
+        dio_platform.install()
+        time.sleep(2)
+        print('==============install dio platform module end============================')
+######  
+    if 'dio' in args[0] or '-a' in args[0]: 
+        print('==============start install dio module============================') 
+        dio = install_dio(json_path)
+        dio.modify_configuration()
+        dio.copy_rename_file()
+        dio.install()
+        time.sleep(2)
+        con = connection(json_path)
+        con.handle_component_service(environment, 'dio', 'stop')
+        dio.copyfile_tolinux(environment)
+        con.handle_component_service(environment, 'dio', 'start')
+        print('==============install dio module end============================')
+######
+    if 'gds_platform' in args[0] or '-a' in args[0]:    
+        print('==============start install gds_platform module============================') 
+        gds_platform_r = gds_platform(json_path)
+        gds_platform_r.modify_configuration()
+        gds_platform_r.install()
+        time.sleep(2)
+        print('==============install gds_platform module end============================')
+##    
+#
+##  
+    if 'loan' in args[0] or '-a' in args[0] :  
+        # have wrong version in pom.xml and always have issues in coding type(utf-8 with dom)
+        print('==============start install gds_loan module============================')
+        gds_loan_r = gds_loan(json_path)
+        gds_loan_r.modify_configuration()
+        gds_loan_r.copy_rename_file()
+        gds_loan_r.install()
+        time.sleep(2)
+        con = connection(json_path)
+        con.handle_component_service(environment, 'loan', 'stop')
+        gds_loan_r.copyfile_tolinux(environment)
+        con.handle_component_service(environment, 'loan', 'start')
+        print('==============install gds_loan module end============================')
+#    
+    if 'openapi' in args[0] or '-a' in args[0] : 
+        print('==============start install gds_openapi module============================')
+        gds_openapi_r = gds_openapi(json_path)
+        gds_openapi_r.modify_configuration()
+        gds_openapi_r.copy_rename_file()
+        gds_openapi_r.install()
+        time.sleep(2)
+        con = connection(json_path)
+        con.handle_component_service(environment, 'openapi', 'stop')
+        gds_openapi_r.copyfile_tolinux(environment)
+        con.handle_component_service(environment, 'openapi', 'start')
+        print('==============install gds_openapi module end============================')
+#
+##    have wrong version in pom.xml
+#    
+    if 'uat_web' in args[0] or '-a' in args[0] : 
+        print('==============start install uat_web module============================')
+        uat_web_r = uat_web(json_path)
+        uat_web_r.modify_configuration()
+        uat_web_r.copy_rename_file()
+        uat_web_r.install() 
+        time.sleep(2)
+        con = connection(json_path)
+        con.handle_component_service(environment, 'uat_web', 'stop')
+        uat_web_r.copyfile_tolinux(environment)
+        con.handle_component_service(environment, 'uat_web', 'start')
+        print('==============install uat_web module end============================')
+        
+if __name__=='__main__':
+    package_setup(sys.argv[1],sys.argv[2:])
+    

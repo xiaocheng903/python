@@ -1,0 +1,617 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>测试报告</title>
+    <meta name="generator" content="HTMLTestRunner 0.8.2"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    
+<style type="text/css" media="screen">
+body        { font-family: verdana, arial, helvetica, sans-serif; font-size: 80%; }
+table       { font-size: 100%; }
+pre         { }
+
+/* -- heading ---------------------------------------------------------------------- */
+h1 {
+	font-size: 16pt;
+	color: gray;
+}
+.heading {
+    margin-top: 0ex;
+    margin-bottom: 1ex;
+}
+
+.heading .attribute {
+    margin-top: 1ex;
+    margin-bottom: 0;
+}
+
+.heading .description {
+    margin-top: 4ex;
+    margin-bottom: 6ex;
+}
+
+/* -- css div popup ------------------------------------------------------------------------ */
+a.popup_link {
+}
+
+a.popup_link:hover {
+    color: red;
+}
+
+.popup_window {
+    display: none;
+    position: relative;
+    left: 0px;
+    top: 0px;
+    /*border: solid #627173 1px; */
+    padding: 10px;
+    background-color: #E6E6D6;
+    font-family: "Lucida Console", "Courier New", Courier, monospace;
+    text-align: left;
+    font-size: 8pt;
+    width: 500px;
+}
+
+}
+/* -- report ------------------------------------------------------------------------ */
+#show_detail_line {
+    margin-top: 3ex;
+    margin-bottom: 1ex;
+}
+#result_table {
+    width: 80%;
+    border-collapse: collapse;
+    border: 1px solid #777;
+}
+#header_row {
+    font-weight: bold;
+    color: white;
+    background-color: #777;
+}
+#result_table td {
+    border: 1px solid #777;
+    padding: 2px;
+}
+#total_row  { font-weight: bold; }
+.passClass  { background-color: #6c6; }
+.failClass  { background-color: #c60; }
+.errorClass { background-color: #c00; }
+.passCase   { color: #6c6; }
+.failCase   { color: #c60; font-weight: bold; }
+.errorCase  { color: #c00; font-weight: bold; }
+.hiddenRow  { display: none; }
+.testcase   { margin-left: 2em; }
+
+
+/* -- ending ---------------------------------------------------------------------- */
+#ending {
+}
+
+</style>
+
+</head>
+<body>
+<script language="javascript" type="text/javascript"><!--
+output_list = Array();
+
+/* level - 0:Summary; 1:Failed; 2:All */
+function showCase(level) {
+    trs = document.getElementsByTagName("tr");
+    for (var i = 0; i < trs.length; i++) {
+        tr = trs[i];
+        id = tr.id;
+        if (id.substr(0,2) == 'ft') {
+            if (level < 1) {
+                tr.className = 'hiddenRow';
+            }
+            else {
+                tr.className = '';
+            }
+        }
+        if (id.substr(0,2) == 'pt') {
+            if (level > 1) {
+                tr.className = '';
+            }
+            else {
+                tr.className = 'hiddenRow';
+            }
+        }
+    }
+}
+
+
+function showClassDetail(cid, count) {
+    var id_list = Array(count);
+    var toHide = 1;
+    for (var i = 0; i < count; i++) {
+        tid0 = 't' + cid.substr(1) + '.' + (i+1);
+        tid = 'f' + tid0;
+        tr = document.getElementById(tid);
+        if (!tr) {
+            tid = 'p' + tid0;
+            tr = document.getElementById(tid);
+        }
+        id_list[i] = tid;
+        if (tr.className) {
+            toHide = 0;
+        }
+    }
+    for (var i = 0; i < count; i++) {
+        tid = id_list[i];
+        if (toHide) {
+            document.getElementById('div_'+tid).style.display = 'none'
+            document.getElementById(tid).className = 'hiddenRow';
+        }
+        else {
+            document.getElementById(tid).className = '';
+        }
+    }
+}
+
+
+function showTestDetail(div_id){
+    var details_div = document.getElementById(div_id)
+    var displayState = details_div.style.display
+    // alert(displayState)
+    if (displayState != 'block' ) {
+        displayState = 'block'
+        details_div.style.display = 'block'
+    }
+    else {
+        details_div.style.display = 'none'
+    }
+}
+
+
+function html_escape(s) {
+    s = s.replace(/&/g,'&amp;');
+    s = s.replace(/</g,'&lt;');
+    s = s.replace(/>/g,'&gt;');
+    return s;
+}
+
+/* obsoleted by detail in <div>
+function showOutput(id, name) {
+    var w = window.open("", //url
+                    name,
+                    "resizable,scrollbars,status,width=800,height=450");
+    d = w.document;
+    d.write("<pre>");
+    d.write(html_escape(output_list[id]));
+    d.write("\n");
+    d.write("<a href='javascript:window.close()'>close</a>\n");
+    d.write("</pre>\n");
+    d.close();
+}
+*/
+--></script>
+
+<div class='heading'>
+<h1>测试报告</h1>
+<p class='attribute'><strong>Start Time:</strong> 2018-08-03 15:49:34</p>
+<p class='attribute'><strong>Duration:</strong> 0:00:01.253280</p>
+<p class='attribute'><strong>Status:</strong> Pass 3</p>
+
+<p class='description'>用例执行情况</p>
+</div>
+
+
+
+<p id='show_detail_line'>Show
+<a href='javascript:showCase(0)'>Summary</a>
+<a href='javascript:showCase(1)'>Failed</a>
+<a href='javascript:showCase(2)'>All</a>
+</p>
+<table id='result_table'>
+<colgroup>
+<col align='left' />
+<col align='right' />
+<col align='right' />
+<col align='right' />
+<col align='right' />
+<col align='right' />
+</colgroup>
+<tr id='header_row'>
+    <td>Test Group/Test case</td>
+    <td>Count</td>
+    <td>Pass</td>
+    <td>Fail</td>
+    <td>Error</td>
+    <td>View</td>
+</tr>
+
+<tr class='passClass'>
+    <td>test_get.get_request</td>
+    <td>1</td>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
+    <td><a href="javascript:showClassDetail('c1',1)">Detail</a></td>
+</tr>
+
+<tr id='pt1.1' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_get_01</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt1.1')" >
+        pass</a>
+
+    <div id='div_pt1.1' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt1.1').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt1.1: https://www.baidu.com/
+D:\Python36\lib\site-packages\urllib3\connectionpool.py:857: InsecureRequestWarning: Unverified HTTPS request is being made. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
+  InsecureRequestWarning)
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr class='passClass'>
+    <td>test_mysql.post_requset</td>
+    <td>1</td>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
+    <td><a href="javascript:showClassDetail('c2',1)">Detail</a></td>
+</tr>
+
+<tr id='pt2.1' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_mysql_01</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt2.1')" >
+        pass</a>
+
+    <div id='div_pt2.1' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt2.1').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt2.1: ((125, '蒙牛特仑苏纯牛奶 250ml*12包/箱', '饮料', 1, '250ml*12包', '提', Decimal('0.000'), '&lt;p style="padding: 0px; margin-top: 0px; margin-bottom: 0px; color: rgb(51, 51, 51); font-family: &amp;#39;microsoft yahei&amp;#39;; font-size: 14px; line-height: 22px; white-space: normal; background-color: rgb(255, 255, 255);"&gt;&lt;span style="font-size: 13px;"&gt;&lt;/span&gt;&lt;/p&gt;&lt;p style="margin-top: 0px; margin-bottom: 0px; white-space: normal; padding: 0px; color: rgb(51, 51, 51); font-family: &amp;#39;microsoft yahei&amp;#39;; line-height: 22px; background-color: rgb(255, 255, 255);"&gt;生产日期：2015年8月1日&lt;/p&gt;&lt;p&gt;&lt;span style="font-size: 13px; color: rgb(51, 51, 51); font-family: &amp;#39;microsoft yahei&amp;#39;; line-height: 22px; background-color: rgb(255, 255, 255);"&gt;商品名称：蒙牛特仑苏纯牛奶250ml x12&lt;/span&gt;&lt;br/&gt;&lt;/p&gt;&lt;p style="padding: 0px; margin-top: 0px; margin-bottom: 0px; color: rgb(51, 51, 51); font-family: &amp;#39;microsoft yahei&amp;#39;; font-size: 14px; line-height: 22px; white-space: normal; background-color: rgb(255, 255, 255);"&gt;&lt;span style="font-size: 13px;"&gt;品牌：蒙牛&lt;/span&gt;&lt;/p&gt;&lt;p style="padding: 0px; margin-top: 0px; margin-bottom: 0px; color: rgb(51, 51, 51); font-family: &amp;#39;microsoft yahei&amp;#39;; font-size: 14px; line-height: 22px; white-space: normal; background-color: rgb(255, 255, 255);"&gt;&lt;span style="font-size: 13px;"&gt;规格: 250ml x12&lt;/span&gt;&lt;/p&gt;&lt;p style="padding: 0px; margin-top: 0px; margin-bottom: 0px; color: rgb(51, 51, 51); font-family: &amp;#39;microsoft yahei&amp;#39;; font-size: 14px; line-height: 22px; white-space: normal; background-color: rgb(255, 255, 255);"&gt;&lt;span style="font-size: 13px;"&gt;保质期（天）：180&lt;/span&gt;&lt;/p&gt;&lt;p style="padding: 0px; margin-top: 0px; margin-bottom: 0px; color: rgb(51, 51, 51); font-family: &amp;#39;microsoft yahei&amp;#39;; line-height: 22px; white-space: normal; background-color: rgb(255, 255, 255);"&gt;&lt;span style="font-size: 13px;"&gt;储藏方法：&amp;nbsp;存放于阴凉干爽处，避免阳光直射&lt;/span&gt;&lt;br/&gt;&lt;/p&gt;&lt;p style="padding: 0px; margin-top: 0px; margin-bottom: 0px; color: rgb(51, 51, 51); font-family: &amp;#39;microsoft yahei&amp;#39;; font-size: 14px; line-height: 22px; white-space: normal; background-color: rgb(255, 255, 255);"&gt;&lt;span style="font-size: 13px;"&gt;商品形态：&amp;nbsp;液态&lt;/span&gt;&lt;/p&gt;&lt;p style="padding: 0px; margin-top: 0px; margin-bottom: 0px; color: rgb(51, 51, 51); font-family: &amp;#39;microsoft yahei&amp;#39;; font-size: 14px; line-height: 22px; white-space: normal; background-color: rgb(255, 255, 255);"&gt;&lt;span style="font-size: 13px;"&gt;成分：牛奶、食品添加剂&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;', None, datetime.datetime(2014, 12, 12, 8, 55, 25), datetime.datetime(2016, 1, 12, 0, 56, 9), 1, None, '6906151605857', Decimal('0.00000'), Decimal('0.00000'), 555, 0, 0, Decimal('0.00000'), -426, 2000000, 2040000, None, None, '250ml', '包', 12, '0', '160700023', '', Decimal('48.50000'), '6902083881085', '6902083881083', '6902083881583', '6902053881583', 1, None, 180, 104269, None, Decimal('1.00'), Decimal('1.00'), Decimal('1.00'), Decimal('1.00'), Decimal('1.00'), 866, '中国', 'CHN', 0, 10, None, 0, 0, '早餐奶'),)
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr class='passClass'>
+    <td>test_post.post_requset</td>
+    <td>1</td>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
+    <td><a href="javascript:showClassDetail('c3',1)">Detail</a></td>
+</tr>
+
+<tr id='pt3.1' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_post_01</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt3.1')" >
+        pass</a>
+
+    <div id='div_pt3.1' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt3.1').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt3.1: http://192.168.1.248:31100/users/login
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head lang="en"&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;title&gt;采购系统&lt;/title&gt;
+&lt;link rel="stylesheet" type="text/css" href="/bootstrap/bootstrap.min.css"&gt;
+&lt;link rel="stylesheet" type="text/css" href="/bootstrap/bootstrap-select.css"&gt;
+&lt;link rel="stylesheet" type="text/css" href="/css/base/general.css"&gt;
+&lt;link rel="stylesheet" type="text/css" href="/css/base/CTC.css"&gt;
+&lt;link rel="stylesheet" type="text/css" href="/font/css/font-awesome.min.css"&gt;
+&lt;link rel="stylesheet" type="text/css" href="/css/plugins/jquery.sobox.css"&gt;
+&lt;link rel="stylesheet" type="text/css" href="/bootstrap/bootstrap-datetimepicker.min.css"&gt;
+&lt;link rel="stylesheet" type="text/css" href="/dataTables/jquery.dataTables.css"&gt;
+&lt;link rel="stylesheet" type="text/css" href="/chosen/chosen.css"&gt;
+&lt;style&gt;
+    body,html,img,span,form,input,hr,p{padding: 0;margin: 0;font-family:arial,"Microsoft Yahei",simsun;font-size:20px; }
+    html,body{height: 100%;}
+    input:focus {outline:none;  }
+    .login{background-image: linear-gradient(-180deg, #78ccf4 10%, #32a3ff 100%);}
+    .login-bg{position: relative;z-index: -1;float: left;width: 100%;height: 100%;}
+    .login-contain{position:relative;}
+    .login-top{position:absolute;z-index: 1;width: 100%;height: 90px;line-height:90px;background: #3b3b3b;}
+    .login-top  img{margin-left:180px;vertical-align: middle;}
+    .login-top span{color:#f0f0f0;font-family:arial;font-size:28px;font-weight: 200;vertical-align: middle;}
+    .pre{display:inline-block;width: 2px;height: 30px;background: #f0f0f0;vertical-align: middle;margin: 0 10px;}
+    .login-focus{position:fixed;width: 686px;height: 454px;top: 50%;left: 50%;margin-top: -227px;margin-left: -343px;background: rgba(255, 255, 255, 0.4);border-radius: 10px;}
+
+    .logoinfo{height: 137px;background: url("/images/login-logo-pig.png") center 27px no-repeat}
+    .logoinfo p{padding-top: 107px;text-align: center;font-size: 20px;color: #fff;}
+    .input-area{width: 420px;height: 60px;border: 1px solid #fff;margin: 20px auto 0;}
+    .input-area span,.input-area input{display: block;float: left;height: 100%;}
+    .input-area span{width: 50px;}
+    .input-area input{width: 368px;border: none;background-color: transparent;font-size: 14px;color: #fff;}
+    .user-icon{background: url("/images/user.png") no-repeat;background-position: center;}
+    .lock-icon{background: url("/images/lock.png") no-repeat;background-position: center;}
+    input[type='submit']{display: block;height: 60px;width: 420px;margin: 38px auto 0;border: none;color: #558efa;background-color: rgba(255, 255, 255, 0.8);font-size: 18px;}
+&lt;/style&gt;
+&lt;/head&gt;
+&lt;body class="login"&gt;
+&lt;!--&lt;img class="login-bg" src="/images/bg.jpg" alt="login-bg"/&gt;--&gt;
+&lt;div class="login-contain"&gt;
+    &lt;!--&lt;div class="login-top"&gt;--&gt;
+        &lt;!--&lt;img src="/images/logo-mi.png" alt="logo"/&gt;--&gt;
+        &lt;!--&lt;span&gt;店达信息&lt;/span&gt;--&gt;
+        &lt;!--&lt;div class="pre"&gt;&lt;/div&gt;--&gt;
+        &lt;!--&lt;span style="font-size: 20px;font-family:SimHei;"&gt;采购系统&lt;/span&gt;--&gt;
+        &lt;!--&lt;span style="font-size: 16px;margin-left: 10px;"&gt;V1.6.5&lt;/span&gt;--&gt;
+    &lt;!--&lt;/div&gt;--&gt;
+    &lt;div class="login-focus"&gt;
+        &lt;div class="logoinfo"&gt;
+            &lt;p&gt;店达采购管理系统&lt;/p&gt; 
+        &lt;/div&gt;
+
+        &lt;form class="login-form-input" action="/users/login" method="post" role="form"&gt;
+            &lt;div class="login-input-top"&gt;
+                 &lt;div class="input-area" style="margin-top: 35px;"&gt;
+                     &lt;span class="user-icon"&gt;&lt;/span&gt;&lt;input class="login-input-user" type="text" name="userName" id="userName"/&gt;
+                &lt;/div&gt;
+                &lt;div class="input-area"&gt;
+                    &lt;span class="lock-icon"&gt;&lt;/span&gt;&lt;input id="password" type="password" name="password"/&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+            &lt;input class="login-form-login" type="submit" value="登录"/&gt;
+        &lt;/form&gt;
+
+    &lt;/div&gt;
+    &lt;!--&lt;div class="login-bottom"&gt;--&gt;
+        &lt;!--&lt;div class="login-info"&gt;--&gt;
+            &lt;!--&lt;p&gt;让创造价值的人在店达实现人生价值&lt;/p&gt;--&gt;
+            &lt;!--&lt;p style="color: #535456;font-size: 16px;"&gt;上海店达信息技术有限公司&lt;/p&gt;--&gt;
+            &lt;!--&lt;p&gt;© 2015 diandainfo Technologies&lt;/p&gt;--&gt;
+            &lt;!--&lt;p&gt;&lt;/p&gt;--&gt;
+        &lt;!--&lt;/div&gt;--&gt;
+    &lt;!--&lt;/div&gt;--&gt;
+&lt;/div&gt;
+&lt;script type="text/javascript" charset="utf-8" src="/javascript/base/jquery.min.js"&gt;&lt;/script&gt;
+&lt;script type="text/javascript" charset="utf-8" src="/javascript/base/jquery.form.js"&gt;&lt;/script&gt;
+&lt;script type="text/javascript" charset="utf-8" src="/javascript/base/jquery.validate.js"&gt;&lt;/script&gt;
+&lt;script type="text/javascript" charset="utf-8" src="/bootstrap/bootstrap.min.js"&gt;&lt;/script&gt;
+&lt;script type="text/javascript" charset="utf8" src="/bootstrap/bootstrap-select.js"&gt;&lt;/script&gt;
+&lt;script type="text/javascript" charset="utf-8" src="/javascript/plugins/jquery.sobox.min.js"&gt;&lt;/script&gt;
+&lt;script type="text/javascript" charset="utf8" src="/javascript/general.js"&gt;&lt;/script&gt;
+&lt;script type="text/javascript" charset="utf8" src="/javascript/common/commonUtil.js"&gt;&lt;/script&gt;
+&lt;script type="text/javascript" charset="utf8" src="/javascript/async.js"&gt;&lt;/script&gt;
+&lt;script type="text/javascript" charset="utf8" src="/javascript/base/jquery.zbox.js"&gt;&lt;/script&gt;
+&lt;script type="text/javascript" charset="utf8" src="/bootstrap/bootstrap-datetimepicker.min.js"&gt;&lt;/script&gt;
+&lt;script src="/dataTables/jquery.dataTables.js"&gt;&lt;/script&gt;
+&lt;script src="/javascript/plugins/datatables.js"&gt;&lt;/script&gt;
+&lt;script type="text/javascript" charset="utf-8" src="/chosen/chosen.jquery.min.js"&gt;&lt;/script&gt;
+&lt;script src="/plugin/lodash.js"&gt;&lt;/script&gt;
+
+&lt;script&gt;
+    $(function () {
+        var ele = $("#supplierUserCityName");
+        if (ele.length &gt; 0) {
+            ajax_load("get", "/json/management/management/city", "", "", function (status, reJson) {
+                if (status == "success") {
+                    if (reJson &amp;&amp; reJson.tag &amp;&amp; reJson.tag == "success") {
+                        ele.empty();
+                        ele.append("&lt;option value='_'&gt;请选择公司&lt;/option&gt;");
+                        for (var i = 0; i &lt; reJson.agencies.length; i++) {
+                            var selectHtml = '&lt;option value="' + reJson.agencies[i].CityId + '_' + reJson.agencies[i].id + '"&gt;' + reJson.agencies[i].name + '&lt;/option&gt;';
+                            ele.append(selectHtml);
+                        }
+                        ele.val(reJson.cityId + "_" + reJson.agencyId);
+                        $("#lastCityId").val(reJson.cityId + "_" + reJson.agencyId);
+                        var menus = [];
+                        if (reJson.cityId) {
+                            menus = reJson.menus;
+                        }
+                        initTree(menus);
+                        $('li.second_menu a.active').parents("ul.nav-second-level").addClass('in').parent("li")
+                                .addClass('active').siblings(".first_menu")
+                                .removeClass("active").find('ul.nav-second-level').removeClass('in');
+                        //下拉框
+                        $(".chzn-select").chosen({search_contains: true, no_results_text: "没有匹配记录"});
+                    } else {
+                        setAlertModal("获取公司信息失败，请您通知管理员");
+                    }
+                } else {
+                    setAlertModal("连接服务器失败，请您通知管理员");
+                }
+            });
+        }
+    });
+    function assembly_StoresOrderParamter(counties) {
+        var assemHtml = '&lt;input id="allArea" group="allStoreArea" type="checkbox" value="全部区域"&gt;' +
+                '&lt;label for="allArea" style="font-size: 15px;cursor: pointer;height: 20px;line-height:20px;" class="label label-primary"&gt;全部区域&lt;/label&gt;';
+        if (counties) {
+            for (var _c in counties) {
+                if (counties.hasOwnProperty(_c)) {
+                    assemHtml += '&lt;input group="storeArea" type="checkbox" name="storesOrderArea" value="' + _c + '" id="' + _c + '"&gt;' +
+                            '&lt;label style="font-size: 15px;cursor: pointer;height: 20px;line-height:20px;"' +
+                            'class="label label-info" for="' + _c + '"&gt;' + counties[_c] + '&lt;/label&gt;';
+                }
+            }
+            return assemHtml;
+        }
+        return "";
+    }
+
+    //切换城市事件
+    $(document).delegate("#supplierUserCityName", "change", function () {
+        var agency = $("#supplierUserCityName").val();
+        setAlertModal("是否更换公司？", null, {isNeedConfirm: true}, function (result) {
+            if (result) {
+                var cityId = agency.split("_")[0];
+                var agencyId = agency.split("_")[1];
+                if (!cityId) {
+                    $("#supplierUserCityName").val($("#lastCityId").val());
+                    return setAlertModal("请选择公司");
+                }
+                ajax_load("post", "/users/updateAgency", {
+                    cityId: cityId,
+                    agencyId: agencyId
+                }, "", function (status, reJson) {
+                    if (status == "success") {
+                        if (reJson &amp;&amp; reJson.tag &amp;&amp; reJson.tag == "success") {
+                            location.reload();
+                        } else {
+                            setAlertModal(reJson.message || "更换城市失败");
+                        }
+                    } else {
+                        setAlertModal("连接服务器失败，请您通知管理员");
+                    }
+                });
+            } else {
+                var lastCityId = $("#lastCityId").val();
+                $("#supplierUserCityName").val(lastCityId);
+            }
+        });
+    });
+
+    var initTree = function (menus) {
+        var treeMenu = $("#side-menu");
+        //先清空菜单
+        treeMenu.empty();
+        var first = []; // 一级菜单
+        var second = [] // 二级菜单
+        for (var i = 0; i &lt; menus.length; i++) {
+            var menu = _.find(menus, function (par) {
+                return menus[i].SuperId == par.id;
+            });
+            if (!menu) {
+                first.push(menus[i]);
+            } else {
+                second.push(menus[i]);
+            }
+        }
+        for (var j = 0; j &lt; first.length; j++) {
+            var url = "#" + first[j].id;
+            if (first[j].url &amp;&amp; first[j].url != "/") {
+                url = first[j].url;
+            }
+            var firstMenu = '&lt;li class="first_menu"&gt;' +
+                    '&lt;a href="' + url + '" class="collapsed" data-toggle="collapse"&gt;' +
+                    '&lt;i class="' + first[j].icon + '"&gt;&lt;/i&gt;' + first[j].name + '&lt;span class="fa arrow"&gt;&lt;/span&gt;&lt;/a&gt;' +
+                    '&lt;ul id="' + first[j].id + '" class="collapse nav nav-second-level"&gt; &lt;/li&gt;&lt;/ul&gt;';
+            treeMenu.append(firstMenu);
+        }
+        for (var m = 0; m &lt; second.length; m++) {
+            var secondUl = $("#" + second[m].SuperId);
+            var defaultClass = "";
+            if (second[m].url == location.pathname) {
+                defaultClass = 'class="active"'
+            }
+            var secondMenu = '&lt;li class="second_menu"&gt;' +
+                    '&lt;a href="' + second[m].url + '" id="' + second[m].id + '" ' + defaultClass + '&gt;' +
+                    '&lt;i class="' + second[m].icon + '"&gt;&lt;/i&gt;' + second[m].name + '&lt;/a&gt;&lt;/li&gt;';
+            secondUl.append(secondMenu);
+        }
+    };
+
+    $(document).delegate("li.second_menu a", "click", function () {
+        localStorage.index = $(this).attr("id");
+    });
+    $(document).delegate("li.first_menu a", "click", function () {
+        if(!$(this).hasClass('collapsed')){
+            $(this).parent().addClass('active').siblings(".first_menu").removeClass("active").find('ul.nav-second-level').removeClass('in');
+        }else{
+            $(this).parent().removeClass('in').removeClass('active')
+        }
+    });
+
+
+    //重载页面
+    function reloadCurrentPage() {
+        var pageCityId = $('#lastCityId').val()? $('#lastCityId').val().split('_')[0] : '';
+        var currentCityId = getCookieValue('ncgCurrentCityId'); // 读取 cookie ;
+        if (pageCityId &amp;&amp; currentCityId) {
+            pageCityId = pageCityId.split('_')[0];
+            if (pageCityId != currentCityId) {
+                return setAlertModal('已切换城市，请返回上级页面再继续操作', null, {
+                    isNeedConfirm: true
+                }, function (result) {
+                    if (result) {
+                        window.location.href = '/';
+                    }
+                    setTimeout(reloadCurrentPage, 500)
+                })
+            } else {
+                setTimeout(reloadCurrentPage, 500)
+            }
+        } else {
+            setTimeout(reloadCurrentPage, 500)
+        }
+    }
+
+    $(function () {
+        reloadCurrentPage();
+    })
+
+    //下拉框
+
+    function getCookieValue(name) {
+
+        var strCookie = document.cookie;
+
+        var arrCookie = strCookie.split(";");
+
+        for (var i = 0; i &lt; arrCookie.length; i++) {
+
+            var c = arrCookie[i].split("=");
+            if ($.trim(c[0]) == name) {
+                return c[1];
+            }
+
+        }
+        return "";
+    }
+&lt;/script&gt;
+
+&lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+&lt;MozillaCookieJar[&lt;Cookie ncgCurrentCityId=320903 for 192.168.1.248/&gt;, &lt;Cookie purchase_sales_management=s%3ADErSMFx2RYHEKbnzAUo_HgFzeLHYmzuE.S4rH5aBVDVkqT8bgP97K6TeCzEmnkttdt8j4sBVyKq0 for 192.168.1.248/&gt;]&gt;
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='total_row'>
+    <td>Total</td>
+    <td>3</td>
+    <td>3</td>
+    <td>0</td>
+    <td>0</td>
+    <td>&nbsp;</td>
+</tr>
+</table>
+
+<div id='ending'>&nbsp;</div>
+
+</body>
+</html>

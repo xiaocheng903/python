@@ -1,0 +1,627 @@
+#coding=utf-8
+###################################
+#实现自动打包的主流程
+#2017-6-8
+#xushuolei
+
+import shutil
+import os, time
+from logic import common
+import paramiko
+
+from process import logger
+
+class install_share:
+    
+    def __init__(self,json_path):
+        self.json_path=json_path
+        self.url = common.get_value_from_json(common.read_json(self.json_path), 'shared', 'url')
+        self.message_center_path = common.get_value_from_json(common.read_json(self.json_path), 'shared', 'path') + '\\gds-shared-message-center-content.xml'
+        self.message_center_value = common.get_value_from_json(common.read_json(self.json_path), 'shared', 'gds-shared-message-center-content', 'brokerURL')
+        self.share_message_path = common.get_value_from_json(common.read_json(self.json_path), 'shared', 'path') + '\\sharedMessage.properties'
+        self.share_message_value = common.get_value_from_json(common.read_json(self.json_path), 'shared', 'sharedMessage', 'gds.shared.message.center.address')
+        self.console_path = common.get_value_from_json(common.read_json(self.json_path), 'shared', 'console-path')
+    
+    def modify_configuration(self):
+        common.modify_atypia_xml_bean(self.message_center_path, 'brokerURL', self.message_center_value)
+        common.modify_common_file(self.share_message_path, 'gds.shared.message.center.address', self.share_message_value)
+       
+    def install(self):
+        common.runinstall(self.console_path,self.__class__.__name__)
+        
+        
+class install_ce:
+    def __init__(self,json_path):
+        self.json_path=json_path
+        self.url = common.get_value_from_json(common.read_json(self.json_path), 'ce', 'url')
+        self.console_path = common.get_value_from_json(common.read_json(self.json_path), 'ce', 'console-path')
+        
+    def install(self):
+        common.runinstall(self.console_path,self.__class__.__name__)
+        
+class install_cs:
+    def __init__(self,json_path):
+        self.json_path=json_path
+        self.url = common.get_value_from_json(common.read_json(self.json_path), 'cs', 'url')
+        self.console_path = common.get_value_from_json(common.read_json(self.json_path), 'cs', 'console-path')
+        self.before_copy_path = common.get_value_from_json(common.read_json(self.json_path), 'cs', 'before_copy_path')
+        self.after_copy_path = common.get_value_from_json(common.read_json(self.json_path), 'cs', 'after_copy_path')
+        self.domain = common.get_value_from_json(common.read_json(self.json_path), 'cs', 'update', 'gds.cs.domain.server')
+        self.appenv = common.get_value_from_json(common.read_json(self.json_path), 'cs', 'update', 'gds.ce.appenv.appip')
+        self.svn_url = common.get_value_from_json(common.read_json(self.json_path), 'cs', 'update', 'ximucredit.gds.rulemodel.svn.url')
+        self.svn_username = common.get_value_from_json(common.read_json(self.json_path), 'cs', 'update', 'ximucredit.gds.rulemodel.svn.username')
+        self.svn_password = common.get_value_from_json(common.read_json(self.json_path), 'cs', 'update', 'ximucredit.gds.rulemodel.svn.password')
+        self.mysql_url = common.get_value_from_json(common.read_json(self.json_path), 'cs', 'update', 'gds.cs.datasource.mysql.url')
+        self.protocol_host = common.get_value_from_json(common.read_json(self.json_path), 'cs', 'update', 'gds.cs.dubbo.protocol.host')      
+        self.registry_address = common.get_value_from_json(common.read_json(self.json_path), 'cs', 'update', 'gds.cs.dubbo.registry.address')
+        self.root_dir = common.get_value_from_json(common.read_json(self.json_path), 'cs', 'update', 'gds.cs.datasource.hbase.rootdir')
+        self.zookeeperquorum = common.get_value_from_json(common.read_json(self.json_path), 'cs', 'update', 'gds.cs.datasource.hbase.zookeeperquorum')
+        self.message_center_address = common.get_value_from_json(common.read_json(self.json_path), 'cs', 'update', 'gds.cs.message.center.address')
+        self.war_path = common.get_value_from_json(common.read_json(self.json_path), 'cs', 'war-path')
+        self.war_path_linux = common.get_value_from_json(common.read_json(self.json_path), 'cs', 'war-path-linux')
+        self.linux_ip = common.get_value_from_json(common.read_json(self.json_path), 'ftpconfig', 'ip')
+        self.linux_username = common.get_value_from_json(common.read_json(self.json_path), 'ftpconfig', 'username')
+        self.linux_password = common.get_value_from_json(common.read_json(self.json_path), 'ftpconfig', 'password')
+        
+    def modify_configuration(self):
+        common.modify_common_file(self.before_copy_path, 'gds.cs.domain.server', self.domain)
+        common.modify_common_file(self.before_copy_path, 'gds.ce.appenv.appip', self.appenv)
+        common.modify_common_file(self.before_copy_path, 'ximucredit.gds.rulemodel.svn.url', self.svn_url)
+        common.modify_common_file(self.before_copy_path, 'ximucredit.gds.rulemodel.svn.username', self.svn_username)
+        common.modify_common_file(self.before_copy_path, 'ximucredit.gds.rulemodel.svn.password', self.svn_password)
+        common.modify_common_file(self.before_copy_path, 'gds.cs.datasource.mysql.url', self.mysql_url)
+        common.modify_common_file(self.before_copy_path, 'gds.cs.dubbo.protocol.host', self.protocol_host)
+        common.modify_common_file(self.before_copy_path, 'gds.cs.dubbo.registry.address', self.registry_address)
+        common.modify_common_file(self.before_copy_path, 'gds.cs.datasource.hbase.rootdir', self.root_dir)
+        common.modify_common_file(self.before_copy_path, 'gds.cs.datasource.hbase.zookeeperquorum', self.zookeeperquorum)
+        common.modify_common_file(self.before_copy_path, 'gds.cs.message.center.address', self.message_center_address)
+        
+    def copy_rename_file(self):
+        shutil.copy(self.before_copy_path, self.after_copy_path)
+        if os.path.exists(self.after_copy_path):
+            logger.info('copy configuration file successfully!')
+        else:
+            raise 'copy configuration file failed'
+        
+    def install(self):
+        common.runinstall(self.console_path,self.__class__.__name__)
+        
+    def copyfile_tolinux(self, environment):
+        common.Window_to_Linux_File(self.war_path, self.war_path_linux, self.linux_ip, self.linux_username, self.linux_password, environment)
+        
+        
+class install_gap:
+    def __init__(self,json_path):
+        self.json_path=json_path
+        self.url = common.get_value_from_json(common.read_json(self.json_path), 'gap', 'url')
+        self.console_path = common.get_value_from_json(common.read_json(self.json_path), 'gap', 'console-path')
+        self.before_copy_path = common.get_value_from_json(common.read_json(self.json_path), 'gap', 'before_copy_path')
+        self.after_copy_path = common.get_value_from_json(common.read_json(self.json_path), 'gap', 'after_copy_path')
+        self.registry_address = common.get_value_from_json(common.read_json(self.json_path), 'gap', 'update', 'gds.gap.dubbo.registry.address')
+        self.mysql_password = common.get_value_from_json(common.read_json(self.json_path), 'gap', 'update', 'gds.gap.datasource.mysql.password')
+        self.mysql_url = common.get_value_from_json(common.read_json(self.json_path), 'gap', 'update', 'gds.gap.datasource.mysql.url')
+        self.mysql_username = common.get_value_from_json(common.read_json(self.json_path), 'gap', 'update', 'gds.gap.datasource.mysql.username') 
+        self.server_ip = common.get_value_from_json(common.read_json(self.json_path), 'gap', 'update', 'gds.gap.server.ip')
+        self.protocol_host = common.get_value_from_json(common.read_json(self.json_path), 'gap', 'update', 'gds.gap.dubbo.protocol.host')
+        self.war_path = common.get_value_from_json(common.read_json(self.json_path), 'gap', 'war-path')
+        self.war_path_linux = common.get_value_from_json(common.read_json(self.json_path), 'gap', 'war-path-linux')
+        self.linux_ip = common.get_value_from_json(common.read_json(self.json_path), 'ftpconfig', 'ip')
+        self.linux_username = common.get_value_from_json(common.read_json(self.json_path), 'ftpconfig', 'username')
+        self.linux_password = common.get_value_from_json(common.read_json(self.json_path), 'ftpconfig', 'password')
+
+        
+    def modify_configuration(self):
+        common.modify_common_file(self.before_copy_path, 'gds.gap.dubbo.registry.address', self.registry_address)
+        common.modify_common_file(self.before_copy_path, 'gds.gap.datasource.mysql.password', self.mysql_password)
+        common.modify_common_file(self.before_copy_path, 'gds.gap.datasource.mysql.url', self.mysql_url)
+        common.modify_common_file(self.before_copy_path, 'gds.gap.datasource.mysql.username', self.mysql_username)
+        common.modify_common_file(self.before_copy_path, 'gds.gap.server.ip', self.server_ip)
+        common.modify_common_file(self.before_copy_path, 'gds.gap.dubbo.protocol.host', self.protocol_host)
+        
+    def copy_rename_file(self):
+        shutil.copy(self.before_copy_path, self.after_copy_path)
+        if os.path.exists(self.after_copy_path):
+            logger.info('copy configuration file successfully!')
+        else:
+            raise 'copy configuration file failed !'
+        
+    def install(self):
+        common.runinstall(self.console_path,self.__class__.__name__)
+        
+    def copyfile_tolinux(self, environment):
+        common.Window_to_Linux_File(self.war_path, self.war_path_linux, self.linux_ip, self.linux_username, self.linux_password, environment)
+    
+        
+        
+class install_dio_platform:
+    def __init__(self,json_path):
+        self.json_path=json_path
+        self.url = common.get_value_from_json(common.read_json(self.json_path), 'gds_dio_platform', 'url')
+        self.console_path = common.get_value_from_json(common.read_json(self.json_path), 'gds_dio_platform', 'console-path')
+        
+    def install(self):
+        common.runinstall(self.console_path,self.__class__.__name__)
+        
+class install_dio:
+    def __init__(self,json_path):
+        self.json_path=json_path
+        self.url = common.get_value_from_json(common.read_json(self.json_path), 'dio', 'url')
+        self.console_path = common.get_value_from_json(common.read_json(self.json_path), 'dio', 'console-path')
+        self.before_copy_path = common.get_value_from_json(common.read_json(self.json_path), 'dio', 'before_copy_path')
+        self.after_copy_path = common.get_value_from_json(common.read_json(self.json_path), 'dio', 'after_copy_path')
+        self.dio_server_ip = common.get_value_from_json(common.read_json(self.json_path), 'dio', 'update', 'gds.dio.server.ip')
+        self.protocol_host = common.get_value_from_json(common.read_json(self.json_path), 'dio', 'update', 'gds.dio.dubbo.protocol.host')
+        self.registry_address = common.get_value_from_json(common.read_json(self.json_path), 'dio', 'update', 'gds.dio.dubbo.registry.address')
+        self.gap_server_ip = common.get_value_from_json(common.read_json(self.json_path), 'dio', 'update', 'gds.gap.server.ip')
+        self.svn_url = common.get_value_from_json(common.read_json(self.json_path), 'dio', 'update', 'gds.gap.module.svn.url')
+        self.svn_path = common.get_value_from_json(common.read_json(self.json_path), 'dio', 'update', 'gds.dio.biz.svn.path')
+        self.ftp_server_ip = common.get_value_from_json(common.read_json(self.json_path), 'dio', 'update', 'gds.dio.ftp.server.ip')
+        self.ftp_server_user = common.get_value_from_json(common.read_json(self.json_path), 'dio', 'update', 'gds.dio.ftp.server.user')
+        self.ftp_server_pwd = common.get_value_from_json(common.read_json(self.json_path), 'dio', 'update', 'gds.dio.ftp.server.pwd')
+        self.loan_server_ip = common.get_value_from_json(common.read_json(self.json_path), 'dio', 'update', 'gds.loan.ftp.server.ip')
+        self.loan_server_user = common.get_value_from_json(common.read_json(self.json_path), 'dio', 'update', 'gds.loan.ftp.server.user')
+        self.loan_server_pwd = common.get_value_from_json(common.read_json(self.json_path), 'dio', 'update', 'gds.loan.ftp.server.pwd')
+        self.report_email_adress = common.get_value_from_json(common.read_json(self.json_path), 'dio', 'update', 'gds.dio.biz.report.email.adress')
+        self.warn_email_adress = common.get_value_from_json(common.read_json(self.json_path), 'dio', 'update', 'gds.dio.biz.warn.email.adress')
+        self.manager_email_adress = common.get_value_from_json(common.read_json(self.json_path), 'dio', 'update', 'gds.dio.biz.manager.email.adress')
+        self.biz_email_username = common.get_value_from_json(common.read_json(self.json_path), 'dio', 'update', 'gds.dio.biz.email.username')
+        self.biz_email_password = common.get_value_from_json(common.read_json(self.json_path), 'dio', 'update', 'gds.dio.biz.email.password')
+        self.batchcall_address = common.get_value_from_json(common.read_json(self.json_path), 'dio', 'update', 'gds.dio.quartz.batchcall.address')
+        self.dataSideErrorToEmail = common.get_value_from_json(common.read_json(self.json_path), 'dio', 'update', 'gds.dio.quartz.dataSideErrorToEmail')
+        self.alertmail_address = common.get_value_from_json(common.read_json(self.json_path), 'dio', 'update', 'gds.dio.quartz.alertmail.address')
+        self.blacklist_address = common.get_value_from_json(common.read_json(self.json_path), 'dio', 'update', 'gds.dio.quartz.blacklist.address')
+        self.mobiles = common.get_value_from_json(common.read_json(self.json_path), 'dio', 'update', 'gds.dio.generic.notice.error.mobiles')
+        self.war_path = common.get_value_from_json(common.read_json(self.json_path), 'dio', 'war-path')
+        self.war_path_linux = common.get_value_from_json(common.read_json(self.json_path), 'dio', 'war-path-linux')
+        self.linux_ip = common.get_value_from_json(common.read_json(self.json_path), 'ftpconfig', 'ip')
+        self.linux_username = common.get_value_from_json(common.read_json(self.json_path), 'ftpconfig', 'username')
+        self.linux_password = common.get_value_from_json(common.read_json(self.json_path), 'ftpconfig', 'password')
+
+        
+    def modify_configuration(self):
+        common.modify_common_file(self.before_copy_path, 'gds.dio.server.ip', self.dio_server_ip)
+        common.modify_common_file(self.before_copy_path, 'gds.dio.dubbo.protocol.host', self.protocol_host)
+        common.modify_common_file(self.before_copy_path, 'gds.dio.dubbo.registry.address', self.registry_address)
+        common.modify_common_file(self.before_copy_path, 'gds.gap.server.ip', self.gap_server_ip)
+        common.modify_common_file(self.before_copy_path, 'gds.gap.module.svn.url', self.svn_url)
+        common.modify_common_file(self.before_copy_path, 'gds.dio.biz.svn.path', self.svn_path)
+        common.modify_common_file(self.before_copy_path, 'gds.dio.ftp.server.ip', self.ftp_server_ip)
+        common.modify_common_file(self.before_copy_path, 'gds.dio.ftp.server.user', self.ftp_server_user)
+        common.modify_common_file(self.before_copy_path, 'gds.dio.ftp.server.pwd', self.ftp_server_pwd)
+        common.modify_common_file(self.before_copy_path, 'gds.dio.ftp.server.ip', self.loan_server_ip)
+        common.modify_common_file(self.before_copy_path, 'gds.dio.ftp.server.user', self.loan_server_user)
+        common.modify_common_file(self.before_copy_path, 'gds.dio.ftp.server.pwd', self.loan_server_pwd)
+        common.modify_common_file(self.before_copy_path, 'gds.dio.biz.report.email.adress', self.report_email_adress)
+        common.modify_common_file(self.before_copy_path, 'gds.dio.biz.warn.email.adress', self.warn_email_adress)
+        common.modify_common_file(self.before_copy_path, 'gds.dio.biz.manager.email.adress', self.manager_email_adress)
+        common.modify_common_file(self.before_copy_path, 'gds.dio.biz.email.username', self.biz_email_username)
+        common.modify_common_file(self.before_copy_path, 'gds.dio.biz.email.password', self.biz_email_password)
+        common.modify_common_file(self.before_copy_path, 'gds.dio.quartz.batchcall.address', self.batchcall_address)
+        common.modify_common_file(self.before_copy_path, 'gds.dio.quartz.dataSideErrorToEmail', self.dataSideErrorToEmail)
+        common.modify_common_file(self.before_copy_path, 'gds.dio.quartz.alertmail.address', self.alertmail_address)
+        common.modify_common_file(self.before_copy_path, 'gds.dio.quartz.blacklist.address', self.blacklist_address)
+        common.modify_common_file(self.before_copy_path, 'gds.dio.generic.notice.error.mobiles', self.mobiles)
+        
+    def copy_rename_file(self):
+        shutil.copy(self.before_copy_path, self.after_copy_path)
+        if os.path.exists(self.after_copy_path):
+            logger.info('copy configuration file successfully!')
+        else:
+            raise 'copy configuration file failed !'
+    
+    def install(self):
+        common.runinstall(self.console_path,self.__class__.__name__)
+
+    def copyfile_tolinux(self, environment):
+        common.Window_to_Linux_File(self.war_path, self.war_path_linux, self.linux_ip, self.linux_username, self.linux_password, environment)
+        
+    
+class gds_platform:
+    
+    def __init__(self,json_path):
+        self.json_path=json_path
+        self.url = common.get_value_from_json(common.read_json(self.json_path), 'gds-platform', 'url')
+        self.console_path = common.get_value_from_json(common.read_json(self.json_path), 'gds-platform', 'console-path')
+        self.config_file_path = common.get_value_from_json(common.read_json(self.json_path), 'gds-platform', 'path') + '\\redis.properties'
+        self.redis_addr = common.get_value_from_json(common.read_json(self.json_path), 'gds-platform', 'update', 'gds.biz.util.redis.addr')
+        self.redis_auth = common.get_value_from_json(common.read_json(self.json_path), 'gds-platform', 'update', 'gds.biz.util.redis.auth')
+        
+    def modify_configuration(self):
+        common.modify_common_file(self.config_file_path, 'gds.biz.util.redis.addr', self.redis_addr)
+        common.modify_common_file(self.config_file_path, 'gds.biz.util.redis.auth', self.redis_auth)
+        
+    def install(self): 
+        common.runinstall(self.console_path,self.__class__.__name__)
+        
+        
+class gds_loan:
+    
+    def __init__(self,json_path):
+        self.json_path=json_path
+        self.url = common.get_value_from_json(common.read_json(self.json_path), 'gds_loan', 'url')
+        self.console_path = common.get_value_from_json(common.read_json(self.json_path), 'gds_loan', 'console-path')
+        self.before_copy_path = common.get_value_from_json(common.read_json(self.json_path), 'gds_loan', 'before_copy_path')
+        self.after_copy_path = common.get_value_from_json(common.read_json(self.json_path), 'gds_loan', 'after_copy_path')
+        self.loan_server_ip = common.get_value_from_json(common.read_json(self.json_path), 'gds_loan', 'update', 'gds.loan.server.ip')
+        self.mysql_password = common.get_value_from_json(common.read_json(self.json_path), 'gds_loan', 'update', 'gds.loan.datasource.mysql.password')
+        self.mysql_url = common.get_value_from_json(common.read_json(self.json_path), 'gds_loan', 'update', 'gds.loan.datasource.mysql.url')
+        self.mysql_username = common.get_value_from_json(common.read_json(self.json_path), 'gds_loan', 'update', 'gds.loan.datasource.mysql.username')
+        self.protocol_host = common.get_value_from_json(common.read_json(self.json_path), 'gds_loan', 'update', 'gds.loan.dubbo.protocol.host')
+        self.registry_address = common.get_value_from_json(common.read_json(self.json_path), 'gds_loan', 'update', 'gds.loan.dubbo.registry.address')
+        self.tiem_out = common.get_value_from_json(common.read_json(self.json_path), 'gds_loan', 'update', 'gds.loan.dubbo.consumer.timeout')
+        self.phoneNo = common.get_value_from_json(common.read_json(self.json_path), 'gds_loan', 'update', 'gds.loan.inter.sms.phoneNo')
+        self.ftp_server_ip = common.get_value_from_json(common.read_json(self.json_path), 'gds_loan', 'update', 'gds.loan.biz.shared.ftp.server.ip')
+        self.ftp_server_user = common.get_value_from_json(common.read_json(self.json_path), 'gds_loan', 'update', 'gds.loan.biz.shared.ftp.server.user')
+        self.ftp_server_pwd = common.get_value_from_json(common.read_json(self.json_path), 'gds_loan', 'update', 'gds.loan.biz.shared.ftp.server.pwd')
+        self.shared_url_xm = common.get_value_from_json(common.read_json(self.json_path), 'gds_loan', 'update', 'gds.credit.biz.shared.url.xm')
+        self.username_xm = common.get_value_from_json(common.read_json(self.json_path), 'gds_loan', 'update', 'gds.credit.biz.shared.username.xm')
+        self.password_xm = common.get_value_from_json(common.read_json(self.json_path), 'gds_loan', 'update', 'gds.credit.biz.shared.password.xm')
+#        self.dio_ftp_server_user = common.get_value_from_json(common.read_json(self.json_path),'gds_loan','update','gds.dio.ftp.server.user')
+#        self.dio_ftp_server_pwd = common.get_value_from_json(common.read_json(self.json_path),'gds_loan','update','gds.dio.ftp.server.pwd')
+        self.shared_url_capital = common.get_value_from_json(common.read_json(self.json_path), 'gds_loan', 'update', 'gds.credit.biz.shared.url.capital')
+        self.shared_username = common.get_value_from_json(common.read_json(self.json_path), 'gds_loan', 'update', 'gds.credit.biz.shared.username.capital')
+        self.shared_password = common.get_value_from_json(common.read_json(self.json_path), 'gds_loan', 'update', 'gds.credit.biz.shared.password.capital')
+        self.sumpay_email_path = common.get_value_from_json(common.read_json(self.json_path), 'gds_loan', 'update', 'gds.loan.biz.sumpay.email.path')
+        self.email_czb_path = common.get_value_from_json(common.read_json(self.json_path), 'gds_loan', 'update', 'gds.loan.payformonitor.email.czb.path')
+        self.loan_svn_path = common.get_value_from_json(common.read_json(self.json_path), 'gds_loan', 'update', 'gds.loan.biz.svn.path')
+        self.message_center_address = common.get_value_from_json(common.read_json(self.json_path), 'gds_loan', 'update', 'gds.platform.message.center.address')
+        self.web_name = common.get_value_from_json(common.read_json(self.json_path), 'gds_loan', 'update', 'gds.loan.gap.web.name')
+        self.svn_url = common.get_value_from_json(common.read_json(self.json_path), 'gds_loan', 'update', 'gds.loan.gap.module.svn.url')
+        self.acct_email_address = common.get_value_from_json(common.read_json(self.json_path), 'gds_loan', 'update', 'gds.loan.bill.chk.acct.email.address')
+        self.release_mail_list = common.get_value_from_json(common.read_json(self.json_path), 'gds_loan', 'update', 'gds.loan.release.mail.list')
+        self.biz_svn_path = common.get_value_from_json(common.read_json(self.json_path), 'gds_loan', 'update', 'gds.dio.biz.svn.path')
+        self.module_svn_url = common.get_value_from_json(common.read_json(self.json_path), 'gds_loan', 'update', 'gds.dio.gap.module.svn.url')        
+        self.war_path = common.get_value_from_json(common.read_json(self.json_path), 'gds_loan', 'war-path')
+        self.war_path_linux = common.get_value_from_json(common.read_json(self.json_path), 'gds_loan', 'war-path-linux')
+        self.linux_ip = common.get_value_from_json(common.read_json(self.json_path), 'ftpconfig', 'ip')
+        self.linux_username = common.get_value_from_json(common.read_json(self.json_path), 'ftpconfig', 'username')
+        self.linux_password = common.get_value_from_json(common.read_json(self.json_path), 'ftpconfig', 'password')
+        
+    def modify_configuration(self):
+        common.modify_common_file(self.before_copy_path, 'gds.loan.server.ip', self.loan_server_ip)
+        common.modify_common_file(self.before_copy_path, 'gds.loan.datasource.mysql.password', self.mysql_password)
+        common.modify_common_file(self.before_copy_path, 'gds.loan.datasource.mysql.url', self.mysql_url)
+        common.modify_common_file(self.before_copy_path, 'gds.loan.datasource.mysql.username', self.mysql_username)
+        common.modify_common_file(self.before_copy_path, 'gds.loan.dubbo.protocol.host', self.protocol_host)
+        common.modify_common_file(self.before_copy_path, 'gds.loan.dubbo.registry.address', self.registry_address)
+        common.modify_common_file(self.before_copy_path, 'gds.loan.dubbo.consumer.timeout', self.tiem_out)        
+        common.modify_common_file(self.before_copy_path, 'gds.loan.inter.sms.phoneNo', self.phoneNo)
+        common.modify_common_file(self.before_copy_path, 'gds.loan.biz.shared.ftp.server.ip', self.ftp_server_ip)
+        common.modify_common_file(self.before_copy_path, 'gds.loan.biz.shared.ftp.server.user', self.ftp_server_user)
+        common.modify_common_file(self.before_copy_path, 'gds.loan.biz.shared.ftp.server.pwd', self.ftp_server_pwd)
+        common.modify_common_file(self.before_copy_path, 'gds.credit.biz.shared.url.xm', self.shared_url_xm)
+        common.modify_common_file(self.before_copy_path, 'gds.credit.biz.shared.username.xm', self.username_xm)
+        common.modify_common_file(self.before_copy_path, 'gds.credit.biz.shared.password.xm', self.password_xm)
+#        common.modify_common_file(self.before_copy_path,'gds.dio.ftp.server.user',self.dio_ftp_server_user)
+#        common.modify_common_file(self.before_copy_path,'gds.dio.ftp.server.pwd',self.dio_ftp_server_pwd)
+        common.modify_common_file(self.before_copy_path, 'gds.credit.biz.shared.url.capital', self.shared_url_capital)
+        common.modify_common_file(self.before_copy_path, 'gds.credit.biz.shared.username.capital', self.shared_username)
+        common.modify_common_file(self.before_copy_path, 'gds.credit.biz.shared.password.capital', self.shared_password)
+        common.modify_common_file(self.before_copy_path, 'gds.loan.biz.sumpay.email.path', self.sumpay_email_path)
+        common.modify_common_file(self.before_copy_path, 'gds.loan.payformonitor.email.czb.path', self.email_czb_path)
+        common.modify_common_file(self.before_copy_path, 'gds.loan.biz.svn.path', self.loan_svn_path)
+        common.modify_common_file(self.before_copy_path, 'gds.platform.message.center.address', self.message_center_address)
+        common.modify_common_file(self.before_copy_path, 'gds.loan.gap.web.name', self.web_name)
+        common.modify_common_file(self.before_copy_path, 'gds.loan.gap.module.svn.url', self.svn_url)
+        common.modify_common_file(self.before_copy_path, 'gds.loan.bill.chk.acct.email.address', self.acct_email_address)
+        common.modify_common_file(self.before_copy_path, 'gds.loan.release.mail.list', self.release_mail_list)
+        common.modify_common_file(self.before_copy_path, 'gds.dio.biz.svn.path', self.biz_svn_path)
+        common.modify_common_file(self.before_copy_path, 'gds.dio.gap.module.svn.url', self.module_svn_url)
+
+    def copy_rename_file(self):
+        shutil.copy(self.before_copy_path, self.after_copy_path)
+        if os.path.exists(self.after_copy_path):
+            logger.info('copy configuration file successfully!')
+        else:
+            raise 'copy configuration file failed !'
+    
+    def install(self):
+        common.runinstall(self.console_path,self.__class__.__name__)
+        
+    def copyfile_tolinux(self, environment):
+        common.Window_to_Linux_File(self.war_path, self.war_path_linux, self.linux_ip, self.linux_username, self.linux_password, environment)
+        
+class gds_openapi:
+    def __init__(self,json_path):
+        self.json_path=json_path
+        self.url = common.get_value_from_json(common.read_json(self.json_path), 'gds_openapi', 'url')
+        self.console_path = common.get_value_from_json(common.read_json(self.json_path), 'gds_openapi', 'console-path')
+        self.before_copy_path = common.get_value_from_json(common.read_json(self.json_path), 'gds_openapi', 'before_copy_path')
+        self.after_copy_path = common.get_value_from_json(common.read_json(self.json_path), 'gds_openapi', 'after_copy_path')
+        self.consumer_timeout = common.get_value_from_json(common.read_json(self.json_path), 'gds_openapi', 'update', 'gds.openapi.dubbo.consumer.timeout')
+        self.protocol_host = common.get_value_from_json(common.read_json(self.json_path), 'gds_openapi', 'update', 'gds.openapi.dubbo.protocol.host')
+        self.registry_address = common.get_value_from_json(common.read_json(self.json_path), 'gds_openapi', 'update', 'gds.openapi.dubbo.registry.address')
+        self.jump_url = common.get_value_from_json(common.read_json(self.json_path), 'gds_openapi', 'update', 'gds.openapi.biz.embeded.jump.url')
+        self.war_path = common.get_value_from_json(common.read_json(self.json_path), 'gds_openapi', 'war-path')
+        self.war_path_linux = common.get_value_from_json(common.read_json(self.json_path), 'gds_openapi', 'war-path-linux')
+        self.linux_ip = common.get_value_from_json(common.read_json(self.json_path), 'ftpconfig', 'ip')
+        self.linux_username = common.get_value_from_json(common.read_json(self.json_path), 'ftpconfig', 'username')
+        self.linux_password = common.get_value_from_json(common.read_json(self.json_path), 'ftpconfig', 'password')
+
+    def modify_configuration(self):
+        common.modify_common_file(self.before_copy_path, 'gds.openapi.dubbo.consumer.timeout', self.consumer_timeout)
+        common.modify_common_file(self.before_copy_path, 'gds.openapi.dubbo.protocol.host', self.protocol_host)
+        common.modify_common_file(self.before_copy_path, 'gds.openapi.dubbo.registry.address', self.registry_address)
+        common.modify_common_file(self.before_copy_path, 'gds.openapi.biz.embeded.jump.url', self.jump_url)
+        
+    def copy_rename_file(self):
+        shutil.copy(self.before_copy_path, self.after_copy_path)
+        if os.path.exists(self.after_copy_path):
+            logger.info('copy configuration file successfully!')
+        else:
+            raise 'copy configuration file failed !'
+    
+    def install(self):
+        common.runinstall(self.console_path,self.__class__.__name__)
+        
+    def copyfile_tolinux(self, environment):
+        common.Window_to_Linux_File(self.war_path, self.war_path_linux, self.linux_ip, self.linux_username, self.linux_password, environment)
+        
+class uat_web:
+    def __init__(self,json_path):
+        self.json_path=json_path
+        self.url = common.get_value_from_json(common.read_json(self.json_path), 'uat_web', 'url')
+        self.console_path = common.get_value_from_json(common.read_json(self.json_path), 'uat_web', 'console-path')
+        self.before_copy_path = common.get_value_from_json(common.read_json(self.json_path), 'uat_web', 'before_copy_path')
+        self.after_copy_path = common.get_value_from_json(common.read_json(self.json_path), 'uat_web', 'after_copy_path')
+        self.consumer_timeout = common.get_value_from_json(common.read_json(self.json_path), 'uat_web', 'update', 'gds.openapi.dubbo.consumer.timeout')
+        self.protocol_host = common.get_value_from_json(common.read_json(self.json_path), 'uat_web', 'update', 'gds.openapi.dubbo.protocol.host')
+        self.registry_address = common.get_value_from_json(common.read_json(self.json_path), 'uat_web', 'update', 'gds.openapi.dubbo.registry.address')
+        self.jump_url = common.get_value_from_json(common.read_json(self.json_path), 'uat_web', 'update', 'gds.openapi.biz.embeded.jump.url')
+        self.war_path = common.get_value_from_json(common.read_json(self.json_path), 'uat_web', 'war-path')
+        self.war_path_linux = common.get_value_from_json(common.read_json(self.json_path), 'uat_web', 'war-path-linux')
+        self.linux_ip = common.get_value_from_json(common.read_json(self.json_path), 'ftpconfig', 'ip')
+        self.linux_username = common.get_value_from_json(common.read_json(self.json_path), 'ftpconfig', 'username')
+        self.linux_password = common.get_value_from_json(common.read_json(self.json_path), 'ftpconfig', 'password')
+
+    def modify_configuration(self):
+        common.modify_common_file(self.before_copy_path, 'gds.openapi.dubbo.consumer.timeout', self.consumer_timeout)
+        common.modify_common_file(self.before_copy_path, 'gds.openapi.dubbo.protocol.host', self.protocol_host)
+        common.modify_common_file(self.before_copy_path, 'gds.openapi.dubbo.registry.address', self.registry_address)
+        common.modify_common_file(self.before_copy_path, 'gds.openapi.biz.embeded.jump.url', self.jump_url)
+        
+    def copy_rename_file(self):
+        shutil.copy(self.before_copy_path, self.after_copy_path)
+        if os.path.exists(self.after_copy_path):
+            logger.info('copy configuration file successfully!')
+        else:
+            raise 'copy configuration file failed !'
+    
+    def install(self):
+        common.runinstall(self.console_path,self.__class__.__name__)  
+        
+    def copyfile_tolinux(self, environment):
+        common.Window_to_Linux_File(self.war_path, self.war_path_linux, self.linux_ip, self.linux_username, self.linux_password, environment)
+
+        
+class connection:
+    
+    def __init__(self,json_path):
+        self.json_path=json_path
+        self.ip = common.get_value_from_json(common.read_json(self.json_path), 'ftpconfig', 'ip')          
+        self.port = int(common.get_value_from_json(common.read_json(self.json_path), 'ftpconfig', 'port'))   
+        self.username = common.get_value_from_json(common.read_json(self.json_path), 'ftpconfig', 'username')   
+        self.password = common.get_value_from_json(common.read_json(self.json_path), 'ftpconfig', 'password') 
+        
+    def excute_command(self, *args):
+        try:
+            ssh = paramiko.SSHClient()
+            ssh.set_missing_host_key_policy(paramiko.AutoAddPolicy())
+            ssh.connect(self.ip, self.port, self.username, self.password, timeout=5)
+            output = []
+            for cmd in args:                   
+                    stdin, stdout, stderr = ssh.exec_command(cmd)                    
+                    out = stdout.readlines()
+                    output.append(out)
+            ssh.close()
+            return output
+        except:
+            logger.info('excute cmd {} failed!'.format(cmd))
+            return False
+
+#    def excute_command1(self,*args):
+#        ssh=paramiko.Transport((self.ip,self.port))
+##        ssh = paramiko.SSHClient()
+##        ssh.set_missing_host_key_policy(paramiko.AutoAddPolicy())
+#        ssh.connect(username=self.username,password=self.password)
+#        chan=ssh.open_session()
+#        chan.settimeout(timeout=5)
+#        chan.get_pty()
+#        output=[]
+#        for cmd in args:
+#            if cmd.find('docker attach')>=0:
+#                chan.invoke_shell()
+#                chan.send('docker attach t1cs \n')
+#                logger.info(chan.recv(1024))
+#                chan.send('\x03')
+#                logger.info(chan.recv(1024))
+#                chan.send('\n')
+#                logger.info(chan.recv(1024))
+#                chan.send('ls\n')
+#                logger.info(chan.recv(1024))
+#                
+#            else:                    
+#                stdin,stdout,stderr=ssh.exec_command(cmd)                    
+#                out = stdout.readlines()
+#                output.append(out)
+#        ssh.close()
+#        return output    
+    def handle_component_service(self, environment, component, flag):
+        support_component = ['cs', 'dio', 'loan', 'openapi', 'gap', 'uat_web']
+        support_environment = ['t1', 't2', 't3']
+        if environment not in support_environment:
+            raise Exception('{} is not supported test environment!'.format(environment))
+        if component not in support_component:
+            raise Exception('{} is not supported component!'.format(environment))       
+        if component == 'gap':
+            service_path = u'/loan/bin/'
+            war_path = u'/loan/webapps/gds-gap-web.war'
+        elif component == 'openapi':
+            service_path = u'/openapi/bin/'
+            war_path = u'/openapi/webapps/gds-openapi-web.war'
+        elif component == 'uat_web':
+            service_path = u'/openapi/bin/'
+            war_path = u'/openapi/webapps/ROOT.war'
+        else:
+            service_path = u'/' + component + '/bin/'
+            war_path = u'/' + component + '/webapps/ROOT.war'
+        
+        start_service_cmd = u'docker exec ' + environment + component + ' .' + service_path + 'startup.sh' 
+        logger.info(start_service_cmd)
+        stop_service_cmd = u'docker exec ' + environment + component + ' .' + service_path + 'shutdown.sh'  
+        logger.info(stop_service_cmd)
+        date = time.strftime('%y%m%d%H%M%S', time.localtime(time.time()))        
+        copy_cmd = u'docker exec ' + environment + component + ' cp ' + war_path + ' /root/'+component + date + '.war'
+        logger.info(copy_cmd)
+        ps_cmd = u'docker exec ' + environment + component + ' ps -ef | grep java' 
+        logger.info(ps_cmd)
+        kill_cmd = u'docker exec ' + environment + component + ' kill -9 '
+        logger.info(kill_cmd)
+        if flag == 'stop':
+            out = self.excute_command(ps_cmd)
+            logger.info(out)
+            if out != [[]]:
+                for lists in out:
+                    for content in lists:
+                        pid = content.split()[1]
+                        logger.info(pid)
+                kill_pid = self.excute_command(kill_cmd + pid)
+                logger.info(kill_pid)
+                time.sleep(1)
+            bak_file = self.excute_command(copy_cmd)
+            #sometimes can not find the ROOT folder,so add this logic
+            exist_root = self.excute_command(u'docker exec ' + environment + component + ' ls ' + war_path.split('.')[0])
+#            logger.info(exist_root)
+            no_exit = True
+            for exist_str in exist_root:
+                for exist in exist_str:
+                    if exist.find('No such file or directory') >= 0:
+                        logger.info('No such file or directory in {}'.format(war_path))
+                        no_exit = False
+            if no_exit:
+                if component == 'uat_web':
+                    remove_cmd = u'docker exec ' + environment + 'openapi' + ' rm -rf ' + war_path.split('.')[0] + '/'
+                elif component == 'gap':
+                    remove_cmd = u'docker exec ' + environment + 'loan' + ' rm -rf ' + war_path.split('.')[0] + '/'
+                else:
+                    remove_cmd = u'docker exec ' + environment + component + ' rm -rf ' + war_path.split('.')[0] + '/'
+                logger.info(u'remove cmd 是 '+remove_cmd)
+                remove_root = self.excute_command(remove_cmd)
+                logger.info(remove_root)
+                logger.info(u'删除 '+environment+component +'成功！')
+            time.sleep(1)
+        elif flag == 'start':
+            logger.info(start_service_cmd)
+            out = self.excute_command(start_service_cmd)
+            time.sleep(1)
+            logger.info(out)
+        else:
+            logger.info('no support type!')
+        
+        
+                
+if __name__ == '__main__':
+    logger.info('==============start install share module============================') 
+    share = install_share()
+    share.modify_configuration()
+    time.sleep(1)
+    share.install()
+    time.sleep(2)
+    logger.info('==============start install share module============================')
+#####  
+    logger.info('==============start install ce module============================')  
+    ce = install_ce()
+    ce.install()
+    time.sleep(2)
+    logger.info('==============install ce module end============================')
+#####   
+    logger.info('==============start install cs module============================') 
+    cs = install_cs()
+    cs.modify_configuration()
+    cs.copy_rename_file()
+    cs.install()
+    cs.copyfile_tolinux('t2')
+    time.sleep(2)
+    con = connection()
+    con.handle_component_service('t2', 'cs', 'stop')
+    con.handle_component_service('t2', 'cs', 'start')
+    logger.info('==============install cs module end============================')
+###### 
+    logger.info('==============start install gap module============================')   
+    gap = install_gap()
+    gap.modify_configuration()
+    gap.copy_rename_file()
+    gap.install()
+    gap.copyfile_tolinux('t2')
+    time.sleep(2)
+    con = connection()
+    con.handle_component_service('t2', 'gap', 'stop')
+    con.handle_component_service('t2', 'gap', 'start')
+    logger.info('==============install gap module end============================')
+######  
+    logger.info('==============start install dio platform module============================')  
+    dio_platform = install_dio_platform()
+    dio_platform.install()
+    time.sleep(2)
+    logger.info('==============install dio platform module end============================')
+######   
+    logger.info('==============start install dio module============================') 
+    dio = install_dio()
+    dio.modify_configuration()
+    dio.copy_rename_file()
+    dio.install()
+    time.sleep(2)
+    dio.copyfile_tolinux('t2')
+    con = connection()
+    con.handle_component_service('t2', 'dio', 'stop')
+    con.handle_component_service('t2', 'dio', 'start')
+    logger.info('==============install dio module end============================')
+######   
+    logger.info('==============start install gds_platform module============================') 
+    gds_platform = gds_platform()
+    gds_platform.modify_configuration()
+    gds_platform.install()
+    time.sleep(2)
+    logger.info('==============install gds_platform module end============================')
+##    
+#
+##    have wrong version in pom.xml and always have issues in coding type(utf-8 with dom)
+    logger.info('==============start install gds_loan module============================')
+    gds_loan = gds_loan()
+    time.sleep(2)
+    con = connection()
+    gds_loan.copyfile_tolinux('t2')
+    con.handle_component_service('t2', 'loan', 'stop')
+    con.handle_component_service('t2', 'loan', 'start')
+    logger.info('==============install gds_loan module end============================')
+#    
+    logger.info('==============start install gds_openapi module============================')
+    gds_openapi = gds_openapi()
+    gds_openapi.modify_configuration()
+    gds_openapi.copy_rename_file()
+    gds_openapi.install()
+    gds_openapi.copyfile_tolinux('t2')
+    time.sleep(2)
+    con = connection()
+    con.handle_component_service('t2', 'openapi', 'stop')
+    con.handle_component_service('t2', 'openapi', 'start')
+    logger.info('==============install gds_openapi module end============================')
+#
+##    have wrong version in pom.xml
+#    
+    logger.info('==============start install uat_web module============================')
+    uat_web = uat_web()
+    uat_web.modify_configuration()
+    uat_web.copy_rename_file()
+    uat_web.install() 
+    time.sleep(2)
+    uat_web.copyfile_tolinux('t2')
+    con = connection()
+    con.handle_component_service('t2', 'openapi', 'stop')
+    con.handle_component_service('t2', 'openapi', 'start')
+    logger.info('==============install uat_web module end============================')
+#    
+    
+    
+    
+    

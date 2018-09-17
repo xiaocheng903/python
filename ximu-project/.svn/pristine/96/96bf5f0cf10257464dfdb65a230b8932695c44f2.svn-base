@@ -1,0 +1,94 @@
+Mon, 10 Jul 2017 10:05:30 common.py[line:69] INFO [INFO] Scanning for projects...
+[WARNING] 
+[WARNING] Some problems were encountered while building the effective model for com.ximucredit.loan:gds-loan-core-service:jar:2.17.0-SNAPSHOT
+[WARNING] 'dependencyManagement.dependencies.dependency.(groupId:artifactId:type:classifier)' must be unique: com.ximucredit.platform:gds-platform-credit:jar -> duplicate declaration of version ${platform.version} @ com.ximucredit.loan:gds-loan-parent:2.17.0-SNAPSHOT, E:\version\gds-loan\pom.xml, line 310, column 18
+[WARNING] 
+[WARNING] Some problems were encountered while building the effective model for com.ximucredit.loan:gds-loan-core-model:jar:2.17.0-SNAPSHOT
+[WARNING] 'dependencyManagement.dependencies.dependency.(groupId:artifactId:type:classifier)' must be unique: com.ximucredit.platform:gds-platform-credit:jar -> duplicate declaration of version ${platform.version} @ com.ximucredit.loan:gds-loan-parent:2.17.0-SNAPSHOT, E:\version\gds-loan\pom.xml, line 310, column 18
+[WARNING] 
+[WARNING] Some problems were encountered while building the effective model for com.ximucredit.loan:gds-loan-biz-shared:jar:2.17.0-SNAPSHOT
+[WARNING] 'dependencyManagement.dependencies.dependency.(groupId:artifactId:type:classifier)' must be unique: com.ximucredit.platform:gds-platform-credit:jar -> duplicate declaration of version ${platform.version} @ com.ximucredit.loan:gds-loan-parent:2.17.0-SNAPSHOT, E:\version\gds-loan\pom.xml, line 310, column 18
+[WARNING] 
+[WARNING] Some problems were encountered while building the effective model for com.ximucredit.loan:gds-loan-biz-service-impl:jar:2.17.0-SNAPSHOT
+[WARNING] 'dependencyManagement.dependencies.dependency.(groupId:artifactId:type:classifier)' must be unique: com.ximucredit.platform:gds-platform-credit:jar -> duplicate declaration of version ${platform.version} @ com.ximucredit.loan:gds-loan-parent:2.17.0-SNAPSHOT, E:\version\gds-loan\pom.xml, line 310, column 18
+[WARNING] 
+[WARNING] Some problems were encountered while building the effective model for com.ximucredit.loan:gds-loan-web:war:2.17.0-SNAPSHOT
+[WARNING] 'dependencyManagement.dependencies.dependency.(groupId:artifactId:type:classifier)' must be unique: com.ximucredit.platform:gds-platform-credit:jar -> duplicate declaration of version ${platform.version} @ com.ximucredit.loan:gds-loan-parent:2.17.0-SNAPSHOT, E:\version\gds-loan\pom.xml, line 310, column 18
+[WARNING] 
+[WARNING] Some problems were encountered while building the effective model for com.ximucredit.loan:gds-loan-common-util:jar:2.17.0-SNAPSHOT
+[WARNING] 'dependencyManagement.dependencies.dependency.(groupId:artifactId:type:classifier)' must be unique: com.ximucredit.platform:gds-platform-credit:jar -> duplicate declaration of version ${platform.version} @ com.ximucredit.loan:gds-loan-parent:2.17.0-SNAPSHOT, E:\version\gds-loan\pom.xml, line 310, column 18
+[WARNING] 
+[WARNING] Some problems were encountered while building the effective model for com.ximucredit.loan:gds-loan-common-dal:jar:2.17.0-SNAPSHOT
+[WARNING] 'dependencyManagement.dependencies.dependency.(groupId:artifactId:type:classifier)' must be unique: com.ximucredit.platform:gds-platform-credit:jar -> duplicate declaration of version ${platform.version} @ com.ximucredit.loan:gds-loan-parent:2.17.0-SNAPSHOT, E:\version\gds-loan\pom.xml, line 310, column 18
+[WARNING] 
+[WARNING] Some problems were encountered while building the effective model for com.ximucredit.loan:gds-loan-common-datacorpdal:jar:2.17.0-SNAPSHOT
+[WARNING] 'dependencyManagement.dependencies.dependency.(groupId:artifactId:type:classifier)' must be unique: com.ximucredit.platform:gds-platform-credit:jar -> duplicate declaration of version ${platform.version} @ com.ximucredit.loan:gds-loan-parent:2.17.0-SNAPSHOT, E:\version\gds-loan\pom.xml, line 310, column 18
+[WARNING] 
+[WARNING] Some problems were encountered while building the effective model for com.ximucredit.loan:gds-loan-common-facade:jar:2.17.0-SNAPSHOT
+[WARNING] 'dependencyManagement.dependencies.dependency.(groupId:artifactId:type:classifier)' must be unique: com.ximucredit.platform:gds-platform-credit:jar -> duplicate declaration of version ${platform.version} @ com.ximucredit.loan:gds-loan-parent:2.17.0-SNAPSHOT, E:\version\gds-loan\pom.xml, line 310, column 18
+[WARNING] 
+[WARNING] Some problems were encountered while building the effective model for com.ximucredit.loan:gds-loan-parent:pom:2.17.0-SNAPSHOT
+[WARNING] 'dependencyManagement.dependencies.dependency.(groupId:artifactId:type:classifier)' must be unique: com.ximucredit.platform:gds-platform-credit:jar -> duplicate declaration of version ${platform.version} @ line 310, column 18
+[WARNING] 
+[WARNING] It is highly recommended to fix these problems because they threaten the stability of your build.
+[WARNING] 
+[WARNING] For this reason, future Maven versions might no longer support building such malformed projects.
+[WARNING] 
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Build Order:
+[INFO] 
+[INFO] ximucredit gds loan parent
+[INFO] ximucredit gds loan common dal
+[INFO] ximucredit gds loan common facade
+[INFO] ximucredit gds loan common util
+[INFO] ximucredit gds loan core model
+[INFO] ximucredit gds loan core service
+[INFO] ximucredit gds loan biz shared
+[INFO] ximucredit gds loan common datacorpdal
+[INFO] ximucredit gds loan biz service
+[INFO] ximucredit gds loan web
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building ximucredit gds loan parent 2.17.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:2.5:clean (default-clean) @ gds-loan-parent ---
+[INFO] 
+[INFO] --- maven-antrun-plugin:1.7:run (default) @ gds-loan-parent ---
+[INFO] Executing tasks
+
+main:
+     [echo] project home:        E:\version\gds-loan
+     [echo] java home:           E:\Program Files\jdk1.7.0_60\jre
+     [echo] java source version: 1.7
+     [echo] java target version: 1.7
+     [echo] java source charset: UTF-8
+[INFO] Executed tasks
+[INFO] 
+[INFO] >>> maven-source-plugin:2.2.1:jar (attach-sources) > generate-sources @ gds-loan-parent >>>
+[INFO] 
+[INFO] <<< maven-source-plugin:2.2.1:jar (attach-sources) < generate-sources @ gds-loan-parent <<<
+[INFO] 
+[INFO] --- maven-source-plugin:2.2.1:jar (attach-sources) @ gds-loan-parent ---
+[INFO] 
+[INFO] --- maven-install-plugin:2.4:install (default-install) @ gds-loan-parent ---
+[INFO] Installing E:\version\gds-loan\pom.xml to E:\repository\com\ximucredit\loan\gds-loan-parent\2.17.0-SNAPSHOT\gds-loan-parent-2.17.0-SNAPSHOT.pom
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building ximucredit gds loan common dal 2.17.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+Downloading: http://192.168.30.72:8081/nexus/content/groups/public/com/ximucredit/shared/gds-shared-common/2.5.1-SNAPSHOT/maven-metadata.xml
+Downloading: http://192.168.30.72:8081/nexus/content/groups/public/com/ximucredit/shared/gds-shared-parent/2.5.1-SNAPSHOT/maven-metadata.xml
+Downloading: http://192.168.30.72:8081/nexus/content/groups/public/com/ximucredit/shared/gds-shared-dataswap/2.5.1-SNAPSHOT/maven-metadata.xml
+[INFO] 
+[INFO] --- maven-clean-plugin:2.5:clean (default-clean) @ gds-loan-common-dal ---
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ gds-loan-common-dal ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 324 resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.1:compile (default-compile) @ gds-loan-common-dal ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 868 source files to E:\version\gds-loan\app\common\dal\target\classes
+
+Mon, 10 Jul 2017 10:05:30 common.py[line:69] INFO 

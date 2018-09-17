@@ -1,0 +1,7 @@
+eclipse.preferences.version=1
+encoding//logic/__init__.py=utf-8
+encoding//logic/common.py=UTF-8
+encoding//logic/parse_file.py=UTF-8
+encoding//logic/parse_property_file.py=UTF-8
+encoding//process/package.py=utf-8
+encoding/main.py=UTF-8

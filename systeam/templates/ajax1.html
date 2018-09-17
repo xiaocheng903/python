@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+ <title>Title</title>
+</head>
+<body>
+<div>
+   <input id="username" placeholder="用户名" type="text">
+   <input id="password" placeholder="密码" type="text">
+{#    <a href="/ajax2.html?">#}
+        <button id = "btn" type="button">提交</button>
+{#    </a>#}
+</div>
+<script src="/static/jquery.js"></script>
+<script>
+    $(function(){
+        $("#btn").click(function () {
+            var u = $('#username').val();
+            var p = $('#password').val();
+            console.log(u)
+            console.log(p)
+            if(u!="" && p!=""){
+                $.ajax({
+                    url: 'ajax2.html',
+                    type: 'GET',
+                    data: {username: u, password: p},
+                    success: function (arg) {
+                        //回调函数 arg是服务器返回的字符串
+                        console.log(arg)
+                        alert("创建用户成功")
+                    }
+                })
+            }
+            else{
+				alert("请输入姓名、密码");}
+        })
+    });
+</script>
+</body>
+</html>

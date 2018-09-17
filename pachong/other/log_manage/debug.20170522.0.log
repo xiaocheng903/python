@@ -1,0 +1,32 @@
+*********************
+[2017-05-22 10:28:29.015] DEBUG 成功--|480001|0ms|查询客户归属成功|192.168.8.166|null
+*********************
+*********************
+[2017-05-22 10:28:29.077] INFO  时间(2017/05/22 10:28:28) 日志类型（Debug） 192.168.8.166 || null[功能号(480001)]start..
+------------发送请求开始,请求接口：480001入参：{certificateno=11010119800101007X, tsp=1495420067764, accttype=7, requestIp=192.168.8.166, certificatenocrm=, hspwd=, invtp=1, lpasswd=ofbUgPqbn5mTumIG5aACKQ==, pwd_key=430414, certificatetypecrm=, loginip=, certificatetype=0}
+------------发送请求结束,请求接口：480001出参：[[{custno_crm=103368454, loginpwdtp=0, issale=0, enabled=1, custbelongto=3, custno=51482659, certificatenocrm=11010119800101007X, invtp=1, isopenwebtrade=1, money_flag=0, certificatetypecrm=0}]]
+*********************
+*********************
+[2017-05-22 10:28:29.140] DEBUG 成功--|430414|0ms|登陆成功|192.168.8.166|null
+*********************
+*********************
+[2017-05-22 10:28:29.140] INFO  时间(2017/05/22 10:28:29) 日志类型（Debug） 192.168.8.166 || null[功能号(430414)]start..
+------------发送请求开始,请求接口：430414入参：{certificateno=11010119800101007X, tsp=1495420067764, accttype=7, requestIp=192.168.8.166, certificatenocrm=, hspwd=, invtp=1, lpasswd=ofbUgPqbn5mTumIG5aACKQ==, pwd_key=430414, certificatetypecrm=, loginip=, certificatetype=0}
+------------发送请求结束,请求接口：430414出参：[[{passwd=GJhPqJqAMMpEPkb4mjZB6Q==, custno=51482659}]]
+*********************
+*********************
+[2017-05-22 10:28:29.264] DEBUG 成功--|430303|0ms|ok|null|null
+*********************
+*********************
+[2017-05-22 10:28:29.264] INFO  时间(2017/05/22 10:28:29) 日志类型（Debug） null || null[功能号(430303)]start..
+------------发送请求开始,请求接口：430303入参：{passwd=GJhPqJqAMMpEPkb4mjZB6Q==, custno=51482659}
+------------发送请求结束,请求接口：430303出参：[[{checkinfo= , minorflag=0, referralmobile= , netno=0000, custtp=  , paymoneyaccount=403729, pagerno= , officetelno= , appcustno= , fax= , status=0, nickname= , annualincome=  , freezingdeadline=        , educationlevel=  , postcode=*, minorid= , familyname= , bankcertificatetype= , instrepridcode= , country=156, custrisk=04, instrepridtype= , custfullname=李强, email=*, opendate=20170512, delivertype=1, custno=51482659, invtp=1, tamodidate=        , certificatetype=0, sex=1, last_status=0, telno=18923124554, referral= , hometelno=, financingmanagerid= , modidate=20170512, vocationcode=06, usefullife= , isactive=1, regioncode=    , deliverway=        , custname=李强, certificateno=11010119800101007X, backmoneyaccount=403729, transactionaccountid=K004A03685700, instreprname= , centerno= , firstname= , custgroup=  , shsecuritiesaccountid= , vailddate=23591231, mobileno=18923124554, riskenddate=20180512, investorsbirthday=19800101, address=*, custclass2= , custclass1= , szsecuritiesaccountid= , custmanagerid= , tradingmethod=0,2,3,4,5}]]
+*********************
+*********************
+[2017-05-22 10:28:29.592] DEBUG 成功--|164002|0ms|[广告查询](模板方法)成功。|192.168.8.166|null
+*********************
+*********************
+[2017-05-22 10:28:29.592] INFO  时间(2017/05/22 10:28:29) 日志类型（Debug） 192.168.8.166 || null[功能号(164002)]start..
+------------发送请求开始,请求接口：164002入参：{is_enabled=1, tsp=1495420068431, requestIp=192.168.8.166}
+------------发送请求结束,请求接口：164002出参：[[{click_count=0, update_user=, rela_path=, status=0, link_target=1, link_url=, level_id=0, channel_id=, id=44040, adspace_type=1, is_enabled=1, system_type=, update_time=, check_advice=, is_link_product=0, ad_name=22, end_time=, priority=2, file_id=44039, create_time=20170427, attach_name=, start_time=, create_user=8888, urltarget_type=, ad_type=}, {click_count=0, update_user=, rela_path=, status=0, link_target=1, link_url=, level_id=0, channel_id=, id=44025, adspace_type=1, is_enabled=1, system_type=, update_time=, check_advice=, is_link_product=0, ad_name=11, end_time=, priority=1, file_id=44024, create_time=20170427, attach_name=, start_time=, create_user=8888, urltarget_type=, ad_type=}]]
+*********************
