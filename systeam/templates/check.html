@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <style>
+  tr td{ border:1px solid #000;text-align:center;}
+ </style>
+<meta charset="UTF-8">
+<title>详情页面</title>
+</head>
+<body>
+<div>
+    <table>
+        <tr>
+            <th>
+                用户
+            </th>
+            <th>
+                爱好
+            </th>
+            <th>
+                食物
+            </th>
+        </tr>
+        <tbody>
+            {% for row in dls_list %}
+                <tr>
+                    <td>
+                        {{ row.username }}
+                    </td>
+                    <td>
+                        {{ row.like }}
+                    </td>
+                    <td>
+                        {{ row.eat }}
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+<a href="http://127.0.0.1:9000/logout/">退出</a>
+</body>
+</html>

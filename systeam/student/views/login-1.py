@@ -32,7 +32,7 @@ def login_result(request):
 
 def like(request):
     if request.method == 'GET':
-        return render(request,'like.html')
+        return render(request, 'data.html')
 
     elif request.method == 'POST':
         like = request.POST.get('like', '')
@@ -42,7 +42,7 @@ def like(request):
         print(like)
         print(eat)
         models.data.objects.create(username=u,like=like,eat=eat)
-        return redirect('/like.html')
+        return redirect('/data.html')
 
 def error(request):
     if request.method == 'GET':

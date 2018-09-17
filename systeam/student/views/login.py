@@ -7,13 +7,13 @@ class UserForm(forms.Form):
     password = forms.CharField(label='密码',widget=forms.PasswordInput())
 
 TOPIC_CHOICES = (
-  ('leve1', '差评'),
-  ('leve2', '中评'),
-  ('leve3', '好评'),
+  ('leve1', '唱歌'),
+  ('leve2', '跳舞'),
+  ('leve3', '运动'),
 )
 
 class likeForm(forms.Form):
-    like = forms.ChoiceField(label='选择喜欢的',choices=TOPIC_CHOICES)
+    like = forms.ChoiceField(label='爱好',choices=TOPIC_CHOICES)
     food = forms.CharField(label="爱吃的",max_length=100)
 
 def regist(req):
@@ -39,31 +39,47 @@ def login(req):
             user = models.Login.objects.filter(username__exact = username,password__exact = password)
             if user:
                 #比较成功，跳转至登录成功界面
-                response = redirect('/like')
+                response = redirect('/index/')
                 #将username写入浏览器cookie,失效时间为3600
                 response.set_cookie('username',username,3600)
                 return response
             else:
-                #比较失败，还在login
+                # 失败 仍在login页面
                 return redirect('login/')
     else:
         uf = UserForm()
     return render(req,'login.html',{'uf':uf})
 
-def like(request):
-    if request.method == 'GET':
-        return render(request,'like.html')
+def index(req):
+    username = req.COOKIES.get('username','')
+    print(username)
+    return render(req,'index.html',{'username':username})
 
-    elif request.method == 'POST':
-        like = request.POST.get('like', '')
-        eat = request.POST.get('eat','')
-        u = request.GET.get('username')
-        print(u)
-        print(like)
-        print(eat)
-        models.data.objects.create(username=u,like=like,eat=eat)
-        return redirect('/like.html')
+def data(req):
+    username = req.COOKIES.get('username', '')
+    print(username)
+    if req.method == 'POST':
+        lf = likeForm(req.POST)
+        if lf.is_valid():
+            like = lf.cleaned_data['like']
+            food = lf.cleaned_data['food']
+            insert = models.data.objects.create(username=username,like=like,eat=food)
+            if insert:
+                response = redirect('/check/')
+                return response
+    else:
+        lf = likeForm()
+    return render(req, 'data.html', {'uf':lf})
 
-def error(request):
-    if request.method == 'GET':
-        return render(request,'error.html')
+def logout(req):
+    response = HttpResponse('logout !!')
+    #清理cookie里保存username
+    response.delete_cookie('username')
+    return response
+
+def check(req):
+    dls_list = models.data.objects.all()
+    return render(req,'check.html',{'dls_list':dls_list})
+
+
+

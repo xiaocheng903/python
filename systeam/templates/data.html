@@ -6,7 +6,7 @@
 </head>
 <body>
 <h1>信息采集页面：</h1>
-<form method = 'post' enctype="multipart/form-data">
+<form method = 'post' enctype="application/json">
     {% csrf_token %}
     {{uf.as_p}}
     <input type="submit" value = "确认" />

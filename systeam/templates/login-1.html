@@ -30,14 +30,14 @@
                              var user = data["user"];
                              console.log(user);
                              {#$.ajax({#}
-                             {#    url:'like.html',#}
+                             {#    url:'data.html',#}
                              {#    type:'post',#}
                              {#    data:{username:user},#}
                              {#    success:function (data) {#}
                              {#        console.log(data)#}
                              {#    }#}
                              {#{)#}
-                             {#window.location.href="/like.html?"#}
+                             {#window.location.href="/data.html?"#}
                         } else {
                             alert(data["result"]);
                             window.location.href="/error.html"
