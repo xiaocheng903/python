@@ -1,0 +1,144 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title><tiles:insertAttribute name="tiles.title"></tiles:insertAttribute> </title>
+    <link rel="shortcut icon" href="${contextPath}/img/favicon.ico">
+    <link rel="bookmark" href="${contextPath}/img/favicon.ico">
+
+    <script type="text/javascript" src="http://misc.360buyimg.com/jdf/lib/jquery-1.6.4.js"></script>
+
+    <!-- Bootstrap core CSS -->
+    <link href="{% static "/v3/bootstrap/css/bootstrap.min.css" %}" rel="stylesheet">
+    <link href="{% static "/font-awesome/css/font-awesome.min.css" %}" rel="stylesheet">
+    <link href="{% static "/v3/common.css" %}" rel="stylesheet">
+    <style>
+        .btn-logout{
+            background: rgba(255, 255, 255, 0);
+            border: none;
+            margin: 15px 0;
+            margin-right: 16px;
+        }
+
+        .btn-logout > a{
+            color: #9d9d9d;
+            text-decoration: none;
+        }
+    </style>
+
+</head>
+
+<body>
+
+
+<div class="page-header"></div>
+<div class="btn-group btn-group-justified" role="group" aria-label="...">
+  <div class="btn-group" role="group">
+    <a href="add_user" class="btn btn-default">添加人员</a>
+  </div>
+  <div class="btn-group" role="group">
+    <a href="add_project" class="btn btn-default">添加项目</a>
+  </div>
+  <div class="btn-group" role="group">
+    <a href="add_theme" class="btn btn-default">添加首页主题</a>
+  </div>
+</div>
+{#<div class="page-header">#}
+{#    <div class="btn-group" role="group" aria-label="...">#}
+{#  <a href="test1" type="button" class="btn btn-default" id="test1">Left</a>#}
+{#  <a href="test2" type="button" class="btn btn-default">Middle</a>#}
+{#  <a href="test3" type="button" class="btn btn-default">Right</a>#}
+{#</div>#}
+</div>
+
+    <div class="container-fluid">
+
+
+        <div class="row top_nav_wrap">
+            <nav class="navbar navbar-inverse navbar-fixed-top">
+                <div class="container-fluid">
+                    <!-- Brand and toggle get grouped for better mobile display -->
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand" href="/" style="padding: 0;">
+                            <img alt="测试发布系统" src="{% static "/img/logo.png"%}">
+                        </a>
+                    </div>
+
+                    <!-- Collect the nav links, forms, and other content for toggling -->
+                    <div class="collapse navbar-collapse">
+                        <ul class="nav navbar-nav menu_wrap">
+                            <li class="menu menu_default" ><a href="/">预计上线</a></li>
+                            <li class="menu menu_release" ><a href="/peppa/version">版本</a></li>
+                            <li class="menu menu_project" ><a href="/peppa/apply">上线申请</a></li>
+                           <li class="menu menu_project" ><a href="/peppa/applysql">SQL上线</a></li>
+                            {% if username == 'admin'%}
+                            <li class="menu menu_project" ><a href="/setup">设置</a></li>
+                             {% endif %}
+
+                        </ul>
+
+                        <ul class="nav navbar-nav navbar-right">
+<!--                            <li><a href="/git/" target="_blank">Git小游戏</a></li>
+#                            <li><a href="http://git.mogo.com/guowei/document/blob/master/docs/FQA.md" target="_blank">测试环境-FAQ</a></li> -->
+                            <li class="dropdown">
+                                <a href="javascript:void(0);"
+                                   class="dropdown-toggle"
+                                   data-toggle="dropdown"
+                                   role="button"
+                                   aria-haspopup="true"
+                                   aria-expanded="false"
+                                >
+                                    {{request.user}}
+                                    <span class="caret"></span>
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="{% static  "/logout" %}">退出</a></li>
+                                </ul>
+                            </li>
+                            <button class="btn-logout">
+                                <a href='/admin/logout/'>登出</a>
+                            </button>
+                        </ul>
+                    </div><!-- /.navbar-collapse -->
+                </div><!-- /.container-fluid -->
+            </nav>
+        </div>
+
+        <div class="row" style="margin-top: 50px;padding: 0 20px;min-height: 500px;">
+
+            <!--content begin-->
+            {% block content %}
+            {% endblock %}
+            <!--content end-->
+
+        </div>
+    </div>
+
+
+
+
+
+
+    <footer style="margin: 20px 0px;">
+        <div class="container">
+            <div class="row text-center">
+                <p>Copyright © 2018 SysDev All rights reserved | 联系人：
+                    <a href="mailto:yunwei@diandainfo.com">yunwei@diandainfo.com</a>
+                    |<a target="_blank" href="www.baidu.com">找茬提需求</a></p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
+
+

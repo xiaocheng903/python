@@ -1,0 +1,35 @@
+{% extends 'test/set_up_base.html' %}
+{% block content %}
+    <form action="add_user" method="post">
+        <input type="text" class="form-control" id="username" name="username" value="" placeholder="请输入用户名名">
+        <input type="text" class="form-control" id="name" name="name" value="" placeholder="请输入中文名">
+        <select name= "role" class="form-control">
+            <option value ="">请选择角色</option>
+            <option value ="dba">DBA</option>
+            <option value ="caiwu">财务</option>
+            <option value ="caixiao">采销</option>
+            <option value ="cangpei">仓配</option>
+            <option value ="qianduan">前端</option>
+            <option value ="shuju">数据</option>
+            <option value ="yunwei">运维</option>
+            <option value ="test">测试</option>
+            <option value ="shangcheng">商城</option>
+        </select>
+        <select name="group" class="form-control">
+            <option value ="">请选择组</option>
+            <option value ="yunwei">运维</option>
+            <option value ="test">测试</option>
+            <option value ="dev">开发</option>
+        </select>
+        <select name="leader" class="form-control">
+            <option value ="0">是否为leader</option>
+            <option value ="1">是</option>
+            <option value ="0">否</option>
+        </select>
+         <input type="text" class="form-control" id="password" name="password" value="" placeholder="请输入用户密码">
+         <input type="text" class="form-control" id="mail" name="mail" value="" placeholder="请输入邮箱">
+{#        <input type="text" class="form-control" id="dbname" name="dbname" value="" placeholder="请输入数据库名">#}
+  <input type="submit" value="提交" />
+</form>
+{% endblock %}
+

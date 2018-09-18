@@ -1,0 +1,97 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<style>
+     progress{
+         width: 800px;
+        height: 100px;
+     }
+</style>
+
+<form action="/peppa/release_status" method=get>
+    {% csrf_token %}
+<table>
+<thead>
+<tr>
+    <div class="form-group" id="op3">
+        <label for="applyconf" class="col-sm-2 col-md-2 col-lg-2 control-label">发布项目:</label>
+    </div>
+    <div class="form-group" id="op3">
+        <span class="label label-warning">{{ project }}</span>
+    </div>
+</tr>
+<tr>
+    <div class="form-group" id="op3">
+        <label for="applyconf" class="col-sm-2 col-md-2 col-lg-2 control-label">选择发布服务器:</label>
+    </div>
+</tr>
+<tr>
+<td>
+    {% for i in machine %}
+        <div class="form-group">
+            <input type="checkbox" value="{{ i }}" name="check_box_list"  checked="checked" /> {{ i }}<br />
+        </div>
+    {% endfor %}
+<input type="hidden" value="3" name="type">
+<input type="hidden" value="{{ tid }}" name="id">
+<input type="hidden" value="release" name="operation">
+<input type="hidden" value="{{ tid }}" id="release_status">
+    </div>
+</td>
+</tr>
+</thead>
+</table>
+<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+</div>
+    <button  class="btn btn-primary save" type="submit">发布</button>
+  <!--  <a  href="/peppa/confirm?id={{ tid }}" class="btn btn-primary save" >验证</a> -->
+    <a  href="/peppa" class="btn btn-primary save" >返回首页</a>
+
+
+
+
+</form>
+
+    <div class="form-group"></div>
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+    <table class="table table-bordered table-striped"  role="grid">
+    <thead>
+    <tr>
+    <progress  max="3" value="0" id="pg"></progress>
+        <div class="form-group" id="op3">
+        <input style="border: 0px;outline:none;cursor: pointer;" id="sta" value="" class="col-sm-2 col-md-2 col-lg-2 control-label"/>
+        </div>
+    </tr>
+    </thead>
+
+    </table>
+</div>
+ <meta http-equiv="refresh" content="600">
+
+<script>
+
+<!--$("#btnTerminalSvr").click(function(){ -->
+    setInterval(function(e){
+
+    var tid = $("#release_status").val()
+     $.ajax({
+        url: '/peppa/releStatu',
+        type: 'GET',
+        data: {id:tid},
+        dataType: 'json',
+        timeout: 10000,
+        success: function(result) {
+            console.log(result.resStatus)
+                $("#pg").val(result.result)
+                $("#sta").val(result.resStatus)
+        }
+       });
+  },1000);
+
+
+
+</script>
+
+{% endblock %}
+

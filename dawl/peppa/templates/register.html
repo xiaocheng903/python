@@ -1,0 +1,110 @@
+
+
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title><tiles:insertAttribute name="tiles.title"></tiles:insertAttribute> </title>
+    <link rel="shortcut icon" href="${contextPath}/img/favicon.ico">
+    <link rel="bookmark" href="${contextPath}/img/favicon.ico">
+
+
+    <!-- Bootstrap core CSS -->
+    <link href="{% static "/v3/bootstrap/css/bootstrap.min.css" %}" rel="stylesheet">
+    <link href="{% static "/font-awesome/css/font-awesome.min.css" %}" rel="stylesheet">
+    <link href="{% static "/v3/common.css" %}" rel="stylesheet">
+
+</head>
+
+<body>
+
+<div class="page-header">
+</div>
+    <div class="container-fluid">
+
+      <div class="page-header">
+      <h3>{{ page_title }}</h3>
+  </div>
+        <div class="row top_nav_wrap">
+            <nav class="navbar navbar-inverse navbar-fixed-top">
+                <div class="container-fluid">
+                    <!-- Brand and toggle get grouped for better mobile display -->
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand"  style="padding: 0;">
+                            <img alt="测试发布系统" src="{% static "/img/logo.png"%}">
+                        </a>
+                    </div>
+
+                    <!-- Collect the nav links, forms, and other content for toggling -->
+                    <div class="collapse navbar-collapse">
+
+                        <ul class="nav navbar-nav navbar-right">
+<!--                            <li><a href="/git/" target="_blank">Git小游戏</a></li>
+#                            <li><a href="http://git.mogo.com/guowei/document/blob/master/docs/FQA.md" target="_blank">测试环境-FAQ</a></li> -->
+                            <li class="dropdown">
+                                <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">登陆姓名&nbsp;|&nbsp;角色<span class="caret"></span></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="{% static  "/logout" %}">退出</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div><!-- /.navbar-collapse -->
+                </div><!-- /.container-fluid -->
+            </nav>
+        </div>
+
+        <div class="row" style="margin-top: 50px;padding: 0 20px;min-height: 500px;">
+
+
+
+<form action="/peppa/register" method="post">
+
+
+      {% if message %}
+      <div class="alert alert-warning">{{ message }}</div>
+  {% endif %}
+    <div style="margin: 5% 40%;">
+        <h1>欢迎注册！</h1>
+
+    {% csrf_token %}
+
+  <div class="form-group">
+    <label for="exampleInputEmail1">用户名</label>
+    <input type="text" class="form-control" id="usn" name="usn" placeholder="用户名">
+  </div>
+
+        <div class="form-group">
+    <label for="exampleInputEmail1">Email</label>
+    <input type="email" class="form-control" id="email" name="email" placeholder="邮箱地址">
+  </div>
+
+  <div class="form-group">
+    <label for="exampleInputPassword1">密码</label>
+    <input type="password" class="form-control" id="psd" name="psd" placeholder="Password">
+  </div>
+
+        <div class="form-group">
+            <label for="exampleInputPassword1">所属组</label>
+        <input type="text" class="form-control" id="psd" name="group" placeholder="所属组">
+  </div>
+
+
+        <button type="submit" class="btn btn-default" href="/peppa/register">注册</button>
+
+    </div>
+</form>
+
+</body>
+
+
+</div>
+    </div>

@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+
+
+{% block content %}
+    <label style="font-size: 40px;color: red"  >您填写的配置文件内容不是json格式，请点击<a href="/consulapi/update_consul?consul_pro={{ project }}">返回</a>从新填写</label>
+
+{% endblock %}

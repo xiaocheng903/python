@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block content %}
+<div class="row" style="margin-top: 10px;">
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+        <table class="table table-bordered table-striped" id="mc_list" role="grid">
+            <thead>
+            <tr>
+                <th width="150">项目</th>
+                <th width="150">版本号</th>
+                <th width="120">values</th>
+                <th width="180">操作</th>
+            </tr>
+            </thead>
+            {% for i in versioninfo %}
+            <tbody>
+            <tr>
+            <td>{{ i.project }}</td>
+                <td>{{ i.version }}</td>
+                <td><textarea readonly="readonly" rows="5" cols="90">{{ i.values }}</textarea></td>
+
+                <td>
+                   <a class="btn btn-warning" href="/consulapi/roll_update?id={{ i.id }}" id="rollback" onclick="myFunction()">回滚</a>
+                </td>
+            </tr>
+            {% endfor%}
+                <tr><td colspan="6">暂无数据</td></tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
+{% endblock %}
+
+
+</body>
+</html>

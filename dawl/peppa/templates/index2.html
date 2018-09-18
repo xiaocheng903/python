@@ -1,0 +1,371 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="SHIELD - Free Bootstrap 3 Theme">
+    <meta name="author" content="Carlos Alvarez - Alvarez.is - blacktie.co">
+
+    <title> SHIELD - Free Bootstrap 3 Theme</title>
+
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" type="text/css" href="{% static "bootstrap/css/bootstrap.min.css" %}" />
+
+    <!-- Custom styles for this template -->
+    <link href="{% static "css/main.css" %}" rel="stylesheet">
+    <link href="{% static "css/icomoon.css" %}" rel="stylesheet">
+    <link href="{% static "css/animate-custom.css" %}" rel="stylesheet">
+
+    <link href='http://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Raleway:400,300,700' rel='stylesheet' type='text/css'>
+
+    <script type="text/javascript" src="{% static "js/jquery.min.js" %}"></script>
+        <script type="text/javascript" src="{% static "js/modernizr.custom.js" %}"></script>
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="assets/js/html5shiv.js"></script>
+      <script src="assets/js/respond.min.js"></script>
+    <![endif]-->
+  </head>
+
+  <body data-spy="scroll" data-offset="0" data-target="#navbar-main">
+<link rel="stylesheet" type="text/css" href="${mogo:buildUrl( "/plugins/prettify/prettify.sons.css","" )}">
+<div class="page-header">
+    <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <ol class="breadcrumb">
+                <li><a href="${mogo:buildUrl( "/project/index","" )}">项目</a></li>
+                <li><a href="${contextPath}/project/info?id=${info.id}">${info.name}</a></li>
+                <li class="active">上线资料</li>
+            </ol>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6"><h3 style="margin: 0 0 ;">上线资料</h3></div>
+        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+            <form class="form-inline wrap_search pull-right hidden">
+                <div class="form-group">
+                    <select name="status" class="form-control inline">
+                        <option value="0">请选择物料类型</option>
+                        <option value="1">SQL</option>
+                        <option value="2">Job</option>
+                        <option value="3">业务配置</option>
+                        <option value="4">Apollo配置</option>
+                    </select>
+                </div>
+                <button type="button" class="btn btn-primary ">添加</button>
+            </form>
+            <a target="_blank" class="btn btn-primary pull-right" href="${contextPath}/config/index?status=0&uid=0&branch=${info.branchName}">去审核上线资料</a>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+        <ul id="myTabs" class="nav nav-tabs" role="tablist">
+            <li role="presentation" class="active"><a href="#tab_1">SQL</a></li>
+            <li role="presentation"><a href="#tab_2">定时器</a></li>
+            <li role="presentation"><a href="#tab_3">配置信息</a></li>
+            <li role="presentation"><a href="#tab_4">APOLLO配置</a></li>
+        </ul>
+        <div id="myTabContent" class="tab-content">
+            <div role="tabpanel" class="tab-pane fade active in" id="tab_1" aria-labelledby="home-tab" style="margin-top: 20px;">
+                <div class="row">
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <div class="row">
+                                    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">SQL</div>
+                                    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                                        <c:if test="${canAdd}">
+                                            <a href="${contextPath}/project/task_set?type=1&id=${info.id}" class="btn btn-primary btn-sm pull-right"><i class="fa fa-plus"></i>SQL</a>
+                                        </c:if>
+                                    </div>
+                                </div>
+                            </div>
+                            <c:choose>
+                                <c:when test="${sqlProjectList == null || fn:length(sqlProjectList) == 0 }">
+                                    <div class="panel-body">
+                                        <div class="row">
+                                            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                                                <c:if test="${canAdd}">
+                                                    <p>亲，项目要不要添加个SQL脚本,<a href="${contextPath}/project/task_set?type=1&id=${info.id}">添加SQL</a></p>
+                                                </c:if>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </c:when>
+                                <c:otherwise>
+                                    <ul class="list-group">
+                                        <c:forEach items="${sqlProjectList}" var="itemInfo">
+                                            <li class="list-group-item">
+                                                <div class="row">
+                                                    <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10">
+                                                        <p>状态：<span class="label label-info"><c:choose>
+                                                            <c:when test="${itemInfo.auditStatus == '0' }">
+                                                                <c:if test="${itemInfo.rejectNote == ''}">
+                                                                    待审核
+                                                                </c:if>
+                                                                <c:if test="${itemInfo.rejectNote != ''}">
+                                                                    驳回：${itemInfo.rejectNote}
+                                                                </c:if>
+                                                            </c:when>
+                                                            <c:when test="${itemInfo.auditStatus == '1' }">
+                                                                初审通过
+                                                            </c:when>
+                                                            <c:when test="${itemInfo.auditStatus == '2' }">
+                                                                DBA通过
+                                                            </c:when>
+                                                        </c:choose>
+                    </span>
+                                                        </p>
+                                                        <p>标题：${fn:escapeXml( itemInfo.title )}</p>
+                                                        <p>类型：${fn:escapeXml( sqlTypeMapping[ itemInfo.jobData['sqlType'] ] )}</p>
+                                                        <p>提交人：${fn:escapeXml( userMapping[ itemInfo['uid'] ].holderName )}</p>
+                                                        <p>描述：</p>
+                                                        <p><pre class="prettyprint linenums" style="word-wrap:break-word;word-break:break-all;overflow:auto;line-height:1.5;">${fn:escapeXml( itemInfo.jobData['detail'] )}</pre></p>
+                                                    </div>
+                                                    <c:if test="${canEdit || canDel}">
+                                                        <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+                                                            <c:if test="${canEdit && itemInfo.auditStatus == 0 }">
+                                                                <a href="${contextPath}/project/task_set?type=1&id=${info.id}&taskId=${itemInfo.id}" class="btn btn-primary btn-link"><i class="fa fa-edit"></i>编辑</a>
+                                                            </c:if>
+
+                                                            <c:if test="${canDel}">
+                                                                <a href="javascript:void(0);" data-id="${itemInfo.id}"  data-projectId = "${info.id}" class="btn btn-primary btn-link del_item"><i class="fa fa-trash"></i>删除</a>
+                                                            </c:if>
+                                                        </div>
+                                                    </c:if>
+
+                                                </div>
+                                            </li>
+                                        </c:forEach>
+                                    </ul>
+                                </c:otherwise>
+                            </c:choose>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div role="tabpanel" class="tab-pane fade" id="tab_2" aria-labelledby="home-tab" style="margin-top: 20px;">
+                <div class="row">
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <div class="row">
+                                    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">定时器</div>
+                                    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                                        <c:if test="${canAdd}">
+                                            <a href="${contextPath}/project/task_set?type=2&id=${info.id}"  class="btn btn-primary btn-sm pull-right"><i class="fa fa-plus"></i>定时器</a>
+                                        </c:if>
+                                    </div>
+                                </div>
+                            </div>
+                            <c:choose>
+                                <c:when test="${jobProjectList == null  || fn:length(jobProjectList) == 0  }">
+                                    <div class="panel-body">
+                                        <div class="row">
+                                            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                                                <c:if test="${canAdd}">
+                                                    <p>亲，项目要不要添加个Job,<a href="${contextPath}/project/task_set?type=2&id=${info.id}">添加Job</a></p>
+                                                </c:if>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </c:when>
+                                <c:otherwise>
+                                    <ul class="list-group">
+                                        <c:forEach items="${jobProjectList}" var="itemInfo">
+                                            <li class="list-group-item">
+                                                <div class="row">
+                                                    <div class="col-xs-11 col-sm-11 col-md-11 col-lg-11">
+                                                        <p>名称：${fn:escapeXml( itemInfo.jobData['jobTitle'] )}</p>
+                                                        <p>类名称：${fn:escapeXml( itemInfo.jobData['jobClassName'] )}</p>
+                                                        <p>参数：${fn:escapeXml( itemInfo.jobData['jobParam'] )}</p>
+                                                        <p>所属服务：${fn:escapeXml( jobBizMapping[ itemInfo.jobData['jobBiz'] ] )}</p>
+                                                        <p>任务类型：${fn:escapeXml( jobTypeMapping[ itemInfo.jobData['jobType'] ] )}</p>
+                                                        <p>运行时间：${fn:escapeXml( itemInfo.jobData['jobRuntime'] )}</p>
+                                                        <p>提交人：${fn:escapeXml( userMapping[ itemInfo['uid'] ].holderName )}</p>
+                                                        <p>描述：</p>
+                                                        <p>&nbsp;&nbsp;${fn:replace( fn:escapeXml( itemInfo.jobData['description'] ), vEnter, "<br/>")}</p>
+                                                    </div>
+                                                    <c:if test="${canEdit || canDel}">
+                                                        <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
+                                                            <c:if test="${canSet}">
+                                                                <a href="${contextPath}/project/task_set?type=2&id=${info.id}&taskId=${itemInfo.id}" class="btn btn-primary btn-link"><i class="fa fa-edit"></i>编辑</a>
+                                                            </c:if>
+                                                            <c:if test="${canDel}">
+                                                                <a href="javascript:void(0);" data-id="${itemInfo.id}"  data-projectId = "${info.id}" class="btn btn-primary btn-link del_item"><i class="fa fa-trash"></i>删除</a>
+                                                            </c:if>
+                                                        </div>
+                                                    </c:if>
+                                                </div>
+                                            </li>
+                                        </c:forEach>
+                                    </ul>
+                                </c:otherwise>
+                            </c:choose>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div role="tabpanel" class="tab-pane fade" id="tab_3" aria-labelledby="home-tab" style="margin-top: 20px;">
+                <div class="row">
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <div class="row">
+                                    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">配置信息</div>
+                                    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                                        <c:if test="${canAdd}">
+                                            <a href="${contextPath}/project/task_set?type=3&id=${info.id}" class="btn btn-primary btn-sm pull-right btn-sm"><i class="fa fa-plus"></i>配置</a>
+                                        </c:if>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <c:choose>
+                                <c:when test="${bizConfigProjectList == null  || fn:length(bizConfigProjectList) == 0  }">
+                                    <div class="panel-body">
+                                        <div class="row">
+                                            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                                                <c:if test="${canAdd}">
+                                                    <p>亲，项目要不要添加个配置,<a href="${contextPath}/project/task_set?type=3&id=${info.id}">添加配置</a></p>
+                                                </c:if>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </c:when>
+                                <c:otherwise>
+                                    <ul class="list-group">
+                                        <c:forEach items="${bizConfigProjectList}" var="itemInfo">
+                                            <li class="list-group-item">
+                                                <div class="row">
+                                                    <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10">
+                                                        <p>状态：<span class="label label-info"><c:choose>
+                                                            <c:when test="${itemInfo.auditStatus == '0' }">
+                                                                <c:if test="${itemInfo.rejectNote == ''}">
+                                                                    待审核
+                                                                </c:if>
+                                                                <c:if test="${itemInfo.rejectNote != ''}">
+                                                                    驳回：${itemInfo.rejectNote}
+                                                                </c:if>
+                                                            </c:when>
+                                                            <c:when test="${itemInfo.auditStatus == '1' }">
+                                                                初审通过
+                                                            </c:when>
+                                                            <c:when test="${itemInfo.auditStatus == '2' }">
+                                                                终审通过
+                                                            </c:when>
+                                                        </c:choose>
+                                                            </span>
+                                                        </p>
+                                                        <p>所属业务：${fn:escapeXml( taskConfigBizMapping[ itemInfo.jobData['bizId'] ].displayName )}</p>
+                                                        <p>提交人：${fn:escapeXml( userMapping[ itemInfo['uid'] ].holderName )}</p>
+                                                        <p>操作类型：${fn:escapeXml( taskConfigActMapping[ itemInfo.jobData['act'] ] )}</p>
+                                                        <p>操作环境：${fn:escapeXml( taskConfigEnvMapping[ itemInfo.jobData['env'] ] )}</p>
+                                                        <p>配置文件名：${fn:escapeXml( itemInfo.jobData['fileName'] )}</p>
+                                                        <p>描述：${fn:escapeXml( itemInfo.jobData['description'] )}</p>
+                                                        <p>配置内容：<code style="overflow:hidden; word-wrap:break-word; word-break:normal;">${fn:replace( fn:escapeXml( itemInfo.jobData['detail'] ), vEnter, "<br/>")}</code></p>
+                                                    </div>
+                                                    <c:if test="${canEdit || canDel}">
+                                                        <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+                                                            <c:if test="${canEdit}">
+                                                                <a href="${contextPath}/project/task_set?type=3&id=${info.id}&taskId=${itemInfo.id}" class="btn btn-primary btn-link"><i class="fa fa-edit"></i>编辑</a>
+                                                            </c:if>
+                                                            <c:if test="${canDel}">
+                                                                <a href="javascript:void(0);" data-id="${itemInfo.id}"  data-projectId = "${info.id}" class="btn btn-primary btn-link del_item"><i class="fa fa-trash"></i>删除</a>
+                                                            </c:if>
+                                                        </div>
+                                                    </c:if>
+                                                </div>
+                                            </li>
+                                        </c:forEach>
+                                    </ul>
+                                </c:otherwise>
+                            </c:choose>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div role="tabpanel" class="tab-pane fade" id="tab_4" aria-labelledby="home-tab" style="margin-top: 20px;">
+                <div class="row">
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <div class="row">
+                                    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">APOLLO配置</div>
+                                    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                                        <c:if test="${canAdd}">
+                                            <a href="${contextPath}/project/task_set?type=4&id=${info.id}" class="btn btn-primary btn-sm pull-right btn-sm"><i class="fa fa-plus"></i>APOLLO配置</a>
+                                        </c:if>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <c:choose>
+                                <c:when test="${apolloProjectList == null  || fn:length(apolloProjectList) == 0  }">
+                                    <div class="panel-body">
+                                        <div class="row">
+                                            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                                                <c:if test="${canAdd}">
+                                                    <p>亲，项目要不要添加个APOLLO配置,<a href="${contextPath}/project/task_set?type=4&id=${info.id}">添加APOLLO配置</a></p>
+                                                </c:if>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </c:when>
+                                <c:otherwise>
+                                    <ul class="list-group">
+                                        <c:forEach items="${apolloProjectList}" var="itemInfo">
+                                            <li class="list-group-item">
+                                                <div class="row">
+                                                    <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10">
+                                                        <p>配置标示：${fn:escapeXml( itemInfo.jobData['appid'] )}</p>
+                                                        <p>提交人：${fn:escapeXml( userMapping[ itemInfo['uid'] ].holderName )}</p>
+                                                        <p>操作环境：
+                                                            <c:forEach var="tmpEnv" items="${itemInfo.envIds}">
+                                                                ${apolloEnvMapping[ tmpEnv ]}
+                                                            </c:forEach>
+                                                        </p>
+                                                        <p>操作类型：${fn:escapeXml( taskConfigActMapping[ itemInfo.jobData['act'] ] )}</p>
+                                                        <p>命令空间：${fn:escapeXml( itemInfo.jobData['namespace'] )}</p>
+                                                        <p>Apollo配置Key：${fn:escapeXml( itemInfo.jobData['apollo_key'] )}</p>
+                                                        <p>Apollo配置值：${fn:escapeXml( itemInfo.jobData['apollo_value'] )}</p>
+                                                        <p>描述：${fn:escapeXml( itemInfo.jobData['description'] )}</p>
+                                                    </div>
+                                                    <c:if test="${canEdit || canDel}">
+                                                        <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+                                                            <c:if test="${canEdit}">
+                                                                <a href="${contextPath}/project/task_set?type=4&id=${info.id}&taskId=${itemInfo.id}" class="btn btn-primary btn-link"><i class="fa fa-edit"></i>编辑</a>
+                                                            </c:if>
+                                                            <c:if test="${canDel}">
+                                                                <a href="javascript:void(0);" data-id="${itemInfo.id}"  data-projectId = "${info.id}" class="btn btn-primary btn-link del_item"><i class="fa fa-trash"></i>删除</a>
+                                                            </c:if>
+                                                        </div>
+                                                    </c:if>
+                                                </div>
+                                            </li>
+                                        </c:forEach>
+                                    </ul>
+                                </c:otherwise>
+                            </c:choose>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<script type="text/javascript" src="${mogo:buildUrl( "/plugins/prettify/prettify.js","" )}"></script>
+<script type="text/javascript" src="${mogo:buildUrl( "/js/project/task.js","" )}"></script>
+
+  </body>
+</html>
+

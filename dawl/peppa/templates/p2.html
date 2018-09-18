@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<!--
+<style type="text/css">
+html,body{background:#000; color:#090;}
+</style>
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+<textarea>{{ log }}</textarea>
+<input type="button" onclick="AjaxSubmit();" value="提交">
+
+
+<script>
+    function AjaxSubmit(){
+
+        var data_list = [
+            {'name':'xiaojia','age':18},
+            {'name':'xiaoyao','age':20},
+            {'name':'wang','age':22}
+        ];
+
+        $.ajax({
+            url:"/peppa/query_verinfo",
+            type:'POST',
+            tradition:true,
+            data:{data:JSON.stringify(data_list)},
+            success: function (arg) {
+            }
+
+        });
+        setInterval(AjaxSubmit,1)
+    }
+</script>
+
+</body>
+</html>
+
+{% endblock %}

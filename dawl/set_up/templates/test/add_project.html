@@ -1,0 +1,22 @@
+{% extends 'test/set_up_base.html' %}
+{% block content %}
+    <form action="add_project" method="post">
+        <input type="text" class="form-control" id="project" name="project" value="" placeholder=
+                "请输入项目辨识名 例如 financial-business（新财务管理系统  - git）">
+        <input type="text" class="form-control" id="name" name="name" value="" placeholder="项目名(gitlab上的项目名)">
+        <input type="text" class="form-control" id="gitaddress" name="gitaddress" value="" placeholder="请输入git地址">
+
+        <select name="group" class="form-control">
+            <option value ="">所属组</option>
+            <option value ="shangcheng">商城组</option>
+            <option value ="caixiao">采销组</option>
+            <option value ="cangpei">仓配组</option>
+            <option value ="shuju">数据组</option>
+            <option value ="caiwu">财务组</option>
+            <option value ="qianduan">前端组</option>
+        </select>
+{#        <input type="text" class="form-control" id="dbname" name="dbname" value="" placeholder="请输入数据库名">#}
+  <input type="submit" value="提交" />
+</form>
+{% endblock %}
+

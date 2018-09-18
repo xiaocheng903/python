@@ -1,0 +1,104 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="row">
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+        <form class="form-inline wrap_search" action="/peppa/version" method="get">
+            {% csrf_token %}
+            <div class="form-group">
+                <select name="project" class="form-control inline" id="project">
+                    <option value="proapply" id ='proapply' name="proapply">上线项目</option>
+                    <option value="appsql" id ='appsql'>上线SQL</option>
+                </select>
+            </div>
+          <div class="form-group">
+                <input type="date" class="form-control" style="width: 250px;" name="release_plan" value="{{ nowdate }}"  placeholder="请选择上线时间" />
+            </div>
+
+            <button type="submit" class="btn btn-primary search">搜索</button>
+        </form>
+    </div>
+</div>
+
+
+
+
+<div class="row" style="margin-top: 10px;">
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+        <table class="table table-bordered table-striped" id="mc_list" role="grid">
+            <thead>
+            <tr>
+                <th width="150">项目</th>
+                <th width="150">版本名称</th>
+                <th width="120">计划上线日期</th>
+                <th width="180">创建时间</th>
+                <th width="120">当前状态</th>
+                <th width="120">上线申请人</th>
+                <th width="180">操作</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for i in verdetail %}
+            <tr>
+                {% if vertype == "sql" %}
+            <td><a href="/peppa/sqlDetail?id={{ i.id }}" />{{ i.project }}</td>
+                {% endif %}
+                {% if vertype == "project" %}
+            <td><a href="/peppa/projectDetail?id={{ i.id }}"/>{{ i.project }}</td>
+                {% endif %}
+                {% if glo_env == "pro" %}
+                <td>{{ i.version }}&&{{ i.tags }}</td>
+                {% else %}
+                <td>{{ i.version }}&&{{ i.branchname }}</td>
+                {% endif %}
+                <td>{{ i.applydate }}</td>
+                <td>{{ i.cjdate }}</td>
+                <td><span class="label label-primary"/>{{ i.status }}</td>
+                <td>{{ i.applyuser }}</td>
+            {% if vertype == "project" %}
+                <td>
+                    <a class="btn btn-warning" href="/peppa/release_status?id={{ i.id }}&type=10&operation=rollback">回滚</a>
+
+                </td>
+            {% endif %}
+                {% if vertype == "sql" %}
+                <td>
+                    <span class="btn label-default" style="color: white;" >我是小贾，贾总</span>
+                </td>
+            {% endif %}
+
+            </tr>
+            {% endfor %}
+            <c:if test="${fn:length(dataList) == 0 }">
+                <tr><td colspan="6">暂无数据</td></tr>
+            </c:if>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
+
+{% endblock %}
+
+<script>
+   $("#project").change(function () {
+       var softtype=$("#project").find("option:selected").text();
+       var soft = {'status':softtype}
+
+       $.ajax({
+           type: 'POST',
+           url: '/peppa/query_verinfo',
+           dataType: 'json',
+           data:soft,
+           success: function ( data_get ) {
+
+           }
+
+       });
+
+   });
+
+
+</script>

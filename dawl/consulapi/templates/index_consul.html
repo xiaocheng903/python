@@ -1,0 +1,112 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block content %}
+
+
+
+
+<div class="row">
+    <div class="col-sm-10 col-md-10 col-lg-10 ">
+        <label class="col-sm-2 col-md-2 col-lg-2 col-lg-offset-2 control-label" style="font-size: 20px" >选择项目：</label>
+      <select name="consul_pro" ID="consul_pro" style="font-size: 20px">
+          {% for i in prolist %}
+            <option>{{ i.project }}</option>
+          {% endfor %}
+      </select>
+    </div>
+</div>
+
+<div class="row">
+<div class="col-sm-3 col-md-3 col-lg-3 col-lg-offset-7">
+    <button type="button" id="show" >查看</button>
+    <button type="button" id="update" >更新</button>
+    <button type="button" id="rollback" >回滚</button>
+</div>
+</div>
+
+
+<script type="text/javascript">
+    $(document).ready(function(){
+
+        $("#show").click(function(){
+
+            var checkvalue = $("#consul_pro").val()
+            $.ajax({
+                url: 'get_consul_ajax',
+                type: 'GET',
+                data: {project:checkvalue},
+                dataType: 'json',
+                timeout: 10000,
+                success: function(result) {
+
+                    if(result.error){
+						showAlertNotice(result.error);
+					}else if(result.url){
+						location.href = result.url;
+
+					}
+                },
+                error : function() {
+                    $.msg.alert("添加异常");
+                    }
+           });
+        });
+
+
+         $("#update").click(function(){
+
+            var checkvalue = $("#consul_pro").val()
+            $.ajax({
+                url: 'update_consul_ajax',
+                type: 'GET',
+                data: {project:checkvalue},
+                dataType: 'json',
+                timeout: 10000,
+                success: function(result) {
+
+                    if(result.error){
+						showAlertNotice(result.error);
+					}else if(result.url){
+						location.href = result.url;
+
+					}
+                },
+                error : function() {
+                    $.msg.alert("添加异常");
+                    }
+           });
+        });
+
+
+         $("#rollback").click(function(){
+
+            var checkvalue = $("#consul_pro").val()
+            $.ajax({
+                url: 'rollback_consul_ajax',
+                type: 'GET',
+                data: {project:checkvalue},
+                dataType: 'json',
+                timeout: 10000,
+                success: function(result) {
+
+                    if(result.error){
+						showAlertNotice(result.error);
+					}else if(result.url){
+						location.href = result.url;
+
+					}
+                },
+                error : function() {
+                    $.msg.alert("添加异常");
+                    }
+           });
+        });
+
+});
+
+</script>
+
+
+{% endblock %}
+

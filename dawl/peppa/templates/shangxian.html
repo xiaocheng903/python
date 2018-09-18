@@ -1,0 +1,332 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<div class="page-header">
+ <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="SHIELD - Free Bootstrap 3 Theme">
+    <meta name="author" content="Carlos Alvarez - Alvarez.is - blacktie.co">
+
+    <title> SHIELD - Free Bootstrap 3 Theme</title>
+
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" type="text/css" href="{% static "bootstrap/css/bootstrap.min.css" %}" />
+
+    <!-- Custom styles for this template -->
+    <link href="{% static "css/main.css" %}" rel="stylesheet">
+    <link href="{% static "css/icomoon.css" %}" rel="stylesheet">
+    <link href="{% static "css/animate-custom.css" %}" rel="stylesheet">
+
+    <link href='http://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Raleway:400,300,700' rel='stylesheet' type='text/css'>
+
+    <script type="text/javascript" src="{% static "js/jquery.min.js" %}"></script>
+        <script type="text/javascript" src="{% static "js/modernizr.custom.js" %}"></script>
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="assets/js/html5shiv.js"></script>
+      <script src="assets/js/respond.min.js"></script>
+    <![endif]-->
+  </head>
+
+  <body data-spy="scroll" data-offset="0" data-target="#navbar-main">
+
+
+    <h3>版本：${info.branchName}
+        <c:if test="${  IS_TESTER  && info.status > 0  }">
+            <button class="btn  btn-warning pull-right reback" data="1"><i class="fa fa-history"></i>回退到待集测</button>
+        </c:if>
+
+        <c:if test="${IS_DEVELOP_MANAGER}">
+            <c:if test="${info.status == 1}">
+                <button class="btn  btn-danger pull-right del" data="0" style="margin-right: 10px;"><i class="fa fa-trash"></i>废弃</button>
+            </c:if>
+
+            <c:if test="${ info.status > 0 }">
+                <a class="btn btn-primary pull-right"  href="${contextPath}/release/set?id=${info.id}" style="margin-right: 10px;"><i class="fa fa-edit fa-lg"></i>编辑</a>
+            </c:if>
+
+        </c:if>
+
+        <c:if test="${IS_TESTER || IS_DEVELOP_MANAGER || IS_OPS}">
+            <a class="btn btn-w-m btn-outline btn-primary pull-right" href="${mogo:buildUrl( "/release/publish","" )}" style="margin-right: 10px;">
+                <i class="fa fa fa-paper-plane-o"></i>发版4.0
+            </a>
+        </c:if>
+
+        <c:if test="${ (  IS_OPS || IS_DEVELOP_MANAGER || IS_TESTER ) && info.status > 0  }">
+        <a class="btn btn-primary pull-right"  href="${contextPath}/release/set-package?type=2&id=${info.id}" style="margin-right: 10px;"><i class="fa fa-plus"></i>应用包</a>
+        </c:if>
+
+        <a class="btn btn-primary pull-right"  href="${contextPath}/release/task?id=${info.id}" style="margin-right: 10px;"><i class="fa fa-eye fa-lg"></i>上线资料</a>
+
+        <c:if test="${ IS_TESTER  && info.status > 0  }">
+        <a class="btn btn-primary pull-right"  href="${contextPath}/release/report?id=${info.id}" style="margin-right: 10px;"><i class="fa fa-paper-plane-o fa"></i> 测试报告</a>
+        </c:if>
+    </h3>
+</div>
+<div class="row">
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+        <table class="table table-bordered table-striped" style="table-layout: fixed;">
+            <thead>
+            <tbody>
+            <tr>
+                <td>版本名称</td>
+                <td>${info.branchName}</td>
+                <td>状态</td>
+                <td><span class="label label-info">${releaseStatusMapping[ info.status ]}</span></td>
+            </tr>
+            <tr>
+                <td>上线发起人</td>
+                <td>${userMapping[ info.uid ].holderName}</td>
+                <td>计划上线时间</td>
+                <td><fmt:formatDate value="${info.gaDate}" pattern="yyyy-MM-dd"/></td>
+            </tr>
+            <tr>
+                <td>集测日期</td>
+                <td><fmt:formatDate value="${info.testDate}" pattern="yyyy-MM-dd"/></td>
+                <td>锁版日期</td>
+                <td><fmt:formatDate value="${info.lockDate}" pattern="yyyy-MM-dd"/></td>
+            </tr>
+            <tr>
+                <td>测试审核人</td>
+                <td>${userMapping[ info.testAuditUid ].holderName}</td>
+                <td>测试审核时间</td>
+                <td>
+                    <c:if test="${ info.testAuditUid > 0  }">
+                        <fmt:formatDate value="${info.testAuditTime}" pattern="yyyy-MM-dd HH:mm:ss"/>
+                    </c:if>
+                </td>
+            </tr>
+            <tr>
+                <td>灰度发布人</td>
+                <td>${userMapping[ info.grayAuditUid ].holderName}</td>
+                <td>上线审核时间</td>
+                <td>
+                    <c:if test="${ info.grayAuditUid > 0  }">
+                        <fmt:formatDate value="${info.grayAuditTime}" pattern="yyyy-MM-dd HH:mm:ss"/>
+                    </c:if>
+                </td>
+            </tr>
+            <tr>
+                <td>GA发布人</td>
+                <td>${userMapping[ info.gaAuditUid ].holderName}</td>
+                <td>运维上线时间</td>
+                <td>
+                    <c:if test="${ info.gaAuditUid > 0  }">
+                        <fmt:formatDate value="${info.gaAuditTime}" pattern="yyyy-MM-dd HH:mm:ss"/>
+                    </c:if>
+                </td>
+            </tr>
+            <tr>
+                <td>版本号</td>
+                <td colspan="3">${info.ver}</td>
+            </tr>
+            <tr>
+                <td>备注</td>
+                <td colspan="3" style="overflow:hidden; word-wrap:break-word; word-break:normal;" width="50%">${fn:replace( fn:escapeXml( info.note ), vEnter, "<br/>")}</td>
+            </tr>
+            </tbody>
+        </table>
+        <c:if test="${info.status > 0 }">
+            <div class="well">
+                <c:if test="${ IS_TESTER && info.status == 1 }">
+                    <c:if test="${info.testServerId == 0 }">
+                    <button class="btn btn-primary my_test">申请机器集测</button>
+                    </c:if>
+                    <c:if test="${info.testServerId > 0 }">
+                        <a class="btn btn-warning"  href="${contextPath}/test/env/index?targetType=2&targetId=${info.id}">测试服务器发布</a>
+                    </c:if>
+                    <button class="btn btn-success test_ok" data="10">集测通过</button>
+                    <button class="btn btn-warning test_fail" data="1">集测不通过</button>
+                </c:if>
+
+                <c:if test="${ IS_DBA && info.status == 10 }">
+                    <button class="btn btn-success dba_ok" data="15">DBA操作完成</button>
+                    <a target="_blank" class="btn btn-link" href="${contextPath}/dba/index?status=2&branch=${info.branchName}">查看上线资料</a>
+                </c:if>
+
+                <c:if test="${ ( IS_OPS || IS_DEVELOP_MANAGER || IS_TESTER) && info.status == 15 }">
+                    <button class="btn btn-success gray_publish" data="21">灰度发布完成</button>
+                </c:if>
+
+                <c:if test="${ IS_TESTER && info.status == 21 }">
+                    <button class="btn btn-success gray_ok" data="22">灰度验证通过</button>
+                    <button class="btn btn-warning gray_fail" data="1">灰度验证不通过</button>
+                </c:if>
+
+                <c:if test="${ ( IS_OPS || IS_DEVELOP_MANAGER  || IS_TESTER) && info.status == 22 }">
+                    <button class="btn btn-success ga_publish" data="31">GA发布完成</button>
+                </c:if>
+
+                <c:if test="${ IS_TESTER && info.status == 31 }">
+                    <button class="btn btn-success ga_ok" data="32">GA验证通过</button>
+                </c:if>
+
+                <c:if test="${ IS_DEVELOP_MANAGER && info.status >= 32}">
+                    <button class="btn btn-success merge_master" >合入Master</button>
+                </c:if>
+
+                <button class="btn btn-success master_merge" >合并Master</button>
+
+                <button class="btn btn-primary check_network" title="访问线上服务是否可用"><i class="fa fa-check"></i>检测网站可用性</button>
+
+                <c:if test="${ IS_TESTER }">
+                    <button class="btn btn-primary auto_test">自动化测试</button>
+                    <a target="_blank" class="btn btn-link" href="http://192.168.60.200">查看自动化报告</a>
+                </c:if>
+
+            </div>
+            <ul class="nav nav-pills nav-justified step step-arrow">
+                <c:forEach items="${releaseStatusMapping}" var="itemInfo">
+                    <c:if test="${itemInfo.key > 0}">
+                        <li <c:if test="${itemInfo.key <= info.status }"> class="active" </c:if> >
+                            <a> ${itemInfo.value}</a>
+                        </li>
+                    </c:if>
+
+                </c:forEach>
+            </ul>
+        </c:if>
+
+        <div class="alert alert-danger" role="alert">
+            <ul>
+                <li>集测不通过：打回 待集测</li>
+                <li>灰度验证不通过：打回 待集测</li>
+            </ul>
+        </div>
+        <c:if test="${packageList != null && fn:length(packageList) > 0 }">
+            <table class="table table-bordered table-striped"  role="grid" style="table-layout: fixed;">
+                <thead>
+                <tr>
+                    <th width="15%">包名</th>
+                    <th width="6%">包负责人</th>
+                    <th width="12%">包</th>
+                    <th width="14%">更新时间</th>
+                    <th>锁版包地址</th>
+                    <c:if test="${IS_TESTER || IS_DEVELOP_MANAGER || IS_OPS }">
+                        <th width="9%">标记</th>
+                        <th width="8%">操作</th>
+                    </c:if>
+                </tr>
+                </thead>
+                <tbody>
+                <c:forEach items="${packageList}" var="itemInfo" varStatus="idx">
+                    <tr>
+                        <td style="overflow:hidden; word-wrap:break-word; word-break:normal;">${ packageMapping[ itemInfo.packageId ].displayName }</td>
+                        <td>${ packageMapping[ itemInfo.packageId ].owner }</td>
+                        <td>${ packageMapping[ itemInfo.packageId ].packageName }</td>
+                        <td><fmt:formatDate value="${itemInfo.updateTime}" pattern="yyyy-MM-dd HH:mm:ss"/></td>
+                        <td style="overflow:hidden; word-wrap:break-word; word-break:normal;">${ itemInfo.targetUrl }</td>
+                        <c:if test="${IS_TESTER || IS_DEVELOP_MANAGER || IS_OPS}">
+                            <td>
+                                <c:choose>
+                                    <c:when test="${itemInfo.status >= 20 }">
+                                        <span class="label label-info">${itemInfo.statusDesc}</span>
+                                    </c:when>
+                                    <c:otherwise>
+                                        <a class="btn btn-link publish_fail" href="javascript:void(0);" data="${itemInfo.id}" title="当最后上线失败回滚之后来这里标注一下">标记发版失败</a>
+                                    </c:otherwise>
+                                </c:choose>
+                            </td>
+                            <c:if test="${idx.index == 0}">
+                                <td rowspan="${fn:length(packageList)}">
+                                    <c:if test="${IS_TESTER}">
+                                        <a class="btn btn-link" href="${contextPath}/project/package_set?id=${info.id}&type=2"><i class="fa fa-edit"></i>编辑</a>
+                                    </c:if>
+                                    <c:if test="${ IS_TESTER || IS_DEVELOP_MANAGER || IS_OPS }">
+                                        <a target="_blank" class="btn btn-link" href="${contextPath}/release/single/publish?id=${info.id}"><i class="fa fa-paper-plane"></i>发布</a>
+                                    </c:if>
+                                </td>
+
+                            </c:if>
+                        </c:if>
+                    </tr>
+                </c:forEach>
+                </tbody>
+            </table>
+        </c:if>
+
+    </div>
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+        <ul id="myTabs" class="nav nav-tabs" role="tablist">
+            <li role="presentation" class="active"><a href="#tab_1">关联项目</a></li>
+            <li role="presentation"><a href="#tab_2">操作日志</a></li>
+        </ul>
+        <div id="myTabContent" class="tab-content">
+            <div role="tabpanel" class="tab-pane fade active in" id="tab_1" aria-labelledby="home-tab">
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th>项目名称</th>
+                            <th>技术负责人</th>
+                            <th>测试负责人</th>
+                            <th>当前状态</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <c:forEach items="${projectMap}" var="itemInfo">
+                            <tr>
+                                <td>
+                                    <a target="_blank" href="${contextPath}/project/info?id=${itemInfo.key}">
+                                            ${itemInfo.value.name}
+                                    </a>
+                                </td>
+                                <td>${userMapping[ itemInfo.value.techOwner ].holderName}</td>
+                                <td>${userMapping[ itemInfo.value.testOwner ].holderName}</td>
+                                <td>
+                                    <span class="label label-info">
+                                        ${projectStatusMapping[ itemInfo.value.status ]}
+                                    </span>
+                                </td>
+                            </tr>
+                        </c:forEach>
+                        <c:if test="${projectMap == null ||fn:length( projectMap ) < 1 }">
+                            <tr><td colspan="4">暂未关联项目</td></tr>
+                        </c:if>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div role="tabpanel" class="tab-pane fade" id="tab_2" aria-labelledby="profile-tab">
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th>操作人</th>
+                            <th>日志时间</th>
+                            <th>日志内容</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <c:forEach items="${logList}" var="itemInfo">
+                            <tr>
+                                <td>${userMapping[ itemInfo.uid ].holderName}</td>
+                                <td><fmt:formatDate value="${itemInfo.createTime}" pattern="yyyy-MM-dd HH:mm:ss"/></td>
+                                <td>${itemInfo.note}</td>
+                            </tr>
+                        </c:forEach>
+                        <c:if test="${ fn:length(logList) == 10 }">
+                            <tr>
+                                <td colspan="3" class="text-center"><a target="_blank" class="btn btn-link" href="${contextPath}/log/index?target_type=2&target_id=${info.id}">查看更多日志</a><hr/></td>
+                            </tr>
+                        </c:if>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<%@ include file="info_extra.jsp"%>
+
+<div class="hidden_wrap hidden">
+    <input type="hidden" name="id" value="${info.id}">
+</div>
+  </body>
+</html>
+

@@ -1,0 +1,286 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+
+<div class="col-xs-10">
+<form action="/peppa/applysave" method=post>
+            {% csrf_token %}
+
+    <div class="col-xs-offset-1 col-xs-10 col-sm-offset-1 col-sm-10 col-md-offset-1 col-md-10 col-lg-offset-1 col-lg-10">
+        <div class="form-horizontal" role="form" id="project_set_wrap">
+
+            <div class="form-group">
+                <label for="name1" class="col-sm-2 col-md-2 col-lg-2 control-label">项目名称</label>
+                <div class="col-sm-10 col-md-10 col-lg-10">
+                      <select name="projectName" class="form-control">
+                          <option value=""></option>
+                      </select>
+                </div>
+            </div>
+        {% if glo_env == "pro" %}
+            <div class="form-group" id="protag">
+                <label for="tags" class="col-sm-2 col-md-2 col-lg-2 control-label">tags</label>
+                <div class="col-sm-10 col-md-10 col-lg-10">
+                    <select name="tagName" class="form-control">
+                    </select>
+                </div>
+            </div>
+        {% endif %}
+        {% if glo_env != "pro" %}
+        <div id="prebranch">
+            <div class="form-group" id="pretag">
+                <label for="tags" class="col-sm-2 col-md-2 col-lg-2 control-label">选择分支 {{ glo_env }}</label>
+                <div class="col-sm-10 col-md-10 col-lg-10">
+                    <select name="branchname" class="form-control">
+                    </select>
+                </div>
+            </div>
+        </div>
+        {% endif %}
+
+            <div class="form-group">
+                <label for="techOwner" class="col-sm-2 col-md-2 col-lg-2  control-label">技术负责人</label>
+               <div class="col-sm-10 col-md-10 col-lg-10">
+                      <select name="techOwner" class="form-control">
+                          <option value="">请选择技术负责人</option>
+                           {% for technologys in technology %}
+                             <option value="{{ technologys.username }}">{{technologys.username}}</option>#}
+                           {% endfor %}
+                      </select>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="testOwner" class="col-sm-2 col-md-2 col-lg-2 control-label">测试负责人</label>
+                <div class="col-sm-10 col-md-10 col-lg-10">
+                      <select name="testOwner" class="form-control">
+                            <option value="">请选择测试负责人</option>
+                            {% for tests in test %}
+                             <option value="{{ tests.username }}">{{tests.username}}</option>#}
+                            {% endfor %}
+                      </select>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="projectOwner" class="col-sm-2 col-md-2 col-lg-2 control-label">产品负责人</label>
+                <div class="col-sm-10 col-md-10 col-lg-10">
+                      <select name="projectOwner" class="form-control">
+                          <option value="">请选择产品负责人</option>
+                            {% for products in product %}
+                             <option value="{{ products.username }}">{{products.username}}</option>#}
+                            {% endfor %}
+                      </select>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="gaDate" class="col-sm-2 col-md-2 col-lg-2 control-label">上线日期</label>
+                <div class="col-sm-10 col-md-10 col-lg-10">
+                    <input type="date" min={{ nowdate }} name="gaDate" value="{{ nowdate }}" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="gaDate" class="col-sm-2 col-md-2 col-lg-2 control-label">是否有sql</label>
+
+                <input type="checkbox" id="checksql" value="male" name="male" /> <br />
+            </div>
+            <div class="form-group">
+
+                <label for="gaDate" class="col-sm-2 col-md-2 col-lg-2 control-label">是否有配置</label>
+                <input type="checkbox" id="checkconfig" value="" name="fmale" /><br />
+                </div>
+
+            <div class="form-group" id="op1">
+                <label for="applysql" class="col-sm-2 col-md-2 col-lg-2 control-label">数据库名</label>
+                <div class="col-sm-10 col-md-10 col-lg-10">
+                    <input type="text" class="form-control" id="dbname" name="dbname" value="" placeholder="请输入数据库名">
+                </div>
+            </div>
+
+            <div class="form-group" id="op2">
+                <label for="applysql" class="col-sm-2 col-md-2 col-lg-2 control-label">上线sql</label>
+                <div class="col-sm-10 col-md-10 col-lg-10">
+                    <textarea class="form-control" rows="3" name="applysql" id="op2text"></textarea>
+                    <div class="col-sm-offset-12 col-md-offset-12 col-lg-offset-12">
+                    <button id="sql2plus" data-role="button" data-icon="plus" type="button" style="font-size: 12px">&#43</button>
+                    </div>
+                </div>
+            </div>
+<div id="op4">
+            <div class="form-group">
+                <label for="applysql" class="col-sm-2 col-md-2 col-lg-2 control-label">数据库名1</label>
+                <div class="col-sm-10 col-md-10 col-lg-10">
+                    <input type="text" class="form-control" id="dbname1" name="dbname1" value="" placeholder="请输入数据库名">
+                </div>
+            </div>1
+            <div class="form-group">
+                <label for="applysql" class="col-sm-2 col-md-2 col-lg-2 control-label">上线sql1</label>
+                <div class="col-sm-10 col-md-10 col-lg-10">
+                    <textarea class="form-control" rows="3" name="applysql1" ></textarea>
+                </div>
+            </div>
+</div>
+
+            <div class="form-group" id="op3">
+                <label for="applyconf" class="col-sm-2 col-md-2 col-lg-2 control-label">上线配置</label>
+                <div class="col-sm-10 col-md-10 col-lg-10">
+                    <textarea class="form-control" rows="3" name="applyconf" id="note"></textarea>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="note" class="col-sm-2 col-md-2 col-lg-2 control-label">备注</label>
+                <div class="col-sm-10 col-md-10 col-lg-10">
+                    <textarea class="form-control" rows="3" name="note" id="note"></textarea>
+                </div>
+                <input type="hidden" name="envlogo" value="">
+            </div>
+
+            <div class="form-group">
+                <div class="col-xs-offset-2 col-xs-10 col-sm-offset-2 col-sm-10 col-md-offset-2 col-md-10 col-lg-offset-2 col-lg-10">
+                    <input type="hidden" name="id" value="">
+                    <button  class="btn btn-primary save" type="submit">保存</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+</div>
+
+
+<script type="text/javascript">
+
+
+$(document).ready(function () {
+
+    $("#op1").hide()
+    $("#op2").hide()
+    $("#op3").hide()
+    $("#op4").hide()
+    $("#op5").hide()
+
+
+    $("#checksql").click(function () {
+        if ($("#checksql").is(':checked')){
+            $("#op1").show()
+            $("#op2").show()
+        }
+        else
+        {
+            $("#op1").hide()
+            $("#op2").hide()
+            $("#op4").hide()
+        }
+    })
+    $("#sql2plus").click(function () {
+        $("#op4").show()
+
+    })
+
+    $("#checkconfig").click(function () {
+        if ($("#checkconfig").is(':checked')){
+            $("#op3").show()
+        }
+        else
+        {
+            $("#op3").hide()
+        }
+    })
+
+
+
+
+
+});
+
+
+
+
+
+    //自执行函数，获取项目名字后发送请求，然后插入到tag里面
+    (function handleEvent (){
+
+        document.getElementById('project_set_wrap').addEventListener('change', function(event){
+
+            var dom = event.target;
+
+            var name = dom.getAttribute('name');
+            var value = dom.value;
+
+
+            if( name == "projectName"){
+                var data = {
+                    name: 'tagName',
+                    value: value
+                }
+
+
+                var data1 = {
+                    name: 'branchname',
+                    value: value
+                }
+
+                sendRequest('test',  'get', data, function(res){
+                    var dataList = JSON.parse(res);
+                    document.getElementsByName('tagName')[0].innerHTML = assbleOption(dataList);
+                })
+
+                sendRequest('test',  'get', data1, function(res){
+                    var dataList = JSON.parse(res);
+                    document.getElementsByName('branchname')[0].innerHTML = assbleOption(dataList);
+
+                })
+
+            }
+
+        })
+    })()
+
+
+    //当页面刷新就会请求project name
+    function getProjectName(){
+        var data ={
+            name: 'projectName'
+        }
+
+        sendRequest('test', 'get', data, function(res){
+            var dataList = JSON.parse(res);
+            document.getElementsByName('projectName')[0].innerHTML = assbleOption(dataList);
+        })
+    }
+    getProjectName();
+
+        //遍历数组，拼接字符串
+        function assbleOption( data ){
+            var content = '<option>请选择</option>';
+            data.forEach( function (item){
+                content += '<option>' + item +'</option>'
+            })
+            return content;
+
+        }
+
+
+    function sendRequest ( url, type, data, cb){
+            $.ajax({
+                type: type,
+                url: url,
+                data: data,
+                async: true,
+                success: function(res){
+                    cb(res);
+                },
+                fail: function(){
+                    alert('错误')
+                }
+            })
+    }
+
+
+
+
+
+
+
+    </script>
+
+{% endblock %}

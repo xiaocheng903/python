@@ -1,0 +1,135 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="row">
+
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+        <table class="table table-bordered table-striped" style="table-layout: fixed;">
+            {% for i in proinfo %}
+
+            <tbody>
+            <tr>
+                <td>版本名称</td>
+                <td >
+                    <strong>{{ i.project }}</strong>
+                </td>
+
+                <td>状态</td>
+                <td><span class="label label-info">{{ i.status }}</span></td>
+            </tr>
+            <tr>
+                <td>计划上线时间</td>
+                <td><fmt:formatDate value={{ i.appdate }} pattern="yyyy-MM-dd"/>{{ i.appdate }}</td>
+
+                <td>测试审核人</td>
+                <td>{{ i.csleader }}</td>
+
+
+            </tr>
+            <tr>
+
+
+                <td>申请人</td>
+                <td>{{ i.applyuserId }}</td>
+                <td>产品负责人</td>
+                <td>{{ i.cpleader }}</td>
+            </tr>
+            <tr>
+                <td>创建时间</td>
+                <td>{{ i.cjdate }}</td>
+
+                <td>技术负责人</td>
+                <td>{{ i.jsleader }}</td>
+            </tr>
+
+            <tr>
+                <td>git地址</td>
+                <td>
+                    <link>{{ i.repertory }}
+                </td>
+                {% if env == 'pro' %}
+                <td>tag</td>
+                <td>{{ i.tags }}</td>
+                {% endif %}
+                {% if env != 'pro' %}
+                <td>分支</td>
+                <td>{{ i.branchname }}</td>
+                {% endif %}
+            </tr>
+
+
+            </tbody>
+
+                <tr>
+                <td>备注</td>
+                <td>{{ i.beizhu }}</td>
+                <td>版本号</td>
+                <td>{{ i.version }}</td>
+
+            </tr>
+        </table>
+
+    </div>
+    </div>
+
+
+<div class="row">
+    <table  style="table-layout: fixed;" >
+
+    <tbody>
+
+        <tr>
+            <td style="color: black; font-size: 18px">
+                <h4>上线sql:</h4>
+            </td>
+
+        </tr>
+    </tbody>
+        <tr>
+
+            <td>
+                <h5>数据库名：{{ i.dbname }}</h5>
+                </td>
+
+        </tr>
+        <tr>
+            <td >
+                <textarea  readonly="readonly" cols="200" rows="8" >{{ i.sql }} </textarea>
+            </td>
+
+        </tr>
+
+{% if flag == 1%}
+        <tr>
+
+            <td>
+                <h5>数据库名1：{{ i.dbname1 }}</h5>
+            </td>
+        </tr>
+        <tr>
+            <td >
+                <textarea  readonly="readonly" cols="200" rows="8" >{{ i.applysql1 }} </textarea>
+            </td>
+
+        </tr>
+{% endif %}
+
+
+        <tr>
+            <td style="color: black; font-size: 18px" >
+                <h4>上线配置说明:</h4>
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                <textarea  readonly="readonly" cols="200" rows="8">{{ i.applyconfig }} </textarea>
+            </td>
+        </tr>
+    </table>
+</div>
+
+                {% endfor %}
+
+{% endblock %}

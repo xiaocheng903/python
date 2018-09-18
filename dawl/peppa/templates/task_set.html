@@ -1,0 +1,95 @@
+<div class="container-fluid">
+<div class="row-fluid">
+    <div class="block span6">
+        <p class="block-heading ">命令执行窗口</p>
+        <div class="block-body">
+           <form action="" method="post" id="form1" >{% csrf_token %}
+               <input type="hidden" name="" id="sql"/>
+               <label>请输入SQL语句（多条sql则每条sql为一行）</label>
+               <textarea class="span12" rows="10" name="sql" id="sqlcontent"></textarea>
+               <button type="button" name="create" id="create" >创建数据库</button>
+               <button type="button" name="drop" id="drop"  >删除数据库</button>
+               <button type="button" class="btn btn-primary pull-right" id="mysql">执 行</button>
+               <div class="clearfix"></div>
+           </form>
+        </div>
+    </div>
+    <div class="block span6">
+        <p class="block-heading ">返回信息</p>
+        <div class="block-body">
+            {% if message %}<label class="remember-me"><font color="red">{{message}}</font></label>{% endif %}
+            {% for key,value in line_list.items %}
+                {% ifequal value '0' %}
+                    <font color="red">{{key}}影响行数：{{value}}</font></br>
+                {% else %}
+                    {{key}}影响行数：{{value}}</br>
+                {% endifequal %}
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% if select_data %}
+    <div class="block">
+        <a href="#tablewidget" class="block-heading" data-toggle="collapse">查询结果</a>
+        <div id="tablewidget" class="block-body collapse in">
+            <table class="table">
+              <tbody>
+                {% for i in select_data %}
+                <tr>
+                    {% for l in i %}
+                       <td>{{ l }}</td>
+                    {% endfor %}
+                </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+    </div>
+{% endif %}
+<script src="/static/jqconfirm/jquery.confirm/jquery.confirm.js"></script>
+<script type="text/javascript">
+    $(document).ready(function(){
+        function sql(){
+            $("#sql").attr("name","mysql");
+            $("#mysql").attr("disabled","disabled");
+            $("#mysql").html("执行中");
+            $("#form1").submit();
+        };
+
+        function error(title,message){
+            $.confirm({
+                'title'     : title,
+                'message'   : message,
+                'buttons'   : {
+                    '返回'    : {
+                        'class' : 'blue',
+                        'action': function(){}
+                    }
+                }
+            });
+        };
+        function warn(title,message,fun){
+            $.confirm({
+                'title'     : title,
+                'message'   : message,
+                'buttons'   : {
+                    'Yes'   : {
+                        'class' : 'blue',
+                        'action': fun
+                    },
+                    'No'    : {
+                        'class' : 'gray',
+                        'action': function(){}
+                    }
+                }
+            });
+        };
+        $('#mysql').click(function(){
+            var sqlcontent = $.trim($("#sqlcontent").val());
+            if(sqlcontent == ''){
+                error('错误','请输入SQL语句后再执行！')
+                return false;
+            };
+            warn('警告','你确定要执行吗？',sql);
+        });
+    });
+</script>

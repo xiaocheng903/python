@@ -1,0 +1,79 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="row">
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+          <div class="page-header">
+      <h3>sql详细信息</h3>
+  </div>
+
+        <table class="table table-bordered table-striped" style="table-layout: fixed;">
+            {% for i in sqlinfo %}
+
+            <tbody>
+            <tr>
+                <td>
+                <strong>标题</strong>
+                </td>
+                <td >
+                   {{ i.title }}
+                </td>
+
+                <td>状态</td>
+                <td><span class="label label-info">{{ i.status }}</span></td>
+            </tr>
+            <tr>
+                <td>计划上线时间</td>
+                <td><fmt:formatDate value={{ i.appdate }} pattern="yyyy-MM-dd"/>{{ i.appdate }}</td>
+                <td>申请人</td>
+                <td>{{ i.applyuser }}</td>
+            </tr>
+            <tr>
+                <td>创建时间</td>
+                <td>{{ i.cjdate }}</td>
+                <td>备注</td>
+                <td>{{ i.beizhu }}</td>
+
+            </tr>
+
+            </tbody>
+
+        </table>
+
+    </div>
+    </div>
+
+<div class="row">
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+
+    <table  style="table-layout: fixed;" >
+        <tr>
+            <td>
+                <h5>数据库名：{{ i.dbname }}</h5>
+                </td>
+        </tr>
+        <tr>
+            <td >
+                <textarea  readonly="readonly" cols="200" rows="8" >{{ i.sql }} </textarea>
+            </td>
+
+        </tr>
+        {% if flag == 1 %}
+        <tr>
+            <td>
+                <h5>数据库名1：{{ i.dbname1 }}</h5>
+            </td>
+        </tr>
+        <tr>
+            <td >
+                <textarea  readonly="readonly" cols="200" rows="8" >{{ i.sql2 }} </textarea>
+            </td>
+
+        </tr>
+        {% endif %}
+    </table>
+</div>
+</div>
+                {% endfor %}
+
+{% endblock %}

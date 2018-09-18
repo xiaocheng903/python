@@ -1,0 +1,36 @@
+<!--setInterval实时显示时间-->
+<p id="time1" style="color: blueviolet;"></p>
+<script>
+    function mytime(){
+        var a = new Date();
+        var b = a.toLocaleTimeString();
+        var c = a.toLocaleDateString();
+        document.getElementById("time1").innerHTML = c+"&nbsp"+b;
+        }
+    setInterval(function() {mytime()},1000);
+</script>
+
+
+<div class="item">
+                <h5 class="ui inverted header">
+                        <div class="ui avatar image">
+                            <img src="{% static 'images/default.png' %}" alt="">
+                        </div>
+                        <span>{{ request.user.username }}</span>
+                    </h5>
+            </div>
+            <div class="item">
+                <a href="#logout/" class="ui inverted circular button">Logout</a>
+            </div>
+        {% else %}
+            <div class="item">
+                <h5 class="ui inverted header">
+                        <div class="ui avatar image">
+                            <img src="{% static 'images/default.png' %}" alt="">
+                        </div>
+                        <span></span>
+                    </h5>
+            </div>
+            <div class="item">
+                <a href="#logout/" class="ui inverted circular button">Login/signup</a>
+            </div>
