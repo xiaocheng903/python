@@ -8,11 +8,14 @@
 <body>
 <h1>登陆页面：</h1>
 <form method = 'post' enctype="application/json">
+    {% if message %}
+       <div class="alert alert-warning">{{ message }}</div>
+    {% endif %}
     {% csrf_token %}
     {{uf.as_p}}
     <input type="submit" value = "登录" />
 </form>
 <br>
-<a href="http://127.0.0.1:9000/regist/">注册</a>
+<a href="http://127.0.0.1:9000/account/regist/">注册</a>
 </body>
 </html>

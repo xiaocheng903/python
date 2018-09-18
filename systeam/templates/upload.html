@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>文件上传</title>
+</head>
+<body>
+<h1>上传页面：</h1>
+<form method = 'post' enctype="multipart/form-data">
+    {% if message %}
+       <div class="alert alert-warning">{{ message }}</div>
+    {% endif %}
+    {% csrf_token %}
+    {{form.as_p}}
+    <input type="submit" value = "上传" />
+</form>
+</body>
+</html>

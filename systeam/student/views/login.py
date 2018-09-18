@@ -1,6 +1,9 @@
 from django.shortcuts import render,redirect,HttpResponse
 from student import models
 from django import forms
+from django.contrib.auth.decorators import login_required
+from .Form import uploadfileForm
+# from .handle_uploaded_file import handle_uploaded_file
 
 class UserForm(forms.Form):
     username = forms.CharField(label='用户名',max_length=100)
@@ -36,20 +39,28 @@ def login(req):
             username = uf.cleaned_data['username']
             password = uf.cleaned_data['password']
             #获取的表单数据与数据库进行比较
+            userId = models.Login.objects.filter(username__exact= username)
             user = models.Login.objects.filter(username__exact = username,password__exact = password)
             if user:
                 #比较成功，跳转至登录成功界面
-                response = redirect('/index/')
+                response = redirect('/account/index/')
                 #将username写入浏览器cookie,失效时间为3600
                 response.set_cookie('username',username,3600)
                 return response
+            elif userId:
+                message = "密码不正确"
+                print(message)
             else:
                 # 失败 仍在login页面
-                return redirect('login/')
+                message = "用户不存在"
+                print(message)
+                return redirect('/account/regist')
+        return render(req,'login.html',locals())
     else:
         uf = UserForm()
-    return render(req,'login.html',{'uf':uf})
+    return render(req,'login.html',locals())
 
+# @login_required
 def index(req):
     username = req.COOKIES.get('username','')
     print(username)
@@ -65,7 +76,7 @@ def data(req):
             food = lf.cleaned_data['food']
             insert = models.data.objects.create(username=username,like=like,eat=food)
             if insert:
-                response = redirect('/check/')
+                response = redirect('/account/check/')
                 return response
     else:
         lf = likeForm()
@@ -81,5 +92,18 @@ def check(req):
     dls_list = models.data.objects.all()
     return render(req,'check.html',{'dls_list':dls_list})
 
+def uploadFile(req):
+    if req.method == 'POST':
+        form = uploadfileForm(req.POST,req.FILES)
+        if form.is_valid():
+            handle_uploaded_file(req.FILES['file'])
+            return HttpResponse('上传成功')
+    else:
+        form = uploadfileForm()
+    return render(req, 'upload.html', {'form': form})
 
 
+def handle_uploaded_file(f):
+    with open('../name.txt', 'wb+') as destination:
+        for chunk in f.chunks():
+            destination.write(chunk)

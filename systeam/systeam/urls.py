@@ -1,6 +1,6 @@
 from django.contrib import admin
 from django.urls import path
-from student.views import classes,students,teachers,ajax,login
+from student.views import classes,students,teachers,ajax,login,csv
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -13,10 +13,12 @@ urlpatterns = [
     path('ajax1.html', ajax.ajax1),
     path('ajax2.html', ajax.ajax2),
 
-    path('regist/', login.regist),
-    path('login/', login.login),
-    path('index/', login.index),
-    path('data/', login.data),
-    path('logout/', login.logout),
-    path('check/', login.check)
+    path('account/regist/', login.regist),
+    path('account/login/', login.login),
+    path('account/index/', login.index),
+    path('account/data/', login.data),
+    path('account/logout/', login.logout),
+    path('account/check/', login.check),
+    path('account/uploadFile/', login.uploadFile),
+    path('account/some_view/', csv.some_view)
 ]

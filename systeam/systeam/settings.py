@@ -129,3 +129,4 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATICFILES_DIRS=(os.path.join(BASE_DIR, 'static'),)
+LOGIN_URL = '/account/login/'  #这个路径需要根据你网站的实际登陆地址来设置
