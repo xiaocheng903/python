@@ -2,7 +2,9 @@ from django.shortcuts import render,redirect,HttpResponse
 from student import models
 from django import forms
 from django.contrib.auth.decorators import login_required
+
 from .Form import uploadfileForm
+from systeam import settings
 # from .handle_uploaded_file import handle_uploaded_file
 
 class UserForm(forms.Form):
@@ -46,6 +48,8 @@ def login(req):
                 response = redirect('/account/index/')
                 #将username写入浏览器cookie,失效时间为3600
                 response.set_cookie('username',username,3600)
+                req.session['is_login'] = '1'
+                req.session['username']=username
                 return response
             elif userId:
                 message = "密码不正确"
@@ -64,7 +68,13 @@ def login(req):
 def index(req):
     username = req.COOKIES.get('username','')
     print(username)
-    return render(req,'index.html',{'username':username})
+    userobj = models.Login.objects.filter(username=username)
+    if userobj:
+        message = '登录成功'
+        print(message)
+        return render(req,'index.html',locals())
+    else:
+        return redirect('/account/login')
 
 def data(req):
     username = req.COOKIES.get('username', '')

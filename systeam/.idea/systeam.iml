@@ -20,6 +20,7 @@
       <sourceFolder url="file://$MODULE_DIR$/../untitled" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/../diandaWeb" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/../dawl" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/../one" isTestSource="false" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />

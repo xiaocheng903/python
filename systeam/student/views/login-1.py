@@ -1,50 +1,36 @@
 from django.shortcuts import render,redirect,HttpResponse
 from student import models
+from django.contrib.auth import authenticate, login
+from django import forms
+
 import json
-def login(request):
-    return render(request,'login.html')
 
-def login_result(request):
-    u=request.GET.get('username')
-    p=request.GET.get('password')
-    print(u)
-    print(p)
-    if u is not None:
-        if p is not None:
-            s=models.Login.objects.filter(username=u,password=p)
-            if len(s)>0:
-                print("密码正确")
-                status = 1
-                result = "success!"
-                return HttpResponse(json.dumps({
-                    "status": status,
-                    "result": result,
-                    "user": u
-                }))
+class UserForm(forms.Form):
+    username = forms.CharField(label='用户名',max_length=100)
+    password = forms.CharField(label='密码',widget=forms.PasswordInput())
+
+def my_view(req):
+    if req.method == 'POST':
+        uf = UserForm(req.POST)
+        if uf.is_valid():
+            #获取表单用户密码
+            username = uf.cleaned_data['username']
+            password = uf.cleaned_data['password']
+            user=authenticate(username=username,password=password)
+            if user is not None:
+                login(req, user)
+                #比较成功，跳转至登录成功界面
+                response = redirect('/account/index/')
+                #将username写入浏览器cookie,失效时间为3600
+                response.set_cookie('username',username,3600)
+                return response
             else:
-                print("密码错误")
-                status = 0
-                result = "error!"
-                return HttpResponse(json.dumps({
-                    "status": status,
-                    "result": result
-                }))
+                return HttpResponse('用户名或密码失败')
 
-def like(request):
-    if request.method == 'GET':
-        return render(request, 'data.html')
+        return render(req,'login.html',locals())
+    else:
+        uf = UserForm()
+    return render(req,'login.html',locals())
 
-    elif request.method == 'POST':
-        like = request.POST.get('like', '')
-        eat = request.POST.get('eat','')
-        u = request.GET.get('username')
-        print(u)
-        print(like)
-        print(eat)
-        models.data.objects.create(username=u,like=like,eat=eat)
-        return redirect('/data.html')
 
-def error(request):
-    if request.method == 'GET':
-        return render(request,'error.html')
 

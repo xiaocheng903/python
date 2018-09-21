@@ -18,11 +18,6 @@ from django.urls import path,include
 from peppa import views
 from django.conf import settings
 from django.conf.urls.static import static
-from set_up  import views as set_up_views
-
-from django.http import HttpResponse
-from django.contrib.auth.views import login, logout_then_login
-
 
 
 urlpatterns = [
