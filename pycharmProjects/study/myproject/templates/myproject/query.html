@@ -1,0 +1,61 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>查询数据库</title>
+    <script src="{% static 'js/jquery.js' %}"></script>
+    <script src="{% static 'js/jquery-ui.js' %}"></script>
+</head>
+<body>
+    <div>
+        <form action="/query/" method="post">
+            {% csrf_token %}
+            {{ uf }}
+            <button type="submit" id="query">查询</button>
+            <button type="reset">重置</button>
+        <table id="table" cellpadding="1" cellspacing="1" border="1">
+            <caption align="top">学生信息</caption>
+            <thead>
+            <tr>
+                <th>学号</th>
+                <th>姓名</th>
+                <th>班级</th>
+            </tr>
+            </thead>
+            <tbody id="students"></tbody>
+        </table>
+    </form>
+    </div>
+</body>
+<script>
+    function student()
+    {
+        {#$.ajax#}
+        {#({#}
+        {#        type:"post",#}
+			{#    url:"/query/",#}
+			{#    data:"",#}
+			{#    dataType:"json",#}
+        {#        success:function(results) {#}
+                    var results = {{ results|safe }};
+                    console.log(results)
+                    var obj = eval(results);
+                    var tbody = $("#students");
+                    $(obj).each(function (index) {
+                        var val = obj[index];
+                        console.log(val)
+                        var tr = $('<tr></tr>');
+                        tr.append('<td>' + val.sno + '</td>' + '<td>' + val.sname + '</td>' + '<td>' + val.Aclass + '</td>');
+                        tbody.append(tr);
+                    });
+                    $('#table tbody').replaceWith(tbody);
+        {#        }#}
+        {#});#}
+    }
+    $(function()
+    {
+        student();
+    })
+</script>
+</html>
