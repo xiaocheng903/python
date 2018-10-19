@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ pag_title }}</title>
+</head>
+<body>
+{#    <h3>{{ global_env }}</h3>#}
+    <select class="btn btn-logout" id="select_env">
+        <option name="envpro" value="pro">生产环境</option>
+        <option name="envpre" value="pre">预发环境</option>
+        <option name="envtest" value="test">测试环境</option>
+    </select>
+<script src="/static/jquery.js"></script>
+<script>
+$("#select_env").change(function(){
+    var value = $("#select_env").val();
+    $.ajax({
+        url:"/student/testapi",
+        type:"GET",
+        data:{env:value},
+        dataType: 'json',
+        success:function (result) {
+            {#window.location.reload()#}
+        }
+    });
+});
+</script>
+</body>
+</html>

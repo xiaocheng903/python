@@ -40,6 +40,7 @@ class applysql(TemplateView):
 class home(TemplateView):
 
     template_name="index.html"
+
     @method_decorator(login_required)
     def dispatch(self, *args, **kwargs):
         return super().dispatch(*args, **kwargs)
@@ -49,13 +50,14 @@ class home(TemplateView):
         context['page_title'] = u'项目上线'
         context['page_tail'] = u'明日上线'
         context['page_sql'] = u'SQL上线'
-        #获取session
+        #获取在页面选择的环境类型
         global_env = peppaapi.get_session_env(self.request)
         context['global_env'] = global_env
 
-
         x1 = Apply.objects.all().order_by('-id')
+        # sqlapply 表排序
         s = sqlapply.objects.all().order_by('-id')
+        # Apply 根据applyEnv 排序
         x = Apply.objects.filter(applyEnv=global_env).order_by('-id')
 
         nowdate = datetime.datetime.now().strftime("%Y-%m-%d")

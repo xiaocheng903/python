@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from myproject import views
+from myproject import views,tem
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('index/', views.index),
@@ -23,5 +23,6 @@ urlpatterns = [
     path('register/', views.register),
     path('logout/', views.logout),
     path('query/', views.query),
+    # path('', tem.home.as_view()),
 
 ]

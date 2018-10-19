@@ -46,11 +46,12 @@ def login(req):
             user = models.Login.objects.filter(username__exact = username,password__exact = password)
             if user:
                 #比较成功，跳转至登录成功界面
+                print("登录成功")
                 response = redirect('/account/index/')
                 #将username写入浏览器cookie,失效时间为3600
-                response.set_cookie('username',username,3600)
-                req.session['is_login'] = '1'
-                req.session['username']=username
+                # response.set_cookie('username',username,3600)
+                # req.session['is_login'] = '1'
+                # req.session['username']=username
                 return response
             elif userId:
                 message = "密码不正确"
@@ -94,10 +95,8 @@ def data(req):
     return render(req, 'data.html', {'uf':lf})
 
 def logout(req):
-    response = HttpResponse('logout !!')
-    #清理cookie里保存username
-    response.delete_cookie('username')
-    return response
+    req.session.flush()
+    return redirect('/')
 
 def check(req):
     dls_list = models.data.objects.all()

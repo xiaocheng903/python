@@ -42,8 +42,8 @@ def register(request):
 
 
 def logout(request):
-    pass
-    return redirect("/index/")
+    request.session.flush()
+    return redirect("/login/")
 
 conn = pymysql.connect(
     host="localhost",
